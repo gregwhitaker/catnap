@@ -14,29 +14,29 @@ By default, the server will send back the full representation of a rest resource
 For example, take the two responses below.  Both are requests for the same resource, but let's assume we are only interested in the following fields:
 
 *	Product Name
-*	Formatted List Price
+*	List Price
 *	Image Url for Thumbnail Images Only
 
 ###Full Resource Representation
-*http://{domain}/product/12345/details*
+*http://domain/product/12345/details*
 
 	{
     	"id": "12345",
     	"name": "Product 1",
     	"prices": {
-        	"formattedListPrice": "120.00",
-        	"formattedSalePrice: "89.99"
+        	"listPrice": "$120.00",
+        	"salePrice: "$89.99"
     	},
     	images: [
         	{
             	"sortOrder": 1,
-            	"url": "http://www.test.com/images/product/12345/primary.png",
+            	"url": "http://domain/images/product/12345/primary.png",
             	"alt": "Product 1",
             	"size": "primary"
         	},
         	{
             	"sortOrder": 2,
-            	"url": "http://www.test.com/images/product/12345/thumbnail.png",
+            	"url": "http://domain/images/product/12345/thumbnail.png",
             	"alt": "Product 1",
             	"size": "thumbnail"
         	}
@@ -44,16 +44,16 @@ For example, take the two responses below.  Both are requests for the same resou
 	}
 	
 ###Partial Resource Representation
-*http://{domain}/product/12345/details?fields=name,prices(formattedListPrice),images(url)[size=thumbnail]*
+*http://domain/product/12345/details?fields=name,prices(listPrice),images(url)[size=thumbnail]*
 
 	{
     	"name": "Product 1",
     	"prices": {
-        	"formattedListPrice": "120.00",
+        	"listPrice": "$120.00",
     	},
     	images: [
         	{
-            	"url": "http://www.test.com/images/product/12345/thumbnail.png",
+            	"url": "http://domain/images/product/12345/thumbnail.png",
         	}
     	]
 	}

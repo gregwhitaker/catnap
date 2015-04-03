@@ -67,7 +67,7 @@ Catnap does not modify your returned response objects so your internal caching s
 
 **Response Rendering Steps:**
 
-1. The web framework (Spring, Resteasy, or Jersery) receives a response to render.
+1. The web framework (Spring, Resteasy, or Jersey) receives a response to render.
 
 2. The web framework calls a Catnap view renderer that supports the requester's desired content type.  The manner in which this call is made depends on the web framework.
 

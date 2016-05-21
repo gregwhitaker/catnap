@@ -1,22 +1,44 @@
+buildscript {
+    apply from: file('gradle/buildscript.gradle'), to: buildscript
+}
+
 allprojects {
     repositories {
         mavenCentral()
+    }
+}
+
+project(":catnap-core") {
+    ext.artifact = 'catnap-core'
+}
+
+project(":catnap-jaxrs") {
+    ext.artifact = 'catnap-jaxrs'
+}
+
+project(":catnap-springboot") {
+    ext.artifact = 'catnap-springboot'
+
+    repositories {
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
     }
 }
 
-apply from: file('gradle/release.gradle')
-apply from: file('gradle/convention.gradle')
-apply from: file('gradle/codequality.gradle')
+project(":catnap-springmvc") {
+    ext.artifact = 'catnap-springmvc'
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-starter-parent:Brixton.RELEASE"
+    repositories {
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
     }
 }
 
 subprojects {
+    apply from: file('../gradle/release.gradle')
+    apply from: file('../gradle/convention.gradle')
+    apply from: file('../gradle/codequality.gradle')
+
     dependencies {
         testCompile('junit:junit:4.12')
         testCompile('org.hamcrest:hamcrest-all:1.3')

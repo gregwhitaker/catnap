@@ -1,0 +1,46 @@
+apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+apply plugin: 'jacoco'
+
+checkstyle {
+    ignoreFailures = true
+    configFile = rootProject.file('codequality/checkstyle.xml')
+    sourceSets = [project.sourceSets.main]
+}
+
+findbugs {
+    ignoreFailures = false
+    sourceSets = [project.sourceSets.main]
+}
+
+pmd {
+    ignoreFailures = true
+    toolVersion = "5.4.0"
+    sourceSets = [project.sourceSets.main]
+}
+
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        html.enabled = true
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}

@@ -1,0 +1,56 @@
+apply plugin: 'docker'
+apply plugin: 'maven'
+apply plugin: 'java'
+
+task versionArchives {
+    description = "Creates a continuous-delivery friendly version number for the service"
+    def buildNumber = System.getenv('BUILD_NUMBER') ?: 0
+
+    // Default to building SNAPSHOT versions unless the build was executed with the -PreleaseType={type} command line parameter
+    if(project.hasProperty('releaseType')) {
+        if(project.releaseType == 'release') {
+            project.ext.set("releaseVersion", "${project.version}." + buildNumber);
+        } else if(project.releaseType == 'snapshot') {
+            project.ext.set("releaseVersion", "${project.version}-SNAPSHOT");
+        } else {
+            throw new RuntimeException("Invalid releaseType specified:  Must be 'release' or 'snapshot'!")
+        }
+    } else {
+        logger.info("Property 'releaseType' was not specified.  Defaulting to 'snapshot'!")
+        project.ext.set("releaseVersion", "${project.version}-SNAPSHOT");
+    }
+
+    logger.info("Setting artifact version: ${releaseVersion}")
+    project.version = "${releaseVersion}"
+}
+build.dependsOn versionArchives
+uploadArchives.dependsOn versionArchives
+
+jar {
+    baseName = "${artifact}"
+    version = "${releaseVersion}"
+}
+
+task processDocker(type: Copy) {
+    description = "Copies the Dockerfile and replaces tokens"
+    from("src/main/docker/Dockerfile") {
+        filter {
+            it.replaceAll('@@releaseVersion@@', project.releaseVersion)
+        }
+    }
+    into("build/libs/")
+}
+build.dependsOn processDocker
+
+task buildDocker(type: Docker, dependsOn: [processDocker, build]) {
+    description = "Packages the service as a Docker image"
+    push = false
+    applicationName = jar.baseName
+    dockerfile = file('build/libs/Dockerfile')
+    doFirst {
+        copy {
+            from jar
+            into stageDir
+        }
+    }
+}

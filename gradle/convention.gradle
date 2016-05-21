@@ -1,0 +1,37 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+
+plugins.withType(JavaPlugin) {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    // Build Source Jars
+    def sourcesJarMap = [name: 'sourcesJar', type: Jar, dependsOn: classes]
+    project.tasks.create(sourcesJarMap, {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+        version = "$releaseVersion"
+    })
+
+    // Build Javadoc Jars
+    def javadocJarMap = [name: 'javadocJar', type: Jar, dependsOn: javadoc]
+    project.tasks.create(javadocJarMap, {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+        version = "$releaseVersion"
+    })
+
+    artifacts {
+        archives sourcesJar
+        archives javadocJar
+    }
+}
+
+tasks.withType(Test) {
+    reports.html.destination = file("${reporting.baseDir}/${name}")
+}
+
+task wrapper(type: Wrapper) {
+    description = "Creates a Gradle Wrapper"
+    gradleVersion = '2.11'
+}

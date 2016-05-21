@@ -1,0 +1,6 @@
+rootProject.name = 'catnap'
+include 'catnap-core'
+include 'catnap-springboot'
+include 'catnap-springmvc'
+include 'catnap-jaxrs'
+

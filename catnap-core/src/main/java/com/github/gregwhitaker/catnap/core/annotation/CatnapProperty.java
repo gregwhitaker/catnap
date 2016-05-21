@@ -16,8 +16,6 @@ public @interface CatnapProperty {
     /**
      * Special value that indicates that handlers should use the default
      * name (derived from method or field name) for property.
-     *
-     * @since 2.1
      */
     public final static String USE_DEFAULT_NAME = "";
 

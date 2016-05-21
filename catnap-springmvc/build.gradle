@@ -1,3 +1,7 @@
+apply from: file('../gradle/release.gradle')
+apply from: file('../gradle/convention.gradle')
+apply from: file('../gradle/codequality.gradle')
+
 dependencies {
 
 }

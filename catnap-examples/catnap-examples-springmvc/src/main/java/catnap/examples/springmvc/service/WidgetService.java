@@ -5,6 +5,7 @@ import catnap.examples.springmvc.model.WidgetImage;
 import catnap.examples.springmvc.model.WidgetPrices;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +33,9 @@ public class WidgetService {
      * @return a list of all {@link Widget}s in the system.
      */
     public List<Widget> getWidgets() {
-        return (List<Widget>) widgets.values();
+        List<Widget> widgetList = new ArrayList<>();
+        widgetList.addAll(widgets.values());
+        return widgetList;
     }
 
     /**

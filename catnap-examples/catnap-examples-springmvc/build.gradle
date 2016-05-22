@@ -1,10 +1,20 @@
 apply plugin: 'war'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: "jetty"
+apply plugin: 'org.akhikhl.gretty'
 
 dependencyManagement {
     imports {
         mavenBom "io.spring.platform:platform-bom:2.0.4.RELEASE"
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
     }
 }
 
@@ -16,6 +26,8 @@ dependencies {
     compile project(":catnap-springmvc")
 }
 
-httpPort = 8080
-stopPort = 9080
-stopKey = "stopKey"
+gretty {
+    port = 8080
+    contextPath = '/'
+    servletContainer = 'jetty9'
+}

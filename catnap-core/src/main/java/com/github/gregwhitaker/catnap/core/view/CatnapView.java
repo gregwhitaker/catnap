@@ -90,8 +90,7 @@ public abstract class CatnapView {
     /**
      * @return character encoding returned by the view (ex. "UTF-8")
      */
-    public String getEncoding()
-    {
+    public String getEncoding() {
         return "UTF-8";
     }
 
@@ -103,8 +102,7 @@ public abstract class CatnapView {
     /**
      * @return query builder associated with the view
      */
-    public QueryBuilder getQueryBuilder()
-    {
+    public QueryBuilder getQueryBuilder() {
         return queryBuilder;
     }
 }

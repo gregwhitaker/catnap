@@ -3,7 +3,7 @@ package catnap.examples.springmvc.service;
 import catnap.examples.springmvc.model.Widget;
 import catnap.examples.springmvc.model.WidgetImage;
 import catnap.examples.springmvc.model.WidgetPrices;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Service responsible for returning widgets.
  */
-@Configuration
+@Component
 public class WidgetService {
     private final Map<String, Widget> widgets = new HashMap<>(3);
 

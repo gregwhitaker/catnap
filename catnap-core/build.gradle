@@ -3,6 +3,10 @@ apply from: file('../gradle/convention.gradle')
 apply from: file('../gradle/codequality.gradle')
 
 dependencies {
+    compile('javax.servlet:javax.servlet-api:3.1.0')
+    compile('commons-beanutils:commons-beanutils:1.8.3')
+    compile('commons-lang:commons-lang:2.6')
+    compile('com.fasterxml.jackson.core:jackson-databind:2.7.4')
     compile('org.slf4j:slf4j-api:1.7.21')
     compile('org.slf4j:slf4j-log4j12:1.7.21')
 

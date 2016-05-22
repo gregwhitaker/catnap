@@ -14,23 +14,21 @@
  * limitations under the License.
  */
 
-package com.github.gregwhitaker.catnap.core.model;
+package com.github.gregwhitaker.catnap.core.model.builder;
+
+import com.github.gregwhitaker.catnap.core.context.CatnapContext;
+import com.github.gregwhitaker.catnap.core.model.Model;
 
 /**
  *
- * @param <T>
  */
-public interface ListBackedModel<T> extends Model<T> {
+public interface ModelBuilder {
 
     /**
      *
-     * @param value
-     */
-    void addValue(Object value);
-
-    /**
-     *
+     * @param instance
+     * @param context
      * @return
      */
-    MapBackedModel<?> createChildMap();
+    Model<?> build(Object instance, CatnapContext context);
 }

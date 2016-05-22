@@ -24,7 +24,6 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
 
 /**
- *
  * @param <T>
  */
 public class SimpleProperty<T> implements Property<T> {
@@ -34,7 +33,6 @@ public class SimpleProperty<T> implements Property<T> {
     private Method readMethod;
 
     /**
-     *
      * @param instance
      * @param descriptor
      */
@@ -45,7 +43,7 @@ public class SimpleProperty<T> implements Property<T> {
         try {
             this.value = descriptor.getReadMethod().invoke(instance);
 
-            if(this.value != null) {
+            if (this.value != null) {
                 //This check allows Catnap to determine the real return type in cases where
                 //a method's return signature is Object.
                 this.primitive = ClassUtil.isPrimitiveType(this.value.getClass());
@@ -59,10 +57,10 @@ public class SimpleProperty<T> implements Property<T> {
 
     private String name(PropertyDescriptor descriptor) {
         //Catnap Support
-        if(descriptor.getReadMethod().isAnnotationPresent(CatnapProperty.class)) {
+        if (descriptor.getReadMethod().isAnnotationPresent(CatnapProperty.class)) {
             CatnapProperty annotation = descriptor.getReadMethod().getAnnotation(CatnapProperty.class);
 
-            if(!CatnapProperty.USE_DEFAULT_NAME.equalsIgnoreCase(annotation.value())) {
+            if (!CatnapProperty.USE_DEFAULT_NAME.equalsIgnoreCase(annotation.value())) {
                 return annotation.value();
             }
         }

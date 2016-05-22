@@ -32,7 +32,7 @@ public class SimpleExpressionParser implements ExpressionParser<SimpleExpression
         //Check buffer for equality expressions (i.e. =, !=, <, >, <=, >=)
         SimpleExpression parsedExpression = findEqualityExpression(buffer);
 
-        if(parsedExpression == null) {
+        if (parsedExpression == null) {
             throw new QuerySyntaxException(buffer, "No valid expression operators found");
         }
 
@@ -40,22 +40,22 @@ public class SimpleExpressionParser implements ExpressionParser<SimpleExpression
     }
 
     private SimpleEqualityExpression findEqualityExpression(String buffer) {
-        if(buffer.contains(SimpleEqualityExpression.EqualityOperator.NOT_EQUAL.getNotation())) {
+        if (buffer.contains(SimpleEqualityExpression.EqualityOperator.NOT_EQUAL.getNotation())) {
             String[] operands = buffer.split(SimpleEqualityExpression.EqualityOperator.NOT_EQUAL.getNotation(), 2);
             return new SimpleEqualityExpression(operands[0], SimpleEqualityExpression.EqualityOperator.NOT_EQUAL, operands[1]);
-        } else if(buffer.contains(SimpleEqualityExpression.EqualityOperator.LESS_THAN_OR_EQUAL.getNotation())) {
+        } else if (buffer.contains(SimpleEqualityExpression.EqualityOperator.LESS_THAN_OR_EQUAL.getNotation())) {
             String[] operands = buffer.split(SimpleEqualityExpression.EqualityOperator.LESS_THAN_OR_EQUAL.getNotation(), 2);
             return new SimpleEqualityExpression(operands[0], SimpleEqualityExpression.EqualityOperator.LESS_THAN_OR_EQUAL, operands[1]);
-        } else if(buffer.contains(SimpleEqualityExpression.EqualityOperator.GREATER_THAN_OR_EQUAL.getNotation())) {
+        } else if (buffer.contains(SimpleEqualityExpression.EqualityOperator.GREATER_THAN_OR_EQUAL.getNotation())) {
             String[] operands = buffer.split(SimpleEqualityExpression.EqualityOperator.GREATER_THAN_OR_EQUAL.getNotation(), 2);
             return new SimpleEqualityExpression(operands[0], SimpleEqualityExpression.EqualityOperator.GREATER_THAN_OR_EQUAL, operands[1]);
-        } else if(buffer.contains(SimpleEqualityExpression.EqualityOperator.LESS_THAN.getNotation())) {
+        } else if (buffer.contains(SimpleEqualityExpression.EqualityOperator.LESS_THAN.getNotation())) {
             String[] operands = buffer.split(SimpleEqualityExpression.EqualityOperator.LESS_THAN.getNotation(), 2);
             return new SimpleEqualityExpression(operands[0], SimpleEqualityExpression.EqualityOperator.LESS_THAN, operands[1]);
-        } else if(buffer.contains(SimpleEqualityExpression.EqualityOperator.GREATER_THAN.getNotation())) {
+        } else if (buffer.contains(SimpleEqualityExpression.EqualityOperator.GREATER_THAN.getNotation())) {
             String[] operands = buffer.split(SimpleEqualityExpression.EqualityOperator.GREATER_THAN.getNotation(), 2);
             return new SimpleEqualityExpression(operands[0], SimpleEqualityExpression.EqualityOperator.GREATER_THAN, operands[1]);
-        } else if(buffer.contains(SimpleEqualityExpression.EqualityOperator.EQUAL.getNotation())) {
+        } else if (buffer.contains(SimpleEqualityExpression.EqualityOperator.EQUAL.getNotation())) {
             String[] operands = buffer.split(SimpleEqualityExpression.EqualityOperator.EQUAL.getNotation(), 2);
             return new SimpleEqualityExpression(operands[0], SimpleEqualityExpression.EqualityOperator.EQUAL, operands[1]);
         }

@@ -29,7 +29,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
  * @param <T>
  */
 public class FieldDeclarationComparator<T> implements Comparator<Property<T>>, Serializable {
@@ -37,7 +36,6 @@ public class FieldDeclarationComparator<T> implements Comparator<Property<T>>, S
     private final Map<String, Integer> fieldRanking;
 
     /**
-     *
      * @param instanceClazz
      */
     public FieldDeclarationComparator(Class<T> instanceClazz) {
@@ -71,20 +69,20 @@ public class FieldDeclarationComparator<T> implements Comparator<Property<T>>, S
 
     @Override
     public int compare(Property<T> prop1, Property<T> prop2) {
-        if(!fieldRanking.containsKey(prop1.getName())) {
+        if (!fieldRanking.containsKey(prop1.getName())) {
             throw new ViewRenderException("Field [" + prop1.getName() + "] cannot be found");
         }
 
-        if(!fieldRanking.containsKey(prop2.getName())) {
+        if (!fieldRanking.containsKey(prop2.getName())) {
             throw new ViewRenderException("Field [" + prop2.getName() + "] cannot be found");
         }
 
         int prop1Rank = fieldRanking.get(prop1.getName());
         int prop2Rank = fieldRanking.get(prop2.getName());
 
-        if(prop1Rank < prop2Rank) {
+        if (prop1Rank < prop2Rank) {
             return -1;
-        } else if(prop1Rank == prop2Rank) {
+        } else if (prop1Rank == prop2Rank) {
             return 0;
         } else {
             return 1;

@@ -35,8 +35,8 @@ public class NullQueryProcessor extends SortableQueryProcessor {
         List<Property<T>> properties = new ArrayList<Property<T>>();
 
         //No query specified so we need to return all fields
-        for(PropertyDescriptor descriptor : ClassUtil.getReadableProperties(instanceClazz)) {
-            if(!ignoreProperty(descriptor)) {
+        for (PropertyDescriptor descriptor : ClassUtil.getReadableProperties(instanceClazz)) {
+            if (!ignoreProperty(descriptor)) {
                 properties.add(new SimpleProperty<T>(instance, descriptor));
             }
         }

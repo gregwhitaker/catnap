@@ -26,17 +26,15 @@ import java.util.List;
 /**
  *
  */
-public abstract class QueryProcessor
-{
+public abstract class QueryProcessor {
+
     /**
-     *
      * @param query
      * @return
      */
     public abstract boolean supports(Class<? extends Query<?>> query);
 
     /**
-     *
      * @param query
      * @param instance
      * @param instanceClazz
@@ -46,7 +44,6 @@ public abstract class QueryProcessor
     protected abstract <T> List<Property<T>> processInternal(Query query, T instance, Class<T> instanceClazz);
 
     /**
-     *
      * @param query
      * @param instance
      * @param instanceClazz
@@ -57,7 +54,6 @@ public abstract class QueryProcessor
     }
 
     /**
-     *
      * @param query
      * @param instance
      * @param instanceClazz
@@ -72,31 +68,29 @@ public abstract class QueryProcessor
     }
 
     /**
-     *
      * @param properties
      * @param query
      * @param instance
      * @param instanceClazz
      * @param <T>
      */
-    protected  <T> void postProcess(List<Property<T>> properties, Query query, T instance, Class<T> instanceClazz) {
+    protected <T> void postProcess(List<Property<T>> properties, Query query, T instance, Class<T> instanceClazz) {
         //Noop
     }
 
     /**
-     *
      * @param descriptor
      * @return
      */
     protected boolean ignoreProperty(PropertyDescriptor descriptor) {
-        if(descriptor != null && descriptor.getReadMethod() != null) {
+        if (descriptor != null && descriptor.getReadMethod() != null) {
             //Catnap Support
-            if(descriptor.getReadMethod().isAnnotationPresent(CatnapIgnore.class)) {
+            if (descriptor.getReadMethod().isAnnotationPresent(CatnapIgnore.class)) {
                 return descriptor.getReadMethod().getAnnotation(CatnapIgnore.class).value();
             }
 
             //Jackson Support
-            if(descriptor.getReadMethod().isAnnotationPresent(JsonIgnore.class)) {
+            if (descriptor.getReadMethod().isAnnotationPresent(JsonIgnore.class)) {
                 return descriptor.getReadMethod().getAnnotation(JsonIgnore.class).value();
             }
 

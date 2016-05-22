@@ -39,13 +39,13 @@ public class AnnotationComparator<T> implements Comparator<Property<T>>, Seriali
         List<String> clazzFields = classFields(instanceClazz);
         List<String> annotationFields = annotationFields(instanceClazz);
 
-        for(int rank = 0; rank < annotationFields.size(); rank++) {
+        for (int rank = 0; rank < annotationFields.size(); rank++) {
             fieldRanking.put(annotationFields.get(rank), rank);
         }
 
         int rank = 0;
 
-        for(String field : annotationFields) {
+        for (String field : annotationFields) {
             fieldRanking.put(field, rank);
             rank++;
         }
@@ -57,11 +57,11 @@ public class AnnotationComparator<T> implements Comparator<Property<T>>, Seriali
         //Orphan fields are alphabetized by default in the
         //annotation, but that can be disabled.  In which case,
         //oprhaned field ordering is indeterminate.
-        if(alphabetizeOrphans(instanceClazz)) {
+        if (alphabetizeOrphans(instanceClazz)) {
             Collections.sort(clazzFields);
         }
 
-        for(String field : clazzFields) {
+        for (String field : clazzFields) {
             fieldRanking.put(field, rank);
             rank++;
         }
@@ -72,9 +72,9 @@ public class AnnotationComparator<T> implements Comparator<Property<T>>, Seriali
         int prop1Rank = fieldRanking.get(prop1.getName());
         int prop2Rank = fieldRanking.get(prop2.getName());
 
-        if(prop1Rank < prop2Rank) {
+        if (prop1Rank < prop2Rank) {
             return -1;
-        } else if(prop1Rank == prop2Rank) {
+        } else if (prop1Rank == prop2Rank) {
             return 0;
         } else {
             return 1;
@@ -85,7 +85,7 @@ public class AnnotationComparator<T> implements Comparator<Property<T>>, Seriali
         Field[] fields = instanceClazz.getDeclaredFields();
         List<String> fieldNames = new ArrayList<>(fields.length);
 
-        for(Field field : fields) {
+        for (Field field : fields) {
             fieldNames.add(field.getName());
         }
 
@@ -93,11 +93,11 @@ public class AnnotationComparator<T> implements Comparator<Property<T>>, Seriali
     }
 
     private List<String> annotationFields(Class<T> instanceClazz) {
-        if(instanceClazz.isAnnotationPresent(CatnapOrder.class)) {
+        if (instanceClazz.isAnnotationPresent(CatnapOrder.class)) {
             return Arrays.asList(instanceClazz.getAnnotation(CatnapOrder.class).value());
         }
 
-        if(instanceClazz.isAnnotationPresent(JsonPropertyOrder.class)) {
+        if (instanceClazz.isAnnotationPresent(JsonPropertyOrder.class)) {
             return Arrays.asList(instanceClazz.getAnnotation(JsonPropertyOrder.class).value());
         }
 
@@ -105,11 +105,11 @@ public class AnnotationComparator<T> implements Comparator<Property<T>>, Seriali
     }
 
     private boolean alphabetizeOrphans(Class<T> instanceClazz) {
-        if(instanceClazz.isAnnotationPresent(CatnapOrder.class)) {
+        if (instanceClazz.isAnnotationPresent(CatnapOrder.class)) {
             return instanceClazz.getAnnotation(CatnapOrder.class).alphabetic();
         }
 
-        if(instanceClazz.isAnnotationPresent(JsonPropertyOrder.class)) {
+        if (instanceClazz.isAnnotationPresent(JsonPropertyOrder.class)) {
             return instanceClazz.getAnnotation(JsonPropertyOrder.class).alphabetic();
         }
 

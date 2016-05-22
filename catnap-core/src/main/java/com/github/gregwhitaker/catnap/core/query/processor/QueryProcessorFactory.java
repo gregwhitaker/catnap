@@ -23,18 +23,18 @@ import com.github.gregwhitaker.catnap.core.query.model.SimpleQuery;
  *
  */
 public class QueryProcessorFactory {
+
     /**
-     *
      * @param query
      * @param instanceClazz
      * @return
      */
     public static QueryProcessor createQueryProcessor(Query query, Class<?> instanceClazz) {
-        if(query == null) {
+        if (query == null) {
             return new NullQueryProcessor();
         }
 
-        if(query instanceof SimpleQuery) {
+        if (query instanceof SimpleQuery) {
             return new SimpleQueryProcessor();
         }
 

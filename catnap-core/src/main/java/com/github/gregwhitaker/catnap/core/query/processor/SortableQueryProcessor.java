@@ -38,7 +38,7 @@ public abstract class SortableQueryProcessor extends QueryProcessor {
     protected <T> void postProcess(List<Property<T>> properties, Query query, T instance, Class<T> instanceClazz) {
         super.postProcess(properties, query, instance, instanceClazz);
 
-        switch(sortMethod(instanceClazz)) {
+        switch (sortMethod(instanceClazz)) {
             case FIELD_DECLARATION:
                 Collections.sort(properties, new FieldDeclarationComparator<T>(instanceClazz));
                 break;
@@ -55,15 +55,15 @@ public abstract class SortableQueryProcessor extends QueryProcessor {
     }
 
     private <T> SortMethod sortMethod(Class<T> instanceClazz) {
-        if(instanceClazz != null) {
+        if (instanceClazz != null) {
             //Catnap Support
-            if(instanceClazz.isAnnotationPresent(CatnapOrder.class)) {
+            if (instanceClazz.isAnnotationPresent(CatnapOrder.class)) {
                 String[] value = instanceClazz.getAnnotation(CatnapOrder.class).value();
                 return (value != null && value.length > 0) ? SortMethod.ANNOTATION : SortMethod.ALPHABETICAL;
             }
 
             //Jackson Support
-            if(instanceClazz.isAnnotationPresent(JsonPropertyOrder.class)) {
+            if (instanceClazz.isAnnotationPresent(JsonPropertyOrder.class)) {
                 String[] value = instanceClazz.getAnnotation(JsonPropertyOrder.class).value();
                 return (value != null && value.length > 0) ? SortMethod.ANNOTATION : SortMethod.ALPHABETICAL;
             }

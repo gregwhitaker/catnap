@@ -1,5 +1,6 @@
 apply plugin: 'war'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: "jetty"
 
 dependencyManagement {
     imports {
@@ -14,3 +15,7 @@ repositories {
 dependencies {
     compile project(":catnap-springmvc")
 }
+
+httpPort = 8080
+stopPort = 9080
+stopKey = "stopKey"

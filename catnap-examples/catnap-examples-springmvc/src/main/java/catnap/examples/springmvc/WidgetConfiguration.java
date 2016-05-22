@@ -47,12 +47,12 @@ public class WidgetConfiguration extends WebMvcConfigurationSupport {
 
     @Bean
     public ContentNegotiatingViewResolver contentNegotiatingViewResolver() {
-        List<View> defaultViews = new ArrayList<View>(2);
+        List<View> defaultViews = new ArrayList<>(2);
         defaultViews.add(jsonCatnapSpringView());
         defaultViews.add(jsonpCatnapSpringView());
         defaultViews.add(xmlCatnapSpringView());
 
-        List<CatnapWrappingView> catnapViews = new ArrayList<CatnapWrappingView>(2);
+        List<CatnapWrappingView> catnapViews = new ArrayList<>(2);
         catnapViews.add(jsonCatnapSpringView());
         catnapViews.add(jsonpCatnapSpringView());
         catnapViews.add(xmlCatnapSpringView());
@@ -60,7 +60,7 @@ public class WidgetConfiguration extends WebMvcConfigurationSupport {
         CatnapViewResolver catnapViewResolver = new CatnapViewResolver();
         catnapViewResolver.setViews(catnapViews);
 
-        List<ViewResolver> viewResolvers = new ArrayList<ViewResolver>(1);
+        List<ViewResolver> viewResolvers = new ArrayList<>(1);
         viewResolvers.add(catnapViewResolver);
 
         ContentNegotiatingViewResolver cnvr = new ContentNegotiatingViewResolver();

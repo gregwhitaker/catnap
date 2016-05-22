@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.github.gregwhitaker.catnap.core.annotation.CatnapOrder;
 import com.github.gregwhitaker.catnap.core.exception.CatnapException;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +30,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AnnotationComparator<T> implements Comparator<Property<T>> {
+public class AnnotationComparator<T> implements Comparator<Property<T>>, Serializable {
+    private static final long serialVersionUID = -6376402718949965299L;
     private final Map<String, Integer> fieldRanking;
 
     public AnnotationComparator(Class<T> instanceClazz) {

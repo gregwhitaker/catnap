@@ -23,6 +23,7 @@ import com.github.gregwhitaker.catnap.core.util.ClassUtil;
 import org.apache.commons.lang.StringUtils;
 
 import java.beans.PropertyDescriptor;
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +32,8 @@ import java.util.Map;
  *
  * @param <T>
  */
-public class FieldDeclarationComparator<T> implements Comparator<Property<T>> {
+public class FieldDeclarationComparator<T> implements Comparator<Property<T>>, Serializable {
+    private static final long serialVersionUID = -3691113740286842797L;
     private final Map<String, Integer> fieldRanking;
 
     /**

@@ -419,7 +419,7 @@ public enum HttpStatus {
 
     /**
      * Whether this status code is in the HTTP series
-     * {@link org.springframework.http.HttpStatus.Series#INFORMATIONAL}.
+     * {@link com.github.gregwhitaker.catnap.core.context.HttpStatus.Series#INFORMATIONAL}.
      * This is a shortcut for checking the value of {@link #series()}.
      */
     public boolean is1xxInformational() {
@@ -428,7 +428,7 @@ public enum HttpStatus {
 
     /**
      * Whether this status code is in the HTTP series
-     * {@link org.springframework.http.HttpStatus.Series#SUCCESSFUL}.
+     * {@link com.github.gregwhitaker.catnap.core.context.HttpStatus.Series#SUCCESSFUL}.
      * This is a shortcut for checking the value of {@link #series()}.
      */
     public boolean is2xxSuccessful() {
@@ -437,7 +437,7 @@ public enum HttpStatus {
 
     /**
      * Whether this status code is in the HTTP series
-     * {@link org.springframework.http.HttpStatus.Series#REDIRECTION}.
+     * {@link com.github.gregwhitaker.catnap.core.context.HttpStatus.Series#REDIRECTION}.
      * This is a shortcut for checking the value of {@link #series()}.
      */
     public boolean is3xxRedirection() {
@@ -447,7 +447,7 @@ public enum HttpStatus {
 
     /**
      * Whether this status code is in the HTTP series
-     * {@link org.springframework.http.HttpStatus.Series#CLIENT_ERROR}.
+     * {@link com.github.gregwhitaker.catnap.core.context.HttpStatus.Series#CLIENT_ERROR}.
      * This is a shortcut for checking the value of {@link #series()}.
      */
     public boolean is4xxClientError() {
@@ -456,7 +456,7 @@ public enum HttpStatus {
 
     /**
      * Whether this status code is in the HTTP series
-     * {@link org.springframework.http.HttpStatus.Series#SERVER_ERROR}.
+     * {@link com.github.gregwhitaker.catnap.core.context.HttpStatus.Series#SERVER_ERROR}.
      * This is a shortcut for checking the value of {@link #series()}.
      */
     public boolean is5xxServerError() {

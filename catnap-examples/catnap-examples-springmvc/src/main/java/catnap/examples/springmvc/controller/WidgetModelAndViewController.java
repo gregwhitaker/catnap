@@ -1,5 +1,7 @@
 package catnap.examples.springmvc.controller;
 
+import catnap.examples.springmvc.core.exception.WidgetNotFoundException;
+import catnap.examples.springmvc.model.Widget;
 import catnap.examples.springmvc.service.WidgetService;
 import com.github.gregwhitaker.catnap.core.annotation.CatnapDisabled;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,12 @@ public class WidgetModelAndViewController {
     @RequestMapping(method = RequestMethod.GET,
                     value = "/{id}")
     public ModelAndView getWidget(@PathVariable("id") String id, HttpServletRequest request) {
+        Widget widget = service.getWidget(id);
+
+        if (widget == null) {
+            throw new WidgetNotFoundException();
+        }
+
         return new ModelAndView(request.getPathInfo(), "result", service.getWidget(id));
     }
 
@@ -55,6 +63,12 @@ public class WidgetModelAndViewController {
             value = "/{id}/nocatnap")
     @CatnapDisabled
     public ModelAndView getWidgetsWithCatnapDisabled(@PathVariable("id") String id, HttpServletRequest request) {
+        Widget widget = service.getWidget(id);
+
+        if (widget == null) {
+            throw new WidgetNotFoundException();
+        }
+
         return new ModelAndView(request.getPathInfo(), "result", service.getWidget(id));
     }
 }

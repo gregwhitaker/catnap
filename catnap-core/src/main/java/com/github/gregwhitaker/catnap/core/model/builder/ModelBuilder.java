@@ -20,15 +20,16 @@ import com.github.gregwhitaker.catnap.core.context.CatnapContext;
 import com.github.gregwhitaker.catnap.core.model.Model;
 
 /**
- *
+ * Interface that all model builders must implement.
  */
 public interface ModelBuilder {
 
     /**
+     * Builds a model to render.
      *
-     * @param instance
-     * @param context
-     * @return
+     * @param instance the object to render
+     * @param context catnap rendering context
+     * @return catnapped model
      */
     Model<?> build(Object instance, CatnapContext context);
 }

@@ -85,9 +85,8 @@ public class XmlCatnapView extends CatnapView {
      * @throws PropertyException
      */
     private void setMarshallerProperties(Marshaller marshaller) throws PropertyException {
-
-        for (String key : marshallerProperties.keySet()) {
-            marshaller.setProperty(key, marshallerProperties.get(key));
+        for (Map.Entry<String, Object> entry : marshallerProperties.entrySet()) {
+            marshaller.setProperty(entry.getKey(), entry.getValue());
         }
     }
 
@@ -105,12 +104,13 @@ public class XmlCatnapView extends CatnapView {
         JAXBContext jaxbContext = jaxbContexts.get(clazz);
 
         if(jaxbContext == null) {
-            try {
-                jaxbContext = JAXBContext.newInstance(clazz);
-                jaxbContexts.putIfAbsent(clazz, jaxbContext);
-            } catch (JAXBException e) {
-                throw new ViewRenderException("Could not create JAXBContext for type [" + clazz + "]", e);
-            }
+            jaxbContexts.computeIfAbsent(clazz, ctx -> {
+                try {
+                    return JAXBContext.newInstance(clazz);
+                } catch (JAXBException e) {
+                    throw new ViewRenderException("Could not create JAXBContext for type [" + clazz + "]", e);
+                }
+            });
         }
 
         return jaxbContext;

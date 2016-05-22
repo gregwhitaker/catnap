@@ -137,11 +137,11 @@ public class JsonpCatnapView extends CatnapView {
     /**
      * Response wrapper that holds the real HTTP status and the response.
      */
-    private class JsonpResponse {
+    private static class JsonpResponse {
         private final int httpStatus;
         private final Object response;
 
-        public JsonpResponse(int httpStatus, Object model) {
+        JsonpResponse(int httpStatus, Object model) {
             this.httpStatus = httpStatus;
             this.response = model;
         }

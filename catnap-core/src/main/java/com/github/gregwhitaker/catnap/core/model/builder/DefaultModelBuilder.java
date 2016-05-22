@@ -84,16 +84,11 @@ public class DefaultModelBuilder implements ModelBuilder {
      */
     private void buildMap(Map<?,?> instance, Query query, MapBackedModel<?> result, CatnapContext context) {
         if(instance != null) {
-            Iterator iter = instance.keySet().iterator();
-
-            while(iter.hasNext()) {
-                Object key = iter.next();
-                Object value = instance.get(key);
-
-                if(value == null || ClassUtil.isPrimitiveType(value.getClass())) {
-                    result.addValue(key.toString(), value);
+            for (Map.Entry entry : instance.entrySet()) {
+                if(entry.getValue() == null || ClassUtil.isPrimitiveType(entry.getValue().getClass())) {
+                    result.addValue(entry.getKey().toString(), entry.getValue());
                 } else {
-                    buildObject(value, query, result.createChildMap(key.toString()), context);
+                    buildObject(entry.getValue(), query, result.createChildMap(entry.getKey().toString()), context);
                 }
             }
         }

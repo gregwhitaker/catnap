@@ -1,4 +1,4 @@
-package catnap.examples.springmvc.model;
+package catnap.examples.resteasy.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

@@ -1,14 +1,28 @@
-group 'com.github.gregwhitaker'
-version '1.0.0'
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
 
-apply plugin: 'java'
+buildscript {
+    repositories {
+        jcenter()
+    }
 
-sourceCompatibility = 1.5
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    compile project(":catnap-jaxrs")
 
+    compile('org.jboss.resteasy:resteasy-jaxrs:3.0.16.Final')
+}
+
+gretty {
+    port = 8080
+    contextPath = '/'
+    servletContainer = 'jetty9'
 }

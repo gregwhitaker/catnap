@@ -60,7 +60,7 @@ public class WidgetModelAndViewController {
      * for partial response rendering
      */
     @RequestMapping(method = RequestMethod.GET,
-            value = "/{id}/nocatnap")
+                    value = "/{id}/nocatnap")
     @CatnapDisabled
     public ModelAndView getWidgetsWithCatnapDisabled(@PathVariable("id") String id, HttpServletRequest request) {
         Widget widget = service.getWidget(id);

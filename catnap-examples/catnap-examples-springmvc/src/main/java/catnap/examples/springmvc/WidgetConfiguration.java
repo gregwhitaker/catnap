@@ -2,7 +2,6 @@ package catnap.examples.springmvc;
 
 import com.github.gregwhitaker.catnap.core.view.JsonCatnapView;
 import com.github.gregwhitaker.catnap.core.view.JsonpCatnapView;
-import com.github.gregwhitaker.catnap.core.view.XmlCatnapView;
 import com.github.gregwhitaker.catnap.springmvc.interceptor.CatnapDisabledHandlerInterceptor;
 import com.github.gregwhitaker.catnap.springmvc.interceptor.CatnapResponseBodyHandlerInterceptor;
 import com.github.gregwhitaker.catnap.springmvc.view.CatnapViewResolver;
@@ -40,7 +39,6 @@ public class WidgetConfiguration extends WebMvcConfigurationSupport {
         configurer.ignoreAcceptHeader(false);
         configurer.mediaType("json", MediaType.APPLICATION_JSON);
         configurer.mediaType("jsonp", new MediaType("application", "x-javascript"));
-        configurer.mediaType("xml", MediaType.APPLICATION_XML);
 
         super.configureContentNegotiation(configurer);
     }
@@ -50,12 +48,10 @@ public class WidgetConfiguration extends WebMvcConfigurationSupport {
         List<View> defaultViews = new ArrayList<>(2);
         defaultViews.add(jsonCatnapSpringView());
         defaultViews.add(jsonpCatnapSpringView());
-        defaultViews.add(xmlCatnapSpringView());
 
         List<CatnapWrappingView> catnapViews = new ArrayList<>(2);
         catnapViews.add(jsonCatnapSpringView());
         catnapViews.add(jsonpCatnapSpringView());
-        catnapViews.add(xmlCatnapSpringView());
 
         CatnapViewResolver catnapViewResolver = new CatnapViewResolver();
         catnapViewResolver.setViews(catnapViews);
@@ -82,12 +78,5 @@ public class WidgetConfiguration extends WebMvcConfigurationSupport {
     @Bean
     public CatnapWrappingView jsonpCatnapSpringView() {
         return new CatnapWrappingView(new JsonpCatnapView.Builder().build());
-    }
-
-    @Bean
-    public CatnapWrappingView xmlCatnapSpringView() {
-        return new CatnapWrappingView(new XmlCatnapView.Builder()
-                .withMarshallerSchemaLocation("http://www.test.com/schema http://www.test.com/schema/test_schema.xsd")
-                .build());
     }
 }

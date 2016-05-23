@@ -113,7 +113,7 @@ public class XmlCatnapView extends CatnapView {
             });
         }
 
-        return jaxbContext;
+        return jaxbContexts.get(clazz);
     }
 
     @Override

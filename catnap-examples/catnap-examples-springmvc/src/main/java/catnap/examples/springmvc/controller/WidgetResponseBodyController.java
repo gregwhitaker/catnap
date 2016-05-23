@@ -58,7 +58,7 @@ public class WidgetResponseBodyController {
      * @return a {@link catnap.examples.springmvc.model.Widget}
      */
     @RequestMapping(method = RequestMethod.GET,
-            value = "/{id}/nocatnap")
+                    value = "/{id}/nocatnap")
     @CatnapDisabled
     @CatnapResponseBody
     public Widget getWidgetsWithCatnapDisabled(@PathVariable("id") String id) {

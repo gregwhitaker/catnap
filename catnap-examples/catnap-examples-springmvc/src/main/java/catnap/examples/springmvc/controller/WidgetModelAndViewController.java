@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  * This controller demonstrates using Catnap with controllers that return ModelAndViews.
  */
 @Controller
-@RequestMapping(value = "widgetsmvc")
+@RequestMapping(value = "widgets1")
 public class WidgetModelAndViewController {
 
     @Autowired

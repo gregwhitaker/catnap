@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "widgetsrb")
+@RequestMapping(value = "widgets2")
 public class WidgetResponseBodyController {
 
     @Autowired

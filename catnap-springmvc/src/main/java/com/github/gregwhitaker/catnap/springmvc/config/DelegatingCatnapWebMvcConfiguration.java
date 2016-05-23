@@ -21,11 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfiguration
-{
+public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfiguration {
+
     @Override
-    protected void addInterceptors(InterceptorRegistry registry)
-    {
+    protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new CatnapDisabledHandlerInterceptor());
         registry.addInterceptor(new CatnapResponseBodyHandlerInterceptor());
 
@@ -33,8 +32,7 @@ public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfigu
     }
 
     @Override
-    protected void configureContentNegotiation(ContentNegotiationConfigurer configurer)
-    {
+    protected void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.defaultContentType(MediaType.APPLICATION_JSON);
         configurer.favorPathExtension(true);
         configurer.ignoreAcceptHeader(false);
@@ -46,14 +44,13 @@ public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfigu
     }
 
     @Bean
-    public ContentNegotiatingViewResolver contentNegotiatingViewResolver()
-    {
-        List<View> defaultViews = new ArrayList<View>(2);
+    public ContentNegotiatingViewResolver contentNegotiatingViewResolver() {
+        List<View> defaultViews = new ArrayList<>(2);
         defaultViews.add(jsonCatnapSpringView());
         defaultViews.add(jsonpCatnapSpringView());
         defaultViews.add(xmlCatnapSpringView());
 
-        List<CatnapWrappingView> catnapViews = new ArrayList<CatnapWrappingView>(2);
+        List<CatnapWrappingView> catnapViews = new ArrayList<>(2);
         catnapViews.add(jsonCatnapSpringView());
         catnapViews.add(jsonpCatnapSpringView());
         catnapViews.add(xmlCatnapSpringView());
@@ -61,7 +58,7 @@ public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfigu
         CatnapViewResolver catnapViewResolver = new CatnapViewResolver();
         catnapViewResolver.setViews(catnapViews);
 
-        List<ViewResolver> viewResolvers = new ArrayList<ViewResolver>(1);
+        List<ViewResolver> viewResolvers = new ArrayList<>(1);
         viewResolvers.add(catnapViewResolver);
 
         ContentNegotiatingViewResolver cnvr = new ContentNegotiatingViewResolver();
@@ -74,20 +71,17 @@ public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfigu
     }
 
     @Bean
-    public CatnapWrappingView jsonCatnapSpringView()
-    {
+    public CatnapWrappingView jsonCatnapSpringView() {
         return new CatnapWrappingView(new JsonCatnapView.Builder().build());
     }
 
     @Bean
-    public CatnapWrappingView jsonpCatnapSpringView()
-    {
+    public CatnapWrappingView jsonpCatnapSpringView() {
         return new CatnapWrappingView(new JsonpCatnapView.Builder().build());
     }
 
     @Bean
-    public CatnapWrappingView xmlCatnapSpringView()
-    {
+    public CatnapWrappingView xmlCatnapSpringView() {
         return new CatnapWrappingView(new XmlCatnapView.Builder().build());
     }
 }

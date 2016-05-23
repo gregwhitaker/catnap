@@ -1,5 +1,6 @@
 package com.github.gregwhitaker.catnap.springmvc.interceptor;
 
+import com.github.gregwhitaker.catnap.core.exception.ViewRenderException;
 import com.github.gregwhitaker.catnap.springmvc.annotation.CatnapResponseBody;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,6 +11,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.beans.Introspector;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -41,6 +44,19 @@ public class CatnapResponseBodyHandlerInterceptor extends HandlerInterceptorAdap
         if(!StringUtils.isEmpty(annotation.value())) {
             return annotation.value();
         } else {
+            if (List.class.isAssignableFrom(method.getReturnType().getParameterType())) {
+                String paramType = method.getReturnType().getGenericParameterType().getTypeName();
+                paramType = paramType.substring(paramType.lastIndexOf(".") + 1, paramType.length() - 1);
+                return Introspector.decapitalize(paramType) + "List";
+            }
+
+            if (Map.class.isAssignableFrom(method.getReturnType().getParameterType())) {
+                throw new ViewRenderException("Map is not a supported return type for methods annotated with " +
+                        "@CatnapResponseBody.  Please return an object or a list of objects.  If you wish to return " +
+                        "a map then you must use Catnap's standard model and view handling by removing the " +
+                        "@CatnapResponseBody annotation.");
+            }
+
             return Introspector.decapitalize(method.getReturnType().getParameterType().getSimpleName());
         }
     }

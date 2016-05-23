@@ -83,7 +83,7 @@ public class SimpleQueryProcessor extends QueryProcessor {
                             }
                         }
 
-                        properties.add(new SimpleProperty<T>(instance, descriptors.get(name)));
+                        properties.add(iterableProperty);
                     } else {
                         Map<String, PropertyDescriptor> itemDescriptors = ClassUtil.getReadablePropertiesAsMap(instanceClazz);
                         PropertyDescriptor itemDescriptor = itemDescriptors.get(query.getExpression(name).getField());

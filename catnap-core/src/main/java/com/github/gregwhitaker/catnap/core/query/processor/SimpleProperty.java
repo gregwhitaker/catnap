@@ -22,6 +22,7 @@ import com.github.gregwhitaker.catnap.core.util.ClassUtil;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 /**
  * @param <T>
@@ -42,6 +43,20 @@ public class SimpleProperty<T> implements Property<T> {
 
         try {
             this.value = descriptor.getReadMethod().invoke(instance);
+
+            if (this.value != null) {
+                // Checking to see if the iterable is an ArrayList created from Arrays.asList() because
+                // that method returns an immutable ArrayList and we need to mutate that thing so let's
+                // wrap it up in a plain ArrayList.
+                if (ClassUtil.isArraysArrayList(value.getClass())) {
+                    ArrayList<Object> wrapper = new ArrayList<>();
+
+                    Iterable<?> iterable = (Iterable<?>) this.value;
+                    iterable.forEach(wrapper::add);
+
+                    this.value = wrapper;
+                }
+            }
 
             if (this.value != null) {
                 //This check allows Catnap to determine the real return type in cases where

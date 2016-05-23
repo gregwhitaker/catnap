@@ -75,6 +75,20 @@ public class ClassUtil {
 
     /**
      *
+     * @param clazz
+     * @return
+     */
+    public static boolean isArraysArrayList(Class<?> clazz) {
+        try {
+            Class<?> arraysClazz = Class.forName("java.util.Arrays$ArrayList");
+            return arraysClazz.isAssignableFrom(clazz);
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+    }
+
+    /**
+     *
      * @param instanceType
      * @return
      */

@@ -80,13 +80,18 @@ public class WidgetService {
         image3.setAlt("Widget 1 Thumbnail");
         image3.setType("thumbnail");
 
+        ArrayList<WidgetImage> images = new ArrayList<>();
+        images.add(image1);
+        images.add(image2);
+        images.add(image3);
+
         Widget widget = new Widget();
         widget.setId("1");
         widget.setName("Widget 1");
         widget.setLongName("Catnap Example Widget 1");
         widget.setActive(true);
         widget.setPrices(prices);
-        widget.setImages(Arrays.asList(image1, image2, image3));
+        widget.setImages(images);
 
         return widget;
     }

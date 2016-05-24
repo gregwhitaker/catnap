@@ -1,0 +1,5 @@
+spring:
+  catnap:
+    views:
+      - json
+      - jsonp

@@ -14,15 +14,17 @@
  * limitations under the License.
  */
 
-package com.github.gregwhitaker.catnap.springmvc.config;
+package com.github.gregwhitaker.catnap.springboot.config;
 
 import com.github.gregwhitaker.catnap.core.view.JsonCatnapView;
 import com.github.gregwhitaker.catnap.core.view.JsonpCatnapView;
 import com.github.gregwhitaker.catnap.core.view.XmlCatnapView;
-import com.github.gregwhitaker.catnap.springmvc.interceptor.CatnapDisabledHandlerInterceptor;
-import com.github.gregwhitaker.catnap.springmvc.interceptor.CatnapResponseBodyHandlerInterceptor;
-import com.github.gregwhitaker.catnap.springmvc.view.CatnapViewResolver;
-import com.github.gregwhitaker.catnap.springmvc.view.CatnapWrappingView;
+import com.github.gregwhitaker.catnap.springboot.interceptor.CatnapDisabledHandlerInterceptor;
+import com.github.gregwhitaker.catnap.springboot.interceptor.CatnapResponseBodyHandlerInterceptor;
+import com.github.gregwhitaker.catnap.springboot.view.CatnapViewResolver;
+import com.github.gregwhitaker.catnap.springboot.view.CatnapWrappingView;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -37,10 +39,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfiguration {
+@EnableConfigurationProperties({CatnapProperties.class})
+public class CatnapConfiguration extends DelegatingWebMvcConfiguration {
 
     @Override
-    protected void addInterceptors(InterceptorRegistry registry) {
+    public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new CatnapDisabledHandlerInterceptor());
         registry.addInterceptor(new CatnapResponseBodyHandlerInterceptor());
 
@@ -48,7 +51,7 @@ public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfigu
     }
 
     @Override
-    protected void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.defaultContentType(MediaType.APPLICATION_JSON);
         configurer.favorPathExtension(true);
         configurer.ignoreAcceptHeader(false);
@@ -87,6 +90,7 @@ public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfigu
     }
 
     @Bean
+    @ConditionalOnProperty
     public CatnapWrappingView jsonCatnapSpringView() {
         return new CatnapWrappingView(new JsonCatnapView.Builder().build());
     }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.gregwhitaker.catnap.springmvc.interceptor;
+package com.github.gregwhitaker.catnap.springboot.interceptor;
 
 import com.github.gregwhitaker.catnap.core.annotation.CatnapDisabled;
 import com.github.gregwhitaker.catnap.core.util.RequestUtil;

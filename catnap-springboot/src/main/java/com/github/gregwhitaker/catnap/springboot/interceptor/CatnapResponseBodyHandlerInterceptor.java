@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.github.gregwhitaker.catnap.springmvc.interceptor;
+package com.github.gregwhitaker.catnap.springboot.interceptor;
 
 import com.github.gregwhitaker.catnap.core.exception.ViewRenderException;
-import com.github.gregwhitaker.catnap.springmvc.annotation.CatnapResponseBody;
+import com.github.gregwhitaker.catnap.springboot.annotation.CatnapResponseBody;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.HandlerMethod;

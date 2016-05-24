@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.github.gregwhitaker.catnap.springmvc.view;
+package com.github.gregwhitaker.catnap.springboot.view;
 
 import com.github.gregwhitaker.catnap.core.view.CatnapView;
-import com.github.gregwhitaker.catnap.springmvc.interceptor.CatnapResponseBodyHandlerInterceptor;
+import com.github.gregwhitaker.catnap.springboot.interceptor.CatnapResponseBodyHandlerInterceptor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.View;
 

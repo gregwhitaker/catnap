@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.gregwhitaker.catnap.springmvc.view;
+package com.github.gregwhitaker.catnap.springboot.view;
 
 import com.github.gregwhitaker.catnap.core.view.CatnapView;
 

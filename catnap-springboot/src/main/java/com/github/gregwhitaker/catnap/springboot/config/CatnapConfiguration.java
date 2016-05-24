@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-@EnableConfigurationProperties({CatnapProperties.class})
+//@EnableConfigurationProperties({CatnapProperties.class})
 public class CatnapConfiguration extends DelegatingWebMvcConfiguration {
 
     @Override
@@ -90,7 +90,6 @@ public class CatnapConfiguration extends DelegatingWebMvcConfiguration {
     }
 
     @Bean
-    @ConditionalOnProperty
     public CatnapWrappingView jsonCatnapSpringView() {
         return new CatnapWrappingView(new JsonCatnapView.Builder().build());
     }

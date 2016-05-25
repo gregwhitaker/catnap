@@ -17,6 +17,8 @@
 package com.github.gregwhitaker.catnap.springmvc.messageconverters;
 
 import com.github.gregwhitaker.catnap.core.view.CatnapView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
@@ -27,6 +29,7 @@ import org.springframework.http.converter.HttpMessageNotWritableException;
 import java.io.IOException;
 
 public abstract class CatnapMessageConverter<T extends CatnapView> extends AbstractHttpMessageConverter<Object> {
+    private static final Logger LOG = LoggerFactory.getLogger(CatnapMessageConverter.class);
 
     private final T view;
 
@@ -41,12 +44,19 @@ public abstract class CatnapMessageConverter<T extends CatnapView> extends Abstr
     }
 
     @Override
+    protected boolean canRead(MediaType mediaType) {
+        // Catnap message converters are write-only
+        return false;
+    }
+
+    @Override
     protected Object readInternal(Class<?> clazz, HttpInputMessage inputMessage) throws IOException, HttpMessageNotReadableException {
+        // Catnap message converters are write-only
         return null;
     }
 
     @Override
-    protected void writeInternal(Object o, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
+    protected void writeInternal(Object obj, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
 
     }
 }

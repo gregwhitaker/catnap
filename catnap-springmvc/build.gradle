@@ -14,8 +14,8 @@ dependencies {
     compile project(':catnap-core')
 
     compile('org.springframework:spring-webmvc')
+    compile('commons-io:commons-io:2.5')
     compile('org.slf4j:slf4j-api:1.7.21')
-    compile('org.slf4j:slf4j-log4j12:1.7.21')
     compile('commons-logging:commons-logging:1.2')
 
     testCompile('org.springframework:spring-test')

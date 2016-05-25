@@ -18,8 +18,17 @@ package com.github.gregwhitaker.catnap.springmvc.messageconverters;
 
 import com.github.gregwhitaker.catnap.core.view.XmlCatnapView;
 
+/**
+ * An {@link org.springframework.http.converter.AbstractHttpMessageConverter} implementation that renders XML
+ * responses with Catnap.
+ */
 public class CatnapXmlMessageConverter extends CatnapMessageConverter<XmlCatnapView> {
 
+    /**
+     * Initializes this instance of {@link CatnapXmlMessageConverter}.
+     *
+     * @param view the {@link XmlCatnapView} to use when rendering responses within this message converter
+     */
     public CatnapXmlMessageConverter(XmlCatnapView view) {
         super(view);
     }

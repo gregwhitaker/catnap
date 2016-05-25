@@ -56,7 +56,7 @@ public class AnnotationComparator<T> implements Comparator<Property<T>>, Seriali
 
         //Orphan fields are alphabetized by default in the
         //annotation, but that can be disabled.  In which case,
-        //oprhaned field ordering is indeterminate.
+        //orphaned field ordering is indeterminate.
         if (alphabetizeOrphans(instanceClazz)) {
             Collections.sort(clazzFields);
         }

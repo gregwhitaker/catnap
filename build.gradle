@@ -17,17 +17,8 @@ project(":catnap-jaxrs") {
     ext.artifact = 'catnap-jaxrs'
 }
 
-project(":catnap-springboot") {
-    ext.artifact = 'catnap-springboot'
-
-    repositories {
-        maven { url "https://repo.spring.io/snapshot" }
-        maven { url "https://repo.spring.io/milestone" }
-    }
-}
-
-project(":catnap-springmvc") {
-    ext.artifact = 'catnap-springmvc'
+project(":catnap-spring") {
+    ext.artifact = 'catnap-spring'
 
     repositories {
         maven { url "https://repo.spring.io/snapshot" }

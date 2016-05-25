@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
+ * Utilities that deal with reflection junk.
  */
 public class ClassUtil {
 
@@ -37,6 +37,7 @@ public class ClassUtil {
     }
 
     /**
+     *
      *
      * @param startClass
      * @param exclusiveParent
@@ -136,10 +137,11 @@ public class ClassUtil {
     }
 
     /**
+     * Gets the class of a generic instance.
      *
-     * @param instance
-     * @param <T>
-     * @return
+     * @param instance instance to return the class for
+     * @param <T> type of class
+     * @return class of the generic instance
      */
     public static <T> Class<T> loadClass(T instance) {
         if(instance != null) {

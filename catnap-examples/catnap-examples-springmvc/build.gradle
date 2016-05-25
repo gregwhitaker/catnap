@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-    compile project(":catnap-springmvc")
+    compile project(":catnap-spring")
 }
 
 gretty {

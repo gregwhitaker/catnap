@@ -16,6 +16,7 @@
 
 package com.github.gregwhitaker.catnap.springmvc.messageconverters;
 
+import com.github.gregwhitaker.catnap.core.exception.ViewRenderException;
 import com.github.gregwhitaker.catnap.core.view.CatnapView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,9 +26,17 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.AbstractHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ *
+ * @param <T>
+ */
 public abstract class CatnapMessageConverter<T extends CatnapView> extends AbstractHttpMessageConverter<Object> {
     private static final Logger LOG = LoggerFactory.getLogger(CatnapMessageConverter.class);
 
@@ -57,6 +66,17 @@ public abstract class CatnapMessageConverter<T extends CatnapView> extends Abstr
 
     @Override
     protected void writeInternal(Object obj, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
+        HttpServletRequest httpRequest = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
+        HttpServletResponse httpResponse = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getResponse();
 
+        httpResponse.setContentType(view.getContentType());
+        httpResponse.setCharacterEncoding(view.getEncoding());
+
+        try {
+            view.render(httpRequest, httpResponse, obj);
+        } catch (Exception e) {
+            logger.error("Exception encountered during view rendering!", e);
+            throw new ViewRenderException("Exception encountered during view rendering!", e);
+        }
     }
 }

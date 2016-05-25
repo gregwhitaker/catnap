@@ -21,11 +21,15 @@ import com.github.gregwhitaker.catnap.core.view.JsonpCatnapView;
 import com.github.gregwhitaker.catnap.core.view.XmlCatnapView;
 import com.github.gregwhitaker.catnap.springmvc.interceptor.CatnapDisabledHandlerInterceptor;
 import com.github.gregwhitaker.catnap.springmvc.interceptor.CatnapResponseBodyHandlerInterceptor;
+import com.github.gregwhitaker.catnap.springmvc.messageconverters.CatnapJsonMessageConverter;
+import com.github.gregwhitaker.catnap.springmvc.messageconverters.CatnapJsonpMessageConverter;
+import com.github.gregwhitaker.catnap.springmvc.messageconverters.CatnapXmlMessageConverter;
 import com.github.gregwhitaker.catnap.springmvc.view.CatnapViewResolver;
 import com.github.gregwhitaker.catnap.springmvc.view.CatnapWrappingView;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
@@ -38,6 +42,14 @@ import java.util.List;
 
 @Configuration
 public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfiguration {
+
+    @Override
+    protected void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(new CatnapJsonMessageConverter());
+        converters.add(new CatnapJsonpMessageConverter());
+        converters.add(new CatnapXmlMessageConverter());
+        addDefaultHttpMessageConverters(converters);
+    }
 
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {

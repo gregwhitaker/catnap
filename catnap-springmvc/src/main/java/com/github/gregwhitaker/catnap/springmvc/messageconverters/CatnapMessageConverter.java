@@ -49,7 +49,13 @@ public abstract class CatnapMessageConverter<T extends CatnapView> extends Abstr
 
     @Override
     protected boolean supports(Class<?> clazz) {
-        return Object.class.isAssignableFrom(clazz);
+        HttpServletRequest httpRequest = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
+
+        if (httpRequest.getParameter("fields") != null) {
+            return Object.class.isAssignableFrom(clazz);
+        }
+
+        return false;
     }
 
     @Override
@@ -75,7 +81,7 @@ public abstract class CatnapMessageConverter<T extends CatnapView> extends Abstr
         try {
             view.render(httpRequest, httpResponse, obj);
         } catch (Exception e) {
-            logger.error("Exception encountered during view rendering!", e);
+            LOG.error("Exception encountered during view rendering!", e);
             throw new ViewRenderException("Exception encountered during view rendering!", e);
         }
     }

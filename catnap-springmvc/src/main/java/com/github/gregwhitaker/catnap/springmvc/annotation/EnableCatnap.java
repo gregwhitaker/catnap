@@ -29,6 +29,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @CatnapAnnotation
 @Import({DelegatingCatnapWebMvcConfiguration.class})
-public @interface EnableCatnapWebMvc {
+public @interface EnableCatnap {
 
 }

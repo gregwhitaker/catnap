@@ -25,6 +25,14 @@ import com.github.gregwhitaker.catnap.core.view.XmlCatnapView;
 public class CatnapXmlMessageConverter extends CatnapMessageConverter<XmlCatnapView> {
 
     /**
+     * Initializes this instance of {@link CatnapXmlMessageConverter} with the default {@link XmlCatnapView} configured
+     * for rendering responses.
+     */
+    public CatnapXmlMessageConverter() {
+        super(new XmlCatnapView.Builder().build());
+    }
+
+    /**
      * Initializes this instance of {@link CatnapXmlMessageConverter}.
      *
      * @param view the {@link XmlCatnapView} to use when rendering responses within this message converter

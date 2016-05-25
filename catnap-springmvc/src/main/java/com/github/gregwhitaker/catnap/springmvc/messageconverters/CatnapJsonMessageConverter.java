@@ -25,6 +25,14 @@ import com.github.gregwhitaker.catnap.core.view.JsonCatnapView;
 public class CatnapJsonMessageConverter extends CatnapMessageConverter<JsonCatnapView> {
 
     /**
+     * Initializes this instance of {@link CatnapJsonMessageConverter} with the default {@link JsonCatnapView}
+     * configured for rendering responses.
+     */
+    public CatnapJsonMessageConverter() {
+        super(new JsonCatnapView.Builder().build());
+    }
+
+    /**
      * Initializes this instance of {@link CatnapJsonMessageConverter}.
      *
      * @param view the {@link JsonCatnapView} to use when rendering responses within this message converter

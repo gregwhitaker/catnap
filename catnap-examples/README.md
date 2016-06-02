@@ -1,7 +1,7 @@
 catnap-examples
 ===
 
-Catnap supports a variety of web frameworks.  The following links below are example applications showing how to configure Catnap.
+Here are examples for configuring Catnap with a variety of web frameworks.
 
 * [Jersey](catnap-examples-jersey)
 * [RESTEasy](catnap-examples-resteasy)

@@ -1,7 +1,6 @@
 package com.github.gregwhitaker.catnap.core.query.processor;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.github.gregwhitaker.catnap.core.annotation.CatnapIgnore;
 import com.github.gregwhitaker.catnap.core.query.model.Query;
 import com.github.gregwhitaker.catnap.core.util.ClassUtil;
 import org.junit.Test;

@@ -25,7 +25,7 @@ import com.github.gregwhitaker.catnap.core.model.Model;
 import com.github.gregwhitaker.catnap.core.model.builder.DefaultModelBuilder;
 import com.github.gregwhitaker.catnap.core.model.builder.ModelBuilder;
 import com.github.gregwhitaker.catnap.core.query.builder.QueryBuilder;
-import com.github.gregwhitaker.catnap.core.query.builder.SimpleQueryBuilder;
+import com.github.gregwhitaker.catnap.core.query.builder.CatnapQueryBuilder;
 
 import java.io.OutputStream;
 
@@ -95,7 +95,7 @@ public class JsonCatnapView extends CatnapView {
      * Static builder used to create an instance of {@link JsonCatnapView}
      */
     public static class Builder implements CatnapViewBuilder<JsonCatnapView> {
-        private QueryBuilder queryBuilder = new SimpleQueryBuilder();
+        private QueryBuilder queryBuilder = new CatnapQueryBuilder();
         private ModelBuilder modelBuilder = new DefaultModelBuilder();
         private ObjectMapper objectMapper;
         private boolean allowNoContentResponse = true;

@@ -19,7 +19,7 @@ package com.github.gregwhitaker.catnap.springmvc.view;
 import com.github.gregwhitaker.catnap.core.context.CatnapContext;
 import com.github.gregwhitaker.catnap.core.context.HttpStatus;
 import com.github.gregwhitaker.catnap.core.model.builder.DefaultModelBuilder;
-import com.github.gregwhitaker.catnap.core.query.builder.SimpleQueryBuilder;
+import com.github.gregwhitaker.catnap.core.query.builder.CatnapQueryBuilder;
 import com.github.gregwhitaker.catnap.core.view.CatnapView;
 import com.github.gregwhitaker.catnap.springmvc.interceptor.CatnapResponseBodyHandlerInterceptor;
 import org.junit.Test;
@@ -41,7 +41,7 @@ public class CatnapWrappingViewTest {
         private boolean renderExecuted = false;
 
         public JsonView() {
-            super(new SimpleQueryBuilder(), new DefaultModelBuilder());
+            super(new CatnapQueryBuilder(), new DefaultModelBuilder());
         }
 
         @Override

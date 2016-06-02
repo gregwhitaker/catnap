@@ -16,8 +16,8 @@
 
 package com.github.gregwhitaker.catnap.core.query.processor;
 
-import com.github.gregwhitaker.catnap.core.annotation.CatnapIgnore;
-import com.github.gregwhitaker.catnap.core.annotation.CatnapProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.gregwhitaker.catnap.core.exception.ViewRenderException;
 import com.github.gregwhitaker.catnap.core.util.ClassUtil;
 import org.apache.commons.lang.StringUtils;
@@ -43,18 +43,18 @@ public class FieldDeclarationComparator<T> implements Comparator<Property<T>>, S
         int rank = 0;
 
         for (PropertyDescriptor descriptor : ClassUtil.getReadableProperties(instanceClazz)) {
-            if (descriptor.getReadMethod().isAnnotationPresent(CatnapIgnore.class)) {
-                CatnapIgnore annotation = descriptor.getReadMethod().getAnnotation(CatnapIgnore.class);
+            if (descriptor.getReadMethod().isAnnotationPresent(JsonIgnore.class)) {
+                JsonIgnore annotation = descriptor.getReadMethod().getAnnotation(JsonIgnore.class);
                 if (annotation.value()) {
                     continue;
                 }
             }
 
             //Catnap Support
-            if (descriptor.getReadMethod().isAnnotationPresent(CatnapProperty.class)) {
-                CatnapProperty annotation = descriptor.getReadMethod().getAnnotation(CatnapProperty.class);
+            if (descriptor.getReadMethod().isAnnotationPresent(JsonProperty.class)) {
+                JsonProperty annotation = descriptor.getReadMethod().getAnnotation(JsonProperty.class);
 
-                if (!StringUtils.equalsIgnoreCase(annotation.value(), CatnapProperty.USE_DEFAULT_NAME)) {
+                if (!StringUtils.equalsIgnoreCase(annotation.value(), JsonProperty.USE_DEFAULT_NAME)) {
                     fieldRanking.put(annotation.value(), rank);
                 } else {
                     fieldRanking.put(descriptor.getName(), rank);

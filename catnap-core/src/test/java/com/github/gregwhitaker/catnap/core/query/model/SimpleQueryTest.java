@@ -10,7 +10,7 @@ public class SimpleQueryTest {
 
     @Test
     public void addParameter() {
-        SimpleQuery query = new SimpleQuery();
+        CatnapQuery query = new CatnapQuery();
         query.addParameter("param1");
 
         assertTrue(query.getParameters().containsKey("param1"));
@@ -18,10 +18,10 @@ public class SimpleQueryTest {
 
     @Test
     public void addParameterWithSubquery() {
-        SimpleQuery subquery = new SimpleQuery();
+        CatnapQuery subquery = new CatnapQuery();
         subquery.addParameter("subParam1");
 
-        SimpleQuery query = new SimpleQuery();
+        CatnapQuery query = new CatnapQuery();
         query.addParameter("param1", subquery);
 
         assertNotNull(query.getParameters().get("param1"));
@@ -30,7 +30,7 @@ public class SimpleQueryTest {
 
     @Test
     public void getParameterNames() {
-        SimpleQuery query = new SimpleQuery();
+        CatnapQuery query = new CatnapQuery();
         query.addParameter("param1");
         query.addParameter("param2");
         query.addParameter("param3");
@@ -42,7 +42,7 @@ public class SimpleQueryTest {
 
     @Test
     public void getParameterCount() {
-        SimpleQuery query = new SimpleQuery();
+        CatnapQuery query = new CatnapQuery();
         query.addParameter("param1");
         query.addParameter("param2");
         query.addParameter("param3");
@@ -52,7 +52,7 @@ public class SimpleQueryTest {
 
     @Test
     public void containsParameter() {
-        SimpleQuery query = new SimpleQuery();
+        CatnapQuery query = new CatnapQuery();
         query.addParameter("param1");
 
         assertTrue(query.containsParameter("param1"));
@@ -61,8 +61,8 @@ public class SimpleQueryTest {
 
     @Test
     public void containsSubquery() {
-        SimpleQuery query = new SimpleQuery();
-        query.addParameter("param1", new SimpleQuery());
+        CatnapQuery query = new CatnapQuery();
+        query.addParameter("param1", new CatnapQuery());
 
         assertTrue(query.containsSubquery("param1"));
         assertFalse(query.containsSubquery("param2"));

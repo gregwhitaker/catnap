@@ -17,7 +17,6 @@
 package com.github.gregwhitaker.catnap.core.query.processor;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.github.gregwhitaker.catnap.core.annotation.CatnapIgnore;
 import com.github.gregwhitaker.catnap.core.query.model.Query;
 
 import java.beans.PropertyDescriptor;
@@ -84,11 +83,6 @@ public abstract class QueryProcessor {
      */
     protected boolean ignoreProperty(PropertyDescriptor descriptor) {
         if (descriptor != null && descriptor.getReadMethod() != null) {
-            //Catnap Support
-            if (descriptor.getReadMethod().isAnnotationPresent(CatnapIgnore.class)) {
-                return descriptor.getReadMethod().getAnnotation(CatnapIgnore.class).value();
-            }
-
             //Jackson Support
             if (descriptor.getReadMethod().isAnnotationPresent(JsonIgnore.class)) {
                 return descriptor.getReadMethod().getAnnotation(JsonIgnore.class).value();

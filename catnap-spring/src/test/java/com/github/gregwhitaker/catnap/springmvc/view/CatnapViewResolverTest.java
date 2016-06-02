@@ -18,7 +18,7 @@ package com.github.gregwhitaker.catnap.springmvc.view;
 
 import com.github.gregwhitaker.catnap.core.context.CatnapContext;
 import com.github.gregwhitaker.catnap.core.model.builder.DefaultModelBuilder;
-import com.github.gregwhitaker.catnap.core.query.builder.SimpleQueryBuilder;
+import com.github.gregwhitaker.catnap.core.query.builder.CatnapQueryBuilder;
 import com.github.gregwhitaker.catnap.core.view.CatnapView;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -41,7 +41,7 @@ public class CatnapViewResolverTest {
     static class JsonView extends CatnapView {
 
         public JsonView() {
-            super(new SimpleQueryBuilder(), new DefaultModelBuilder());
+            super(new CatnapQueryBuilder(), new DefaultModelBuilder());
         }
 
         @Override

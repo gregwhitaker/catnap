@@ -17,7 +17,6 @@
 package com.github.gregwhitaker.catnap.core.query.processor;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.github.gregwhitaker.catnap.core.annotation.CatnapOrder;
 import com.github.gregwhitaker.catnap.core.exception.CatnapException;
 
 import java.io.Serializable;
@@ -93,10 +92,6 @@ public class AnnotationComparator<T> implements Comparator<Property<T>>, Seriali
     }
 
     private List<String> annotationFields(Class<T> instanceClazz) {
-        if (instanceClazz.isAnnotationPresent(CatnapOrder.class)) {
-            return Arrays.asList(instanceClazz.getAnnotation(CatnapOrder.class).value());
-        }
-
         if (instanceClazz.isAnnotationPresent(JsonPropertyOrder.class)) {
             return Arrays.asList(instanceClazz.getAnnotation(JsonPropertyOrder.class).value());
         }
@@ -105,10 +100,6 @@ public class AnnotationComparator<T> implements Comparator<Property<T>>, Seriali
     }
 
     private boolean alphabetizeOrphans(Class<T> instanceClazz) {
-        if (instanceClazz.isAnnotationPresent(CatnapOrder.class)) {
-            return instanceClazz.getAnnotation(CatnapOrder.class).alphabetic();
-        }
-
         if (instanceClazz.isAnnotationPresent(JsonPropertyOrder.class)) {
             return instanceClazz.getAnnotation(JsonPropertyOrder.class).alphabetic();
         }

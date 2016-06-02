@@ -25,8 +25,8 @@ import java.util.Map;
 /**
  *
  */
-public class SimpleQuery implements Query<SimpleQuery> {
-    protected Map<String, SimpleQuery> parameters = new LinkedHashMap<>();
+public class CatnapQuery implements Query<CatnapQuery> {
+    protected Map<String, CatnapQuery> parameters = new LinkedHashMap<>();
     protected Map<String, Expression> expressions = new HashMap<>();
 
     @Override
@@ -36,7 +36,7 @@ public class SimpleQuery implements Query<SimpleQuery> {
 
     @Override
     public void addParameter(String name, Query subquery) {
-        parameters.put(name, (SimpleQuery) subquery);
+        parameters.put(name, (CatnapQuery) subquery);
     }
 
     @Override
@@ -47,12 +47,12 @@ public class SimpleQuery implements Query<SimpleQuery> {
 
     @Override
     public void addParameter(String name, Query subquery, Expression expression) {
-        parameters.put(name, (SimpleQuery) subquery);
+        parameters.put(name, (CatnapQuery) subquery);
         expressions.put(name, expression);
     }
 
     @Override
-    public Map<String, SimpleQuery> getParameters() {
+    public Map<String, CatnapQuery> getParameters() {
         return parameters;
     }
 

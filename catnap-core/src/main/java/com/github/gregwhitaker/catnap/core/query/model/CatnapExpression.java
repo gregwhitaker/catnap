@@ -19,7 +19,7 @@ package com.github.gregwhitaker.catnap.core.query.model;
 /**
  *
  */
-public abstract class SimpleExpression implements Expression {
+public abstract class CatnapExpression implements Expression {
     protected String field;
     protected Operator operator;
     protected String operand;
@@ -30,7 +30,7 @@ public abstract class SimpleExpression implements Expression {
      * @param operator
      * @param operand
      */
-    public SimpleExpression(String field, Operator operator, String operand) {
+    public CatnapExpression(String field, Operator operator, String operand) {
         this.field = field;
         this.operator = operator;
         this.operand = operand;

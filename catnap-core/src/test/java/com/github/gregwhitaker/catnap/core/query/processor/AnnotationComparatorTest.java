@@ -1,7 +1,6 @@
 package com.github.gregwhitaker.catnap.core.query.processor;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.github.gregwhitaker.catnap.core.annotation.CatnapOrder;
 import com.github.gregwhitaker.catnap.core.exception.CatnapException;
 import com.github.gregwhitaker.catnap.core.util.ClassUtil;
 import org.junit.Test;
@@ -17,19 +16,6 @@ import static org.junit.Assert.assertEquals;
  * and {@link com.fasterxml.jackson.annotation.JsonPropertyOrder} annotations.
  */
 public class AnnotationComparatorTest {
-
-    @CatnapOrder({
-            "second",
-            "first"
-    })
-    static class BeanWithCatnapOrder {
-        private String first = "first";
-        private String second = "second";
-
-        public String getFirst() { return first; }
-
-        public String getSecond() { return second; }
-    }
 
     @JsonPropertyOrder({
             "second",
@@ -53,7 +39,7 @@ public class AnnotationComparatorTest {
         public String getSecond() { return second; }
     }
 
-    @CatnapOrder(value = {
+    @JsonPropertyOrder(value = {
             "second",
             "first"
     }, alphabetic = true)
@@ -76,50 +62,13 @@ public class AnnotationComparatorTest {
     }
 
     @Test
-    public void compareCatnapOrderLessThan() {
-        AnnotationComparator<BeanWithCatnapOrder> comparator = new AnnotationComparator<>(BeanWithCatnapOrder.class);
-
-        BeanWithCatnapOrder model = new BeanWithCatnapOrder();
-        Property<BeanWithCatnapOrder> first = new SimpleProperty<>(model,
-                ClassUtil.getReadableProperty("first", BeanWithCatnapOrder.class));
-        Property<BeanWithCatnapOrder> second = new SimpleProperty<>(model,
-                ClassUtil.getReadableProperty("second", BeanWithCatnapOrder.class));
-
-        assertEquals(-1, comparator.compare(second, first));
-    }
-
-    @Test
-    public void compareCatnapOrderEquals() {
-        AnnotationComparator<BeanWithCatnapOrder> comparator = new AnnotationComparator<>(BeanWithCatnapOrder.class);
-
-        BeanWithCatnapOrder model = new BeanWithCatnapOrder();
-        Property<BeanWithCatnapOrder> first = new SimpleProperty<>(model,
-                ClassUtil.getReadableProperty("first", BeanWithCatnapOrder.class));
-
-        assertEquals(0, comparator.compare(first, first));
-    }
-
-    @Test
-    public void compareCatnapOrderGreaterThan() {
-        AnnotationComparator<BeanWithCatnapOrder> comparator = new AnnotationComparator<>(BeanWithCatnapOrder.class);
-
-        BeanWithCatnapOrder model = new BeanWithCatnapOrder();
-        Property<BeanWithCatnapOrder> first = new SimpleProperty<>(model,
-                ClassUtil.getReadableProperty("first", BeanWithCatnapOrder.class));
-        Property<BeanWithCatnapOrder> second = new SimpleProperty<>(model,
-                ClassUtil.getReadableProperty("second", BeanWithCatnapOrder.class));
-
-        assertEquals(1, comparator.compare(first, second));
-    }
-
-    @Test
     public void compareJsonPropertyOrderLessThan() {
         AnnotationComparator<BeanWithJsonPropertyOrder> comparator = new AnnotationComparator<>(BeanWithJsonPropertyOrder.class);
 
         BeanWithJsonPropertyOrder model = new BeanWithJsonPropertyOrder();
-        Property<BeanWithJsonPropertyOrder> first = new SimpleProperty<>(model,
+        Property<BeanWithJsonPropertyOrder> first = new CatnapProperty<>(model,
                 ClassUtil.getReadableProperty("first", BeanWithJsonPropertyOrder.class));
-        Property<BeanWithJsonPropertyOrder> second = new SimpleProperty<>(model,
+        Property<BeanWithJsonPropertyOrder> second = new CatnapProperty<>(model,
                 ClassUtil.getReadableProperty("second", BeanWithJsonPropertyOrder.class));
 
         assertEquals(-1, comparator.compare(second, first));
@@ -130,7 +79,7 @@ public class AnnotationComparatorTest {
         AnnotationComparator<BeanWithJsonPropertyOrder> comparator = new AnnotationComparator<>(BeanWithJsonPropertyOrder.class);
 
         BeanWithJsonPropertyOrder model = new BeanWithJsonPropertyOrder();
-        Property<BeanWithJsonPropertyOrder> first = new SimpleProperty<>(model,
+        Property<BeanWithJsonPropertyOrder> first = new CatnapProperty<>(model,
                 ClassUtil.getReadableProperty("first", BeanWithJsonPropertyOrder.class));
 
         assertEquals(0, comparator.compare(first, first));
@@ -141,9 +90,9 @@ public class AnnotationComparatorTest {
         AnnotationComparator<BeanWithJsonPropertyOrder> comparator = new AnnotationComparator<>(BeanWithJsonPropertyOrder.class);
 
         BeanWithJsonPropertyOrder model = new BeanWithJsonPropertyOrder();
-        Property<BeanWithJsonPropertyOrder> first = new SimpleProperty<>(model,
+        Property<BeanWithJsonPropertyOrder> first = new CatnapProperty<>(model,
                 ClassUtil.getReadableProperty("first", BeanWithJsonPropertyOrder.class));
-        Property<BeanWithJsonPropertyOrder> second = new SimpleProperty<>(model,
+        Property<BeanWithJsonPropertyOrder> second = new CatnapProperty<>(model,
                 ClassUtil.getReadableProperty("second", BeanWithJsonPropertyOrder.class));
 
         assertEquals(1, comparator.compare(first, second));
@@ -154,9 +103,9 @@ public class AnnotationComparatorTest {
         AnnotationComparator<BeanWithoutOrderAnnotation> comparator = new AnnotationComparator<>(BeanWithoutOrderAnnotation.class);
 
         BeanWithoutOrderAnnotation model = new BeanWithoutOrderAnnotation();
-        Property<BeanWithoutOrderAnnotation> first = new SimpleProperty<>(model,
+        Property<BeanWithoutOrderAnnotation> first = new CatnapProperty<>(model,
                 ClassUtil.getReadableProperty("first", BeanWithoutOrderAnnotation.class));
-        Property<BeanWithoutOrderAnnotation> second = new SimpleProperty<>(model,
+        Property<BeanWithoutOrderAnnotation> second = new CatnapProperty<>(model,
                 ClassUtil.getReadableProperty("second", BeanWithoutOrderAnnotation.class));
 
         comparator.compare(first, second);
@@ -167,11 +116,11 @@ public class AnnotationComparatorTest {
         BeanWithOrphans model = new BeanWithOrphans();
         List<Property<BeanWithOrphans>> props = new ArrayList<Property<BeanWithOrphans>>();
 
-        props.add(new SimpleProperty<>(model, ClassUtil.getReadableProperty("first", BeanWithOrphans.class)));
-        props.add(new SimpleProperty<>(model, ClassUtil.getReadableProperty("second", BeanWithOrphans.class)));
-        props.add(new SimpleProperty<>(model, ClassUtil.getReadableProperty("orphanA", BeanWithOrphans.class)));
-        props.add(new SimpleProperty<>(model, ClassUtil.getReadableProperty("orphanB", BeanWithOrphans.class)));
-        props.add(new SimpleProperty<>(model, ClassUtil.getReadableProperty("orphanC", BeanWithOrphans.class)));
+        props.add(new CatnapProperty<>(model, ClassUtil.getReadableProperty("first", BeanWithOrphans.class)));
+        props.add(new CatnapProperty<>(model, ClassUtil.getReadableProperty("second", BeanWithOrphans.class)));
+        props.add(new CatnapProperty<>(model, ClassUtil.getReadableProperty("orphanA", BeanWithOrphans.class)));
+        props.add(new CatnapProperty<>(model, ClassUtil.getReadableProperty("orphanB", BeanWithOrphans.class)));
+        props.add(new CatnapProperty<>(model, ClassUtil.getReadableProperty("orphanC", BeanWithOrphans.class)));
 
         Collections.sort(props, new AnnotationComparator<>(BeanWithOrphans.class));
 

@@ -18,24 +18,24 @@ package com.github.gregwhitaker.catnap.core.query.parser;
 
 import com.github.gregwhitaker.catnap.core.exception.QuerySyntaxException;
 import com.github.gregwhitaker.catnap.core.query.QuerySyntax;
-import com.github.gregwhitaker.catnap.core.query.model.SimpleExpression;
-import com.github.gregwhitaker.catnap.core.query.model.SimpleQuery;
+import com.github.gregwhitaker.catnap.core.query.model.CatnapExpression;
+import com.github.gregwhitaker.catnap.core.query.model.CatnapQuery;
 
 /**
  *
  */
-public class SimpleParser implements Parser<SimpleQuery> {
+public class CatnapParser implements Parser<CatnapQuery> {
     private static final char FIELD_DELIMITER = ',';
     private static final String SUBQUERY_OPEN = "(";
     private static final String SUBQUERY_CLOSE = ")";
     private static final char EXPRESSION_OPEN = '[';
 
-    private final ExpressionParser<SimpleExpression> expressionParser = new SimpleExpressionParser();
+    private final ExpressionParser<CatnapExpression> expressionParser = new CatnapExpressionParser();
 
     @Override
-    public SimpleQuery parse(String expression) throws QuerySyntaxException {
+    public CatnapQuery parse(String expression) throws QuerySyntaxException {
         if (expression != null) {
-            SimpleQuery query = new SimpleQuery();
+            CatnapQuery query = new CatnapQuery();
             StringBuilder buffer = new StringBuilder(expression);
 
             while (buffer.length() > 0) {
@@ -48,10 +48,10 @@ public class SimpleParser implements Parser<SimpleQuery> {
         return null;
     }
 
-    private void buildQuery(StringBuilder buffer, SimpleQuery query) {
+    private void buildQuery(StringBuilder buffer, CatnapQuery query) {
         StringBuilder field = new StringBuilder();
-        SimpleQuery subQuery = null;
-        SimpleExpression expression = null;
+        CatnapQuery subQuery = null;
+        CatnapExpression expression = null;
         int index = 0;
 
         while (true) {
@@ -111,6 +111,6 @@ public class SimpleParser implements Parser<SimpleQuery> {
 
     @Override
     public QuerySyntax getSyntax() {
-        return QuerySyntax.SIMPLE;
+        return QuerySyntax.CATNAP;
     }
 }

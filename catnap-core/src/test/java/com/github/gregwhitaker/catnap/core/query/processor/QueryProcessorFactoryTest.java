@@ -2,7 +2,7 @@ package com.github.gregwhitaker.catnap.core.query.processor;
 
 import com.github.gregwhitaker.catnap.core.query.model.Expression;
 import com.github.gregwhitaker.catnap.core.query.model.Query;
-import com.github.gregwhitaker.catnap.core.query.model.SimpleQuery;
+import com.github.gregwhitaker.catnap.core.query.model.CatnapQuery;
 import org.junit.Test;
 
 import java.util.List;
@@ -83,8 +83,8 @@ public class QueryProcessorFactoryTest {
 
     @Test
     public void createSimpleQueryProcessor() {
-        QueryProcessor processor = QueryProcessorFactory.createQueryProcessor(new SimpleQuery(), Object.class);
-        assertTrue(processor instanceof SimpleQueryProcessor);
+        QueryProcessor processor = QueryProcessorFactory.createQueryProcessor(new CatnapQuery(), Object.class);
+        assertTrue(processor instanceof CatnapQueryProcessor);
     }
 
     @Test(expected = UnsupportedOperationException.class)

@@ -1,6 +1,6 @@
 package com.github.gregwhitaker.catnap.core.query.processor;
 
-import com.github.gregwhitaker.catnap.core.query.model.SimpleQuery;
+import com.github.gregwhitaker.catnap.core.query.model.CatnapQuery;
 import org.junit.Test;
 
 import java.util.List;
@@ -33,7 +33,7 @@ public class NullQueryProcessorTest {
     @Test
     public void doesNotSupport() {
         NullQueryProcessor processor = new NullQueryProcessor();
-        assertFalse(processor.supports(SimpleQuery.class));
+        assertFalse(processor.supports(CatnapQuery.class));
     }
 
     @Test

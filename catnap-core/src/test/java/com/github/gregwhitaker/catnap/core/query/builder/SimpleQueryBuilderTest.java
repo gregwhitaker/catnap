@@ -8,13 +8,13 @@ public class SimpleQueryBuilderTest {
 
     @Test
     public void verifyDefaultQueryParameterName() {
-        SimpleQueryBuilder builder = new SimpleQueryBuilder();
+        CatnapQueryBuilder builder = new CatnapQueryBuilder();
         assertEquals("fields", builder.getQueryParameter());
     }
 
     @Test
     public void verifyCustomQueryParameterName() {
-        SimpleQueryBuilder builder = new SimpleQueryBuilder();
+        CatnapQueryBuilder builder = new CatnapQueryBuilder();
         builder.setQueryParameter("myFields");
 
         assertEquals("myFields", builder.getQueryParameter());

@@ -16,9 +16,9 @@
 
 package com.github.gregwhitaker.catnap.core.query.processor;
 
-import com.github.gregwhitaker.catnap.core.annotation.CatnapProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.gregwhitaker.catnap.core.query.model.Query;
-import com.github.gregwhitaker.catnap.core.query.model.SimpleQuery;
+import com.github.gregwhitaker.catnap.core.query.model.CatnapQuery;
 import com.github.gregwhitaker.catnap.core.util.ClassUtil;
 
 import java.beans.PropertyDescriptor;
@@ -28,25 +28,25 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class SimpleQueryProcessor extends QueryProcessor {
+public class CatnapQueryProcessor extends QueryProcessor {
     @Override
     public boolean supports(Class<? extends Query<?>> query) {
-        return query.isAssignableFrom(SimpleQuery.class);
+        return query.isAssignableFrom(CatnapQuery.class);
     }
 
     @Override
     public <T> List<Property<T>> processInternal(Query query, T instance, Class<T> instanceClazz) {
-        List<Property<T>> properties = new ArrayList<Property<T>>();
+        List<Property<T>> properties = new ArrayList<>();
 
         //Only return fields specified in the query
-        Map<String, PropertyDescriptor> descriptors = new HashMap<String, PropertyDescriptor>(query.getParameterCount());
+        Map<String, PropertyDescriptor> descriptors = new HashMap<>(query.getParameterCount());
 
         for (PropertyDescriptor descriptor : ClassUtil.getReadableProperties(instanceClazz)) {
             //Catnap Support
-            if (descriptor.getReadMethod().isAnnotationPresent(CatnapProperty.class)) {
-                CatnapProperty annotation = descriptor.getReadMethod().getAnnotation(CatnapProperty.class);
+            if (descriptor.getReadMethod().isAnnotationPresent(JsonProperty.class)) {
+                JsonProperty annotation = descriptor.getReadMethod().getAnnotation(JsonProperty.class);
 
-                if (!CatnapProperty.USE_DEFAULT_NAME.equalsIgnoreCase(annotation.value())) {
+                if (!JsonProperty.USE_DEFAULT_NAME.equalsIgnoreCase(annotation.value())) {
                     descriptors.put(annotation.value(), descriptor);
                 } else {
                     descriptors.put(descriptor.getName(), descriptor);
@@ -62,7 +62,7 @@ public class SimpleQueryProcessor extends QueryProcessor {
             if (descriptors.containsKey(name)) {
                 if (query.containsExpression(name)) {
                     if (Iterable.class.isAssignableFrom(descriptors.get(name).getPropertyType())) {
-                        SimpleProperty iterableProperty = new SimpleProperty(instance, descriptors.get(name));
+                        CatnapProperty iterableProperty = new CatnapProperty(instance, descriptors.get(name));
 
                         Iterator iter = ((Iterable<?>) iterableProperty.getValue()).iterator();
 
@@ -76,7 +76,7 @@ public class SimpleQueryProcessor extends QueryProcessor {
                                 //Only process the expression if the field name in the query matches a field
                                 //on the item to be queried.
                                 if (itemDescriptor != null) {
-                                    if (query.getExpression(name).evaluate(new SimpleProperty(item, itemDescriptor)) == false) {
+                                    if (query.getExpression(name).evaluate(new CatnapProperty(item, itemDescriptor)) == false) {
                                         iter.remove();
                                     }
                                 }
@@ -89,13 +89,13 @@ public class SimpleQueryProcessor extends QueryProcessor {
                         PropertyDescriptor itemDescriptor = itemDescriptors.get(query.getExpression(name).getField());
 
                         if (itemDescriptor != null) {
-                            if (query.getExpression(name).evaluate(new SimpleProperty(instance, itemDescriptor)) == true) {
-                                properties.add(new SimpleProperty<T>(instance, descriptors.get(name)));
+                            if (query.getExpression(name).evaluate(new CatnapProperty(instance, itemDescriptor)) == true) {
+                                properties.add(new CatnapProperty<T>(instance, descriptors.get(name)));
                             }
                         }
                     }
                 } else {
-                    properties.add(new SimpleProperty<T>(instance, descriptors.get(name)));
+                    properties.add(new CatnapProperty<>(instance, descriptors.get(name)));
                 }
             }
         }

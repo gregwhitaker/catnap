@@ -17,7 +17,6 @@
 package com.github.gregwhitaker.catnap.core.query.processor;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.github.gregwhitaker.catnap.core.annotation.CatnapOrder;
 import com.github.gregwhitaker.catnap.core.query.model.Query;
 
 import java.util.Collections;
@@ -56,12 +55,6 @@ public abstract class SortableQueryProcessor extends QueryProcessor {
 
     private <T> SortMethod sortMethod(Class<T> instanceClazz) {
         if (instanceClazz != null) {
-            //Catnap Support
-            if (instanceClazz.isAnnotationPresent(CatnapOrder.class)) {
-                String[] value = instanceClazz.getAnnotation(CatnapOrder.class).value();
-                return (value != null && value.length > 0) ? SortMethod.ANNOTATION : SortMethod.ALPHABETICAL;
-            }
-
             //Jackson Support
             if (instanceClazz.isAnnotationPresent(JsonPropertyOrder.class)) {
                 String[] value = instanceClazz.getAnnotation(JsonPropertyOrder.class).value();

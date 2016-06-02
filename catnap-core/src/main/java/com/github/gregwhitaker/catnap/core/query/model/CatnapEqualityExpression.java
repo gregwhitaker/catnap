@@ -26,7 +26,7 @@ import java.math.BigInteger;
 /**
  *
  */
-public class SimpleEqualityExpression extends SimpleExpression {
+public class CatnapEqualityExpression extends CatnapExpression {
 
     public enum EqualityOperator implements Operator {
         EQUAL("="),
@@ -48,7 +48,7 @@ public class SimpleEqualityExpression extends SimpleExpression {
         }
     }
 
-    public SimpleEqualityExpression(String field, EqualityOperator operator, String operand) {
+    public CatnapEqualityExpression(String field, EqualityOperator operator, String operand) {
         super(field, operator, operand);
     }
 

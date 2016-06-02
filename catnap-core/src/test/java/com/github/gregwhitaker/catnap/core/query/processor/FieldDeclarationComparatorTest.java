@@ -60,8 +60,8 @@ public class FieldDeclarationComparatorTest {
     @Before
     public void setup() {
         MockModel model = new MockModel();
-        property1 = new SimpleProperty<>(model, ClassUtil.getReadableProperty("property1", MockModel.class));
-        property2 = new SimpleProperty<>(model, ClassUtil.getReadableProperty("property2", MockModel.class));
+        property1 = new CatnapProperty<>(model, ClassUtil.getReadableProperty("property1", MockModel.class));
+        property2 = new CatnapProperty<>(model, ClassUtil.getReadableProperty("property2", MockModel.class));
     }
 
     @Test

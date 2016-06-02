@@ -16,7 +16,7 @@
 
 package com.github.gregwhitaker.catnap.core.query.processor;
 
-import com.github.gregwhitaker.catnap.core.annotation.CatnapProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.gregwhitaker.catnap.core.exception.CatnapException;
 import com.github.gregwhitaker.catnap.core.util.ClassUtil;
 
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 /**
  * @param <T>
  */
-public class SimpleProperty<T> implements Property<T> {
+public class CatnapProperty<T> implements Property<T> {
     private String name;
     private Object value;
     private boolean primitive = false;
@@ -37,7 +37,7 @@ public class SimpleProperty<T> implements Property<T> {
      * @param instance
      * @param descriptor
      */
-    public SimpleProperty(T instance, PropertyDescriptor descriptor) {
+    public CatnapProperty(T instance, PropertyDescriptor descriptor) {
         this.name = name(descriptor);
         this.readMethod = descriptor.getReadMethod();
 
@@ -72,10 +72,10 @@ public class SimpleProperty<T> implements Property<T> {
 
     private String name(PropertyDescriptor descriptor) {
         //Catnap Support
-        if (descriptor.getReadMethod().isAnnotationPresent(CatnapProperty.class)) {
-            CatnapProperty annotation = descriptor.getReadMethod().getAnnotation(CatnapProperty.class);
+        if (descriptor.getReadMethod().isAnnotationPresent(JsonProperty.class)) {
+            JsonProperty annotation = descriptor.getReadMethod().getAnnotation(JsonProperty.class);
 
-            if (!CatnapProperty.USE_DEFAULT_NAME.equalsIgnoreCase(annotation.value())) {
+            if (!JsonProperty.USE_DEFAULT_NAME.equalsIgnoreCase(annotation.value())) {
                 return annotation.value();
             }
         }

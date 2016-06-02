@@ -24,5 +24,5 @@ public enum QuerySyntax {
     /**
      *
      */
-    SIMPLE
+    CATNAP
 }

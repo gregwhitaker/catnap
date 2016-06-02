@@ -63,11 +63,6 @@ public class QueryProcessorTest {
             return property1;
         }
 
-        @CatnapIgnore
-        public String getProperty2() {
-            return property2;
-        }
-
         @JsonIgnore
         public String getProperty3() {
             return property3;

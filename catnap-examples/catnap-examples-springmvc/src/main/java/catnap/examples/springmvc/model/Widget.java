@@ -17,9 +17,8 @@
 package catnap.examples.springmvc.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.github.gregwhitaker.catnap.core.annotation.CatnapIgnore;
-import com.github.gregwhitaker.catnap.core.annotation.CatnapProperty;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -78,9 +77,6 @@ public class Widget {
     @XmlTransient
     private String ignoredField1 = "This field should never be rendered as it is annotated with @JsonIgnore";
 
-    @XmlTransient
-    private String getIgnoredField2 = "This field should never be rendered as it is annotated with @CatnapIgnore";
-
     public String getId() {
         return id;
     }
@@ -97,9 +93,6 @@ public class Widget {
         this.name = name;
     }
 
-    // This demonstrates that you can set a false value on the @CatnapIgnore annotation to negate it and show
-    // the value of the annotated property in a Catnap rendered response.
-    @CatnapIgnore(false)
     public String getLongName() {
         return longName;
     }
@@ -109,7 +102,7 @@ public class Widget {
     }
 
     // This demonstrates matching a property that has a getter with a different name.
-    @CatnapProperty(value = "isActive")
+    @JsonProperty("isActive")
     public boolean isActive() {
         return active;
     }
@@ -118,8 +111,7 @@ public class Widget {
         this.active = active;
     }
 
-    // This demonstrates renaming a property when it is rendered by Catnap.
-    @CatnapProperty("manufactureDate")
+    @JsonProperty("manufactureDate")
     public Date getDate() {
         return date;
     }
@@ -153,16 +145,5 @@ public class Widget {
 
     public void setIgnoredField1(String ignoredField1) {
         this.ignoredField1 = ignoredField1;
-    }
-
-    // This demonstrates that fields you wish to have excluded from Catnap rendering can be annotated with
-    // the @CatnapIgnore annotation.
-    @CatnapIgnore
-    public String getGetIgnoredField2() {
-        return getIgnoredField2;
-    }
-
-    public void setGetIgnoredField2(String getIgnoredField2) {
-        this.getIgnoredField2 = getIgnoredField2;
     }
 }

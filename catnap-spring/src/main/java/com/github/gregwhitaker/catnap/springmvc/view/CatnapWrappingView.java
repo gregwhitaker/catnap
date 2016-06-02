@@ -55,7 +55,7 @@ public class CatnapWrappingView implements View, WrappingView<CatnapView> {
     public com.github.gregwhitaker.catnap.core.context.HttpStatus httpStatus(HttpServletRequest request) {
         Object attr = request.getAttribute(RESPONSE_STATUS_ATTRIBUTE);
 
-        if(attr != null) {
+        if (attr != null) {
             int value = ((HttpStatus) attr).value();
             return com.github.gregwhitaker.catnap.core.context.HttpStatus.valueOf(value);
         }
@@ -64,11 +64,11 @@ public class CatnapWrappingView implements View, WrappingView<CatnapView> {
     }
 
     public Object extractResult(Map<String, ?> model) {
-        if(model != null && !model.isEmpty()) {
-            if(model.size() == 1) {
+        if (model != null && !model.isEmpty()) {
+            if (model.size() == 1) {
                 return model.values().iterator().next();
             } else {
-                if(model.containsKey(CatnapResponseBodyHandlerInterceptor.MODEL_NAME)) {
+                if (model.containsKey(CatnapResponseBodyHandlerInterceptor.MODEL_NAME)) {
                     return model.get(CatnapResponseBodyHandlerInterceptor.MODEL_NAME);
                 } else {
                     return model.get(getModelName());

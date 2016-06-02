@@ -56,7 +56,7 @@ public class WidgetModelAndViewController {
      * @return a {@link ModelAndView} containing a {@link catnap.examples.springmvc.model.Widget}
      */
     @RequestMapping(method = RequestMethod.GET,
-                    value = "/{id}")
+            value = "/{id}")
     public ModelAndView getWidget(@PathVariable("id") String id, HttpServletRequest request) {
         Widget widget = service.getWidget(id);
 
@@ -76,7 +76,7 @@ public class WidgetModelAndViewController {
      * for partial response rendering
      */
     @RequestMapping(method = RequestMethod.GET,
-                    value = "/{id}/nocatnap")
+            value = "/{id}/nocatnap")
     @CatnapDisabled
     public ModelAndView getWidgetsWithCatnapDisabled(@PathVariable("id") String id, HttpServletRequest request) {
         Widget widget = service.getWidget(id);

@@ -45,10 +45,12 @@ public class CatnapViewResolverTest {
         }
 
         @Override
-        protected void render(Object value, OutputStream outputStream, CatnapContext context) throws Exception {}
+        protected void render(Object value, OutputStream outputStream, CatnapContext context) throws Exception {
+        }
 
         @Override
-        protected void renderError(Object value, OutputStream outputStream, CatnapContext context) throws Exception {}
+        protected void renderError(Object value, OutputStream outputStream, CatnapContext context) throws Exception {
+        }
 
         @Override
         public String getContentType() {

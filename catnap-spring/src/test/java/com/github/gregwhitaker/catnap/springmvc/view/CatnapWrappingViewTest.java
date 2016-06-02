@@ -50,7 +50,8 @@ public class CatnapWrappingViewTest {
         }
 
         @Override
-        protected void renderError(Object value, OutputStream outputStream, CatnapContext context) throws Exception {}
+        protected void renderError(Object value, OutputStream outputStream, CatnapContext context) throws Exception {
+        }
 
         @Override
         public String getContentType() {
@@ -67,7 +68,8 @@ public class CatnapWrappingViewTest {
         }
     }
 
-    static class BeanModel {}
+    static class BeanModel {
+    }
 
     @Test
     public void renderOnWrappingViewRendersWrappedView() throws Exception {

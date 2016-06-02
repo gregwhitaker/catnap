@@ -26,20 +26,17 @@ import javax.servlet.http.HttpServletRequest;
 public interface QueryBuilder {
 
     /**
-     *
      * @param request
      * @return
      */
     Query build(HttpServletRequest request);
 
     /**
-     *
      * @return
      */
     String getQueryParameter();
 
     /**
-     *
      * @param name
      */
     void setQueryParameter(String name);

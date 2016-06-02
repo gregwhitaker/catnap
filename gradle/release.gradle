@@ -7,10 +7,10 @@ task versionArchives {
     def buildNumber = System.getenv('BUILD_NUMBER') ?: 0
 
     // Default to building SNAPSHOT versions unless the build was executed with the -PreleaseType={type} command line parameter
-    if(project.hasProperty('releaseType')) {
-        if(project.releaseType == 'release') {
+    if (project.hasProperty('releaseType')) {
+        if (project.releaseType == 'release') {
             project.ext.set("releaseVersion", "${project.version}." + buildNumber);
-        } else if(project.releaseType == 'snapshot') {
+        } else if (project.releaseType == 'snapshot') {
             project.ext.set("releaseVersion", "${project.version}-SNAPSHOT");
         } else {
             throw new RuntimeException("Invalid releaseType specified:  Must be 'release' or 'snapshot'!")

@@ -34,7 +34,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- *
  * @param <T>
  */
 public abstract class CatnapMessageConverter<T extends CatnapView> extends AbstractHttpMessageConverter<Object> {

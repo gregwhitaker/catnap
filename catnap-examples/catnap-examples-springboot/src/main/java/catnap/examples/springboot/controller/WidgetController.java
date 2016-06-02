@@ -54,7 +54,7 @@ public class WidgetController {
      * @return a {@link catnap.examples.springboot.model.Widget}
      */
     @RequestMapping(method = RequestMethod.GET,
-                    value = "/{id}")
+            value = "/{id}")
     @CatnapResponseBody
     public Widget getWidget(@PathVariable("id") String id) {
         Widget widget = service.getWidget(id);
@@ -74,7 +74,7 @@ public class WidgetController {
      * @return a {@link catnap.examples.springboot.model.Widget}
      */
     @RequestMapping(method = RequestMethod.GET,
-                    value = "/{id}/nocatnap")
+            value = "/{id}/nocatnap")
     @CatnapDisabled
     @CatnapResponseBody
     public Widget getWidgetsWithCatnapDisabled(@PathVariable("id") String id) {

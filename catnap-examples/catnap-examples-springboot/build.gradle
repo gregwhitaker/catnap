@@ -22,5 +22,5 @@ repositories {
 dependencies {
     compile project(":catnap-spring")
 
-    compile ('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-web')
 }

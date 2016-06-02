@@ -52,8 +52,7 @@ public class QueryProcessorTest {
         }
     }
 
-    static class MockModel
-    {
+    static class MockModel {
         private String property1 = "value1";
         private String property2 = "value2";    //Ignored by @CatnapIgnore
         private String property3 = "value3";    //Ignored by @JsonIgnore

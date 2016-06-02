@@ -37,8 +37,6 @@ public class ClassUtil {
     }
 
     /**
-     *
-     *
      * @param startClass
      * @param exclusiveParent
      * @return
@@ -56,12 +54,11 @@ public class ClassUtil {
     }
 
     /**
-     *
      * @param clazz
      * @return
      */
     public static boolean isPrimitiveType(Class<?> clazz) {
-        if(clazz != null) {
+        if (clazz != null) {
             return clazz.isPrimitive() ||
                     clazz.isEnum() ||
                     Number.class.isAssignableFrom(clazz) ||
@@ -75,7 +72,6 @@ public class ClassUtil {
     }
 
     /**
-     *
      * @param clazz
      * @return
      */
@@ -89,14 +85,13 @@ public class ClassUtil {
     }
 
     /**
-     *
      * @param instanceType
      * @return
      */
     public static List<PropertyDescriptor> getReadableProperties(Class<?> instanceType) {
         List<PropertyDescriptor> result = new ArrayList<PropertyDescriptor>();
-        for(PropertyDescriptor descriptor : PropertyUtils.getPropertyDescriptors(instanceType)) {
-            if(descriptor.getReadMethod() != null && !descriptor.getName().equals("class")) {
+        for (PropertyDescriptor descriptor : PropertyUtils.getPropertyDescriptors(instanceType)) {
+            if (descriptor.getReadMethod() != null && !descriptor.getName().equals("class")) {
                 result.add(descriptor);
             }
         }
@@ -105,14 +100,13 @@ public class ClassUtil {
     }
 
     /**
-     *
      * @param instanceType
      * @return
      */
     public static Map<String, PropertyDescriptor> getReadablePropertiesAsMap(Class<?> instanceType) {
         Map<String, PropertyDescriptor> result = new HashMap<String, PropertyDescriptor>();
-        for(PropertyDescriptor descriptor : PropertyUtils.getPropertyDescriptors(instanceType)) {
-            if(descriptor.getReadMethod() != null && !descriptor.getName().equals("class")) {
+        for (PropertyDescriptor descriptor : PropertyUtils.getPropertyDescriptors(instanceType)) {
+            if (descriptor.getReadMethod() != null && !descriptor.getName().equals("class")) {
                 result.put(descriptor.getName(), descriptor);
             }
         }
@@ -121,14 +115,13 @@ public class ClassUtil {
     }
 
     /**
-     *
      * @param name
      * @param instanceType
      * @return
      */
     public static PropertyDescriptor getReadableProperty(String name, Class<?> instanceType) {
-        for(PropertyDescriptor descriptor : getReadableProperties(instanceType)) {
-            if(descriptor.getName().equals(name) && descriptor.getReadMethod() != null && !descriptor.getName().equals("class")) {
+        for (PropertyDescriptor descriptor : getReadableProperties(instanceType)) {
+            if (descriptor.getName().equals(name) && descriptor.getReadMethod() != null && !descriptor.getName().equals("class")) {
                 return descriptor;
             }
         }
@@ -140,11 +133,11 @@ public class ClassUtil {
      * Gets the class of a generic instance.
      *
      * @param instance instance to return the class for
-     * @param <T> type of class
+     * @param <T>      type of class
      * @return class of the generic instance
      */
     public static <T> Class<T> loadClass(T instance) {
-        if(instance != null) {
+        if (instance != null) {
             return (Class<T>) instance.getClass();
         }
 

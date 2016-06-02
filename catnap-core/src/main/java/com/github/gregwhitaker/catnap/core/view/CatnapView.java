@@ -39,27 +39,30 @@ public abstract class CatnapView {
 
     /**
      * Renders a successful response.
-     * @param value model object to render
+     *
+     * @param value        model object to render
      * @param outputStream response outputstream to write the rendered response
-     * @param context context information used during rendering of the response
+     * @param context      context information used during rendering of the response
      * @throws Exception
      */
     protected abstract void render(Object value, OutputStream outputStream, CatnapContext context) throws Exception;
 
     /**
      * Renders an error response.
-     * @param value model object to render
+     *
+     * @param value        model object to render
      * @param outputStream response outputstream to write the rendered response
-     * @param context context information used during rendering of the response
+     * @param context      context information used during rendering of the response
      * @throws Exception
      */
     protected abstract void renderError(Object value, OutputStream outputStream, CatnapContext context) throws Exception;
 
     /**
      * Renders a response.
-     * @param request {@link javax.servlet.http.HttpServletRequest} to use during rendering
+     *
+     * @param request  {@link javax.servlet.http.HttpServletRequest} to use during rendering
      * @param response {@link javax.servlet.http.HttpServletResponse} to use during rendering
-     * @param value model object to render
+     * @param value    model object to render
      * @throws Exception
      */
     public final void render(HttpServletRequest request, HttpServletResponse response, Object value) throws Exception {
@@ -68,14 +71,15 @@ public abstract class CatnapView {
 
     /**
      * Renders a response with the specified HTTP status.
-     * @param request {@link javax.servlet.http.HttpServletRequest} to use during rendering
-     * @param response {@link javax.servlet.http.HttpServletResponse} to use during rendering
-     * @param value model object to render
+     *
+     * @param request    {@link javax.servlet.http.HttpServletRequest} to use during rendering
+     * @param response   {@link javax.servlet.http.HttpServletResponse} to use during rendering
+     * @param value      model object to render
      * @param httpStatus http status to return on the response
      * @throws Exception
      */
     public final void render(HttpServletRequest request, HttpServletResponse response, Object value, HttpStatus httpStatus) throws Exception {
-        if(httpStatus == HttpStatus.OK) {
+        if (httpStatus == HttpStatus.OK) {
             render(value, response.getOutputStream(), new CatnapContext(request, response, queryBuilder, httpStatus));
         } else {
             renderError(value, response.getOutputStream(), new CatnapContext(request, response, queryBuilder, httpStatus));

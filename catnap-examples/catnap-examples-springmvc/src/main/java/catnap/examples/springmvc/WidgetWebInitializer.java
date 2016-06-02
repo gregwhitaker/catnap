@@ -27,11 +27,11 @@ public class WidgetWebInitializer extends AbstractAnnotationConfigDispatcherServ
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[] { WidgetConfiguration.class };
+        return new Class<?>[]{WidgetConfiguration.class};
     }
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] { "/" };
+        return new String[]{"/"};
     }
 }

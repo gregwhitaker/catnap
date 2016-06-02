@@ -1,8 +1,8 @@
 package com.github.gregwhitaker.catnap.core.query.processor;
 
+import com.github.gregwhitaker.catnap.core.query.model.CatnapQuery;
 import com.github.gregwhitaker.catnap.core.query.model.Expression;
 import com.github.gregwhitaker.catnap.core.query.model.Query;
-import com.github.gregwhitaker.catnap.core.query.model.CatnapQuery;
 import org.junit.Test;
 
 import java.util.List;

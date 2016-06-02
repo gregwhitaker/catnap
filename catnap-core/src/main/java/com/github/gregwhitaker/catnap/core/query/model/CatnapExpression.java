@@ -25,7 +25,6 @@ public abstract class CatnapExpression implements Expression {
     protected String operand;
 
     /**
-     *
      * @param field
      * @param operator
      * @param operand

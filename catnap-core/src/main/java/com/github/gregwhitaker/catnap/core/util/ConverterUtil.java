@@ -73,8 +73,8 @@ public final class ConverterUtil {
 
     static {
         //Load Converters
-        for(Method method : ConverterUtil.class.getDeclaredMethods()) {
-            if(method.getName() != "convert") {
+        for (Method method : ConverterUtil.class.getDeclaredMethods()) {
+            if (method.getName() != "convert") {
                 CONVERTERS.put(new ConverterLookupKey(method.getParameterTypes()[0], method.getReturnType()), method);
             }
         }
@@ -86,24 +86,25 @@ public final class ConverterUtil {
 
     /**
      * Converts the supplied value to the supplied type.
-     * @param value the value to convert
+     *
+     * @param value   the value to convert
      * @param toClazz the type to which to convert
-     * @param <T> the type to which to convert
+     * @param <T>     the type to which to convert
      * @return
      */
     public static <T> T convert(Object value, Class<T> toClazz) {
-        if(value == null) {
+        if (value == null) {
             return null;
         }
 
         //If we can straight up cast then just go ahead and do it.
-        if(toClazz.isAssignableFrom(value.getClass())) {
+        if (toClazz.isAssignableFrom(value.getClass())) {
             return toClazz.cast(value);
         }
 
         Method converter = CONVERTERS.get(new ConverterLookupKey(value.getClass(), toClazz));
 
-        if(converter == null) {
+        if (converter == null) {
             throw new UnsupportedOperationException(String.format("Converter that supports converting " +
                     "from [%s] to [%s] does not exist.", value.getClass().getName(), toClazz.getName()));
         }
@@ -118,6 +119,7 @@ public final class ConverterUtil {
 
     /**
      * Converts {@link java.lang.String} to {@link java.lang.Byte}
+     *
      * @param value String value to be converted
      * @return converted Byte
      */
@@ -127,6 +129,7 @@ public final class ConverterUtil {
 
     /**
      * Converts {@link java.lang.String} to {@link java.lang.Double}
+     *
      * @param value String value to be converted
      * @return converted Double
      */
@@ -136,6 +139,7 @@ public final class ConverterUtil {
 
     /**
      * Converts {@link java.lang.String} to {@link java.lang.Float}
+     *
      * @param value String value to be converted
      * @return converted Float
      */
@@ -145,6 +149,7 @@ public final class ConverterUtil {
 
     /**
      * Converts {@link java.lang.String} to {@link java.lang.Integer}
+     *
      * @param value String value to be converted
      * @return converted Integer
      */
@@ -154,6 +159,7 @@ public final class ConverterUtil {
 
     /**
      * Converts {@link java.lang.String} to {@link java.lang.Long}
+     *
      * @param value String value to be converted
      * @return converted Long
      */
@@ -163,6 +169,7 @@ public final class ConverterUtil {
 
     /**
      * Converts {@link java.lang.String} to {@link java.lang.Short}
+     *
      * @param value String value to be converted
      * @return converted Short
      */
@@ -172,6 +179,7 @@ public final class ConverterUtil {
 
     /**
      * Converts {@link java.lang.String} to {@link java.math.BigDecimal}
+     *
      * @param value String value to be converted
      * @return converted BigDecimal
      */
@@ -181,6 +189,7 @@ public final class ConverterUtil {
 
     /**
      * Converts {@link java.lang.String} to {@link java.math.BigInteger}
+     *
      * @param value String value to be converted
      * @return converted BigInteger
      */
@@ -190,11 +199,12 @@ public final class ConverterUtil {
 
     /**
      * Converts {@link java.lang.String} to {@link java.lang.Boolean}
+     *
      * @param value String value to be converted
      * @return converted Boolean
      */
     public static Boolean toBoolean(String value) {
-        if(value.equalsIgnoreCase("true") ||
+        if (value.equalsIgnoreCase("true") ||
                 value.equalsIgnoreCase("T") ||
                 value.equalsIgnoreCase("1")) {
             return true;

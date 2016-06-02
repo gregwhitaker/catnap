@@ -25,18 +25,26 @@ public class AnnotationComparatorTest {
         private String first = "first";
         private String second = "second";
 
-        public String getFirst() { return first; }
+        public String getFirst() {
+            return first;
+        }
 
-        public String getSecond() { return second; }
+        public String getSecond() {
+            return second;
+        }
     }
 
     static class BeanWithoutOrderAnnotation {
         private String first = "first";
         private String second = "second";
 
-        public String getFirst() { return first; }
+        public String getFirst() {
+            return first;
+        }
 
-        public String getSecond() { return second; }
+        public String getSecond() {
+            return second;
+        }
     }
 
     @JsonPropertyOrder(value = {
@@ -50,15 +58,25 @@ public class AnnotationComparatorTest {
         private String orphanB = "orphanB";
         private String orphanA = "orphanA";
 
-        public String getFirst() { return first; }
+        public String getFirst() {
+            return first;
+        }
 
-        public String getSecond() { return second; }
+        public String getSecond() {
+            return second;
+        }
 
-        public String getOrphanC() { return orphanC; }
+        public String getOrphanC() {
+            return orphanC;
+        }
 
-        public String getOrphanB() { return orphanB; }
+        public String getOrphanB() {
+            return orphanB;
+        }
 
-        public String getOrphanA() { return orphanA; }
+        public String getOrphanA() {
+            return orphanA;
+        }
     }
 
     @Test

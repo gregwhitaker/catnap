@@ -22,7 +22,6 @@ package com.github.gregwhitaker.catnap.core.exception;
 public class QuerySyntaxException extends CatnapException {
 
     /**
-     *
      * @param message
      */
     public QuerySyntaxException(String message) {
@@ -30,7 +29,6 @@ public class QuerySyntaxException extends CatnapException {
     }
 
     /**
-     *
      * @param expression
      * @param message
      */

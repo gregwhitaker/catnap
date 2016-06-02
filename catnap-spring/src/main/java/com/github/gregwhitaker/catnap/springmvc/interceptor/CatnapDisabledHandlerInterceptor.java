@@ -35,7 +35,7 @@ public class CatnapDisabledHandlerInterceptor extends HandlerInterceptorAdapter 
             throws Exception {
         HandlerMethod method = (HandlerMethod) handler;
 
-        if(method.getMethodAnnotation(CatnapDisabled.class) != null) {
+        if (method.getMethodAnnotation(CatnapDisabled.class) != null) {
             RequestUtil.disableCatnap(request);
         }
     }

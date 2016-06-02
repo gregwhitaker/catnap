@@ -26,8 +26,8 @@ import com.github.gregwhitaker.catnap.core.model.DefaultMapBackedModel;
 import com.github.gregwhitaker.catnap.core.model.Model;
 import com.github.gregwhitaker.catnap.core.model.builder.DefaultModelBuilder;
 import com.github.gregwhitaker.catnap.core.model.builder.ModelBuilder;
-import com.github.gregwhitaker.catnap.core.query.builder.QueryBuilder;
 import com.github.gregwhitaker.catnap.core.query.builder.CatnapQueryBuilder;
+import com.github.gregwhitaker.catnap.core.query.builder.QueryBuilder;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.OutputStream;
@@ -55,12 +55,12 @@ public class JsonpCatnapView extends CatnapView {
 
         JsonGenerator generator = objectMapper.getFactory().createGenerator(outputStream, JsonEncoding.UTF8);
 
-        if(!context.isCatnapDisabled()) {
+        if (!context.isCatnapDisabled()) {
             Model<?> model = modelBuilder.build(value, context);
 
             //If the request was successful, but the query results in no fields being returned, we need to set the
             //wrapped http status to show that we succeeded, but are not returning content.
-            if(!model.isEmpty()) {
+            if (!model.isEmpty()) {
                 generator.writeRaw(callback(context) + "(");
                 generator.writeObject(new JsonpResponse(context.getHttpStatus().value(), model.getResult()));
                 generator.writeRaw(");");
@@ -72,7 +72,7 @@ public class JsonpCatnapView extends CatnapView {
         } else {
             //Catnap has been disabled for this request so go ahead and just render the original
             //model without evaluating the Catnap query
-            if(value != null) {
+            if (value != null) {
                 generator.writeRaw(callback(context) + "(");
                 generator.writeObject(new JsonpResponse(context.getHttpStatus().value(), value));
                 generator.writeRaw(");");
@@ -103,6 +103,7 @@ public class JsonpCatnapView extends CatnapView {
      * Retrieves the JSONP callback method name from the context.  If the callback name was supplied as a query
      * parameter this method prevents the name from containing characters that could be used to inject scripts as
      * part of a XSS attack.
+     *
      * @param context render context
      * @return JSONP callback name supplied in the callback query parameter or the default
      * if no callback query parameter is defined.
@@ -110,11 +111,11 @@ public class JsonpCatnapView extends CatnapView {
     private String callback(CatnapContext context) {
         String callback = DEFAULT_CALLBACK;
 
-        if(StringUtils.isNotBlank(context.getRequest().getParameter(CALLBACK_PARAMETER))) {
+        if (StringUtils.isNotBlank(context.getRequest().getParameter(CALLBACK_PARAMETER))) {
             String paramValue = context.getRequest().getParameter(CALLBACK_PARAMETER);
 
             //Prevent XSS attacks
-            if(SAFE_CALLBACK_PATTERN.matcher(paramValue).matches()) {
+            if (SAFE_CALLBACK_PATTERN.matcher(paramValue).matches()) {
                 callback = paramValue;
             } else {
                 throw new CatnapException("Invalid characters in jsonp callback");
@@ -165,6 +166,7 @@ public class JsonpCatnapView extends CatnapView {
 
         /**
          * Sets the {@link QueryBuilder} to be used by this view.
+         *
          * @param queryBuilder {@link QueryBuilder} used by this view to create Catnap queries.
          * @return this {@link Builder} instance
          */
@@ -175,6 +177,7 @@ public class JsonpCatnapView extends CatnapView {
 
         /**
          * Sets the {@link ModelBuilder} to be used by this view.
+         *
          * @param modelBuilder {@link ModelBuilder} used by this view to create Catnap models.
          * @return this {@link Builder} instance
          */
@@ -185,6 +188,7 @@ public class JsonpCatnapView extends CatnapView {
 
         /**
          * Sets the {@link com.fasterxml.jackson.databind.ObjectMapper} to be used by this view.
+         *
          * @param objectMapper {@link com.fasterxml.jackson.databind.ObjectMapper} used by this view to serialize models to Json.
          * @return this {@link Builder} instance
          */

@@ -28,7 +28,7 @@ public interface ModelBuilder {
      * Builds a model to render.
      *
      * @param instance the object to render
-     * @param context catnap rendering context
+     * @param context  catnap rendering context
      * @return catnapped model
      */
     Model<?> build(Object instance, CatnapContext context);

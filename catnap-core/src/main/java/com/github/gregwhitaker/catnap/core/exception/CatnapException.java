@@ -22,7 +22,6 @@ package com.github.gregwhitaker.catnap.core.exception;
 public class CatnapException extends RuntimeException {
 
     /**
-     *
      * @param message
      */
     public CatnapException(String message) {
@@ -30,7 +29,6 @@ public class CatnapException extends RuntimeException {
     }
 
     /**
-     *
      * @param message
      * @param throwable
      */

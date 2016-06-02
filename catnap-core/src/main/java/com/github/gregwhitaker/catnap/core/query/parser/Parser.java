@@ -21,13 +21,10 @@ import com.github.gregwhitaker.catnap.core.query.QuerySyntax;
 import com.github.gregwhitaker.catnap.core.query.model.Query;
 
 /**
- *
  * @param <T>
  */
-public interface Parser<T extends Query>
-{
+public interface Parser<T extends Query> {
     /**
-     *
      * @param expression
      * @return
      * @throws QuerySyntaxException
@@ -35,7 +32,6 @@ public interface Parser<T extends Query>
     T parse(String expression) throws QuerySyntaxException;
 
     /**
-     *
      * @return
      */
     QuerySyntax getSyntax();

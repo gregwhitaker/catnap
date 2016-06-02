@@ -22,8 +22,7 @@ import com.github.gregwhitaker.catnap.core.view.CatnapView;
  * Interface that links a {@link CatnapView} and a Spring {@link org.springframework.web.servlet.View}
  * implementation.
  */
-public interface WrappingView<T extends CatnapView>
-{
+public interface WrappingView<T extends CatnapView> {
     /**
      * @return the underlying {@link CatnapView} implementation wrapped by this view.
      */

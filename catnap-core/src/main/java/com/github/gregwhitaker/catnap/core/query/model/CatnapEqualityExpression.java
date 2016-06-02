@@ -54,8 +54,8 @@ public class CatnapEqualityExpression extends CatnapExpression {
 
     @Override
     public boolean evaluate(Property leftOperand) {
-        if(leftOperand.isPrimitive()) {
-            switch((EqualityOperator) getOperator()) {
+        if (leftOperand.isPrimitive()) {
+            switch ((EqualityOperator) getOperator()) {
                 case EQUAL:
                     return isEqual(leftOperand.getValue());
                 case NOT_EQUAL:
@@ -77,25 +77,25 @@ public class CatnapEqualityExpression extends CatnapExpression {
     }
 
     private boolean isEqual(Object value) {
-        if(String.class.isAssignableFrom(value.getClass())) {
+        if (String.class.isAssignableFrom(value.getClass())) {
             return value.equals(getOperand());
-        } else if(Boolean.class.isAssignableFrom(value.getClass())) {
+        } else if (Boolean.class.isAssignableFrom(value.getClass())) {
             return (((Boolean) value).compareTo(ConverterUtil.convert(getOperand(), Boolean.class)) == 0) ? true : false;
-        } else if(Integer.class.isAssignableFrom(value.getClass())) {
+        } else if (Integer.class.isAssignableFrom(value.getClass())) {
             return (((Integer) value).compareTo(ConverterUtil.convert(getOperand(), Integer.class)) == 0) ? true : false;
-        } else if(Double.class.isAssignableFrom(value.getClass())) {
+        } else if (Double.class.isAssignableFrom(value.getClass())) {
             return (((Double) value).compareTo(ConverterUtil.convert(getOperand(), Double.class)) == 0) ? true : false;
-        } else if(Byte.class.isAssignableFrom(value.getClass())) {
+        } else if (Byte.class.isAssignableFrom(value.getClass())) {
             return (((Byte) value).compareTo(ConverterUtil.convert(getOperand(), Byte.class)) == 0) ? true : false;
-        } else if(Float.class.isAssignableFrom(value.getClass())) {
+        } else if (Float.class.isAssignableFrom(value.getClass())) {
             return (((Float) value).compareTo(ConverterUtil.convert(getOperand(), Float.class)) == 0) ? true : false;
-        } else if(Long.class.isAssignableFrom(value.getClass())) {
+        } else if (Long.class.isAssignableFrom(value.getClass())) {
             return (((Long) value).compareTo(ConverterUtil.convert(getOperand(), Long.class)) == 0) ? true : false;
-        } else if(Short.class.isAssignableFrom(value.getClass())) {
+        } else if (Short.class.isAssignableFrom(value.getClass())) {
             return (((Short) value).compareTo(ConverterUtil.convert(getOperand(), Short.class)) == 0) ? true : false;
-        } else if(BigDecimal.class.isAssignableFrom(value.getClass())) {
+        } else if (BigDecimal.class.isAssignableFrom(value.getClass())) {
             return (((BigDecimal) value).compareTo(ConverterUtil.convert(getOperand(), BigDecimal.class)) == 0) ? true : false;
-        } else if(BigInteger.class.isAssignableFrom(value.getClass())) {
+        } else if (BigInteger.class.isAssignableFrom(value.getClass())) {
             return (((BigInteger) value).compareTo(ConverterUtil.convert(getOperand(), BigInteger.class)) == 0) ? true : false;
         }
 
@@ -103,25 +103,25 @@ public class CatnapEqualityExpression extends CatnapExpression {
     }
 
     private boolean isNotEqual(Object value) {
-        if(String.class.isAssignableFrom(value.getClass())) {
+        if (String.class.isAssignableFrom(value.getClass())) {
             return !value.equals(getOperand());
-        } else if(Boolean.class.isAssignableFrom(value.getClass())) {
+        } else if (Boolean.class.isAssignableFrom(value.getClass())) {
             return (((Boolean) value).compareTo(ConverterUtil.convert(getOperand(), Boolean.class)) != 0) ? true : false;
-        } else if(Integer.class.isAssignableFrom(value.getClass())) {
+        } else if (Integer.class.isAssignableFrom(value.getClass())) {
             return (((Integer) value).compareTo(ConverterUtil.convert(getOperand(), Integer.class)) != 0) ? true : false;
-        } else if(Double.class.isAssignableFrom(value.getClass())) {
+        } else if (Double.class.isAssignableFrom(value.getClass())) {
             return (((Double) value).compareTo(ConverterUtil.convert(getOperand(), Double.class)) != 0) ? true : false;
-        } else if(Byte.class.isAssignableFrom(value.getClass())) {
+        } else if (Byte.class.isAssignableFrom(value.getClass())) {
             return (((Byte) value).compareTo(ConverterUtil.convert(getOperand(), Byte.class)) != 0) ? true : false;
-        } else if(Float.class.isAssignableFrom(value.getClass())) {
+        } else if (Float.class.isAssignableFrom(value.getClass())) {
             return (((Float) value).compareTo(ConverterUtil.convert(getOperand(), Float.class)) != 0) ? true : false;
-        } else if(Long.class.isAssignableFrom(value.getClass())) {
+        } else if (Long.class.isAssignableFrom(value.getClass())) {
             return (((Long) value).compareTo(ConverterUtil.convert(getOperand(), Long.class)) != 0) ? true : false;
-        } else if(Short.class.isAssignableFrom(value.getClass())) {
+        } else if (Short.class.isAssignableFrom(value.getClass())) {
             return (((Short) value).compareTo(ConverterUtil.convert(getOperand(), Short.class)) != 0) ? true : false;
-        } else if(BigDecimal.class.isAssignableFrom(value.getClass())) {
+        } else if (BigDecimal.class.isAssignableFrom(value.getClass())) {
             return (((BigDecimal) value).compareTo(ConverterUtil.convert(getOperand(), BigDecimal.class)) != 0) ? true : false;
-        } else if(BigInteger.class.isAssignableFrom(value.getClass())) {
+        } else if (BigInteger.class.isAssignableFrom(value.getClass())) {
             return (((BigInteger) value).compareTo(ConverterUtil.convert(getOperand(), BigInteger.class)) != 0) ? true : false;
         }
 
@@ -129,23 +129,23 @@ public class CatnapEqualityExpression extends CatnapExpression {
     }
 
     private boolean isLessThan(Object value) {
-        if(String.class.isAssignableFrom(value.getClass())) {
+        if (String.class.isAssignableFrom(value.getClass())) {
             return (((String) value).compareTo(getOperand()) < 0) ? true : false;
-        } else if(Integer.class.isAssignableFrom(value.getClass())) {
+        } else if (Integer.class.isAssignableFrom(value.getClass())) {
             return (((Integer) value).compareTo(ConverterUtil.convert(getOperand(), Integer.class)) < 0) ? true : false;
-        } else if(Double.class.isAssignableFrom(value.getClass())) {
+        } else if (Double.class.isAssignableFrom(value.getClass())) {
             return (((Double) value).compareTo(ConverterUtil.convert(getOperand(), Double.class)) < 0) ? true : false;
-        } else if(Byte.class.isAssignableFrom(value.getClass())) {
+        } else if (Byte.class.isAssignableFrom(value.getClass())) {
             return (((Byte) value).compareTo(ConverterUtil.convert(getOperand(), Byte.class)) < 0) ? true : false;
-        } else if(Float.class.isAssignableFrom(value.getClass())) {
+        } else if (Float.class.isAssignableFrom(value.getClass())) {
             return (((Float) value).compareTo(ConverterUtil.convert(getOperand(), Float.class)) < 0) ? true : false;
-        } else if(Long.class.isAssignableFrom(value.getClass())) {
+        } else if (Long.class.isAssignableFrom(value.getClass())) {
             return (((Long) value).compareTo(ConverterUtil.convert(getOperand(), Long.class)) < 0) ? true : false;
-        } else if(Short.class.isAssignableFrom(value.getClass())) {
+        } else if (Short.class.isAssignableFrom(value.getClass())) {
             return (((Short) value).compareTo(ConverterUtil.convert(getOperand(), Short.class)) < 0) ? true : false;
-        } else if(BigDecimal.class.isAssignableFrom(value.getClass())) {
+        } else if (BigDecimal.class.isAssignableFrom(value.getClass())) {
             return (((BigDecimal) value).compareTo(ConverterUtil.convert(getOperand(), BigDecimal.class)) < 0) ? true : false;
-        } else if(BigInteger.class.isAssignableFrom(value.getClass())) {
+        } else if (BigInteger.class.isAssignableFrom(value.getClass())) {
             return (((BigInteger) value).compareTo(ConverterUtil.convert(getOperand(), BigInteger.class)) < 0) ? true : false;
         }
 
@@ -153,23 +153,23 @@ public class CatnapEqualityExpression extends CatnapExpression {
     }
 
     private boolean isGreaterThan(Object value) {
-        if(String.class.isAssignableFrom(value.getClass())) {
+        if (String.class.isAssignableFrom(value.getClass())) {
             return (((String) value).compareTo(getOperand()) > 0) ? true : false;
-        } else if(Integer.class.isAssignableFrom(value.getClass())) {
+        } else if (Integer.class.isAssignableFrom(value.getClass())) {
             return (((Integer) value).compareTo(ConverterUtil.convert(getOperand(), Integer.class)) > 0) ? true : false;
-        } else if(Double.class.isAssignableFrom(value.getClass())) {
+        } else if (Double.class.isAssignableFrom(value.getClass())) {
             return (((Double) value).compareTo(ConverterUtil.convert(getOperand(), Double.class)) > 0) ? true : false;
-        } else if(Byte.class.isAssignableFrom(value.getClass())) {
+        } else if (Byte.class.isAssignableFrom(value.getClass())) {
             return (((Byte) value).compareTo(ConverterUtil.convert(getOperand(), Byte.class)) > 0) ? true : false;
-        } else if(Float.class.isAssignableFrom(value.getClass())) {
+        } else if (Float.class.isAssignableFrom(value.getClass())) {
             return (((Float) value).compareTo(ConverterUtil.convert(getOperand(), Float.class)) > 0) ? true : false;
-        } else if(Long.class.isAssignableFrom(value.getClass())) {
+        } else if (Long.class.isAssignableFrom(value.getClass())) {
             return (((Long) value).compareTo(ConverterUtil.convert(getOperand(), Long.class)) > 0) ? true : false;
-        } else if(Short.class.isAssignableFrom(value.getClass())) {
+        } else if (Short.class.isAssignableFrom(value.getClass())) {
             return (((Short) value).compareTo(ConverterUtil.convert(getOperand(), Short.class)) > 0) ? true : false;
-        } else if(BigDecimal.class.isAssignableFrom(value.getClass())) {
+        } else if (BigDecimal.class.isAssignableFrom(value.getClass())) {
             return (((BigDecimal) value).compareTo(ConverterUtil.convert(getOperand(), BigDecimal.class)) > 0) ? true : false;
-        } else if(BigInteger.class.isAssignableFrom(value.getClass())) {
+        } else if (BigInteger.class.isAssignableFrom(value.getClass())) {
             return (((BigInteger) value).compareTo(ConverterUtil.convert(getOperand(), BigInteger.class)) > 0) ? true : false;
         }
 

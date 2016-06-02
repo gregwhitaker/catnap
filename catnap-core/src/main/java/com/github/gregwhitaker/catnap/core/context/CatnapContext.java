@@ -35,7 +35,6 @@ public class CatnapContext {
     private final boolean catnapDisabled;
 
     /**
-     *
      * @param request
      * @param response
      * @param queryBuilder
@@ -45,7 +44,6 @@ public class CatnapContext {
     }
 
     /**
-     *
      * @param request
      * @param response
      * @param queryBuilder
@@ -61,7 +59,6 @@ public class CatnapContext {
     }
 
     /**
-     *
      * @return
      */
     public HttpServletRequest getRequest() {
@@ -69,7 +66,6 @@ public class CatnapContext {
     }
 
     /**
-     *
      * @return
      */
     public HttpServletResponse getResponse() {
@@ -77,7 +73,6 @@ public class CatnapContext {
     }
 
     /**
-     *
      * @return
      */
     public Query getQuery() {
@@ -85,7 +80,6 @@ public class CatnapContext {
     }
 
     /**
-     *
      * @return
      */
     public HttpStatus getHttpStatus() {
@@ -93,7 +87,6 @@ public class CatnapContext {
     }
 
     /**
-     *
      * @return
      */
     public boolean isCatnapDisabled() {

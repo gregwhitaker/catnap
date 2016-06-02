@@ -27,7 +27,7 @@ import javax.ws.rs.ext.Provider;
 @Provider
 @Produces("application/x-javascript")
 public class JsonpCatnapMessageBodyWriter extends CatnapMessageBodyWriter<JsonpCatnapView> {
-    
+
     /**
      * Initializes this MessageBodyWriter with the default configuration of
      * the {@link JsonpCatnapView}.

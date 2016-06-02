@@ -17,8 +17,8 @@
 package com.github.gregwhitaker.catnap.core.query.processor;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.github.gregwhitaker.catnap.core.query.model.Query;
 import com.github.gregwhitaker.catnap.core.query.model.CatnapQuery;
+import com.github.gregwhitaker.catnap.core.query.model.Query;
 import com.github.gregwhitaker.catnap.core.util.ClassUtil;
 
 import java.beans.PropertyDescriptor;

@@ -41,13 +41,13 @@ public class CatnapResponseBodyHandlerInterceptor extends HandlerInterceptorAdap
             throws Exception {
         HandlerMethod method = (HandlerMethod) handler;
 
-        if(method.getMethodAnnotation(ResponseBody.class) == null) {
+        if (method.getMethodAnnotation(ResponseBody.class) == null) {
             CatnapResponseBody annotation = method.getMethodAnnotation(CatnapResponseBody.class);
 
-            if(annotation != null) {
+            if (annotation != null) {
                 String modelName = modelName(annotation, method);
 
-                if(modelAndView != null) {
+                if (modelAndView != null) {
                     //Transfer the model to a well known key so that we can retrieve it in the view.
                     Object model = modelAndView.getModel().get(modelName);
                     modelAndView.getModel().put(MODEL_NAME, model);
@@ -57,7 +57,7 @@ public class CatnapResponseBodyHandlerInterceptor extends HandlerInterceptorAdap
     }
 
     private String modelName(CatnapResponseBody annotation, HandlerMethod method) {
-        if(!StringUtils.isEmpty(annotation.value())) {
+        if (!StringUtils.isEmpty(annotation.value())) {
             return annotation.value();
         } else {
             if (List.class.isAssignableFrom(method.getReturnType().getParameterType())) {

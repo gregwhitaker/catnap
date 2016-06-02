@@ -16,10 +16,10 @@
 
 package com.github.gregwhitaker.catnap.core.query.builder;
 
-import com.github.gregwhitaker.catnap.core.query.model.Query;
 import com.github.gregwhitaker.catnap.core.query.model.CatnapQuery;
-import com.github.gregwhitaker.catnap.core.query.parser.Parser;
+import com.github.gregwhitaker.catnap.core.query.model.Query;
 import com.github.gregwhitaker.catnap.core.query.parser.CatnapParser;
+import com.github.gregwhitaker.catnap.core.query.parser.Parser;
 
 import javax.servlet.http.HttpServletRequest;
 

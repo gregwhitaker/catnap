@@ -3,10 +3,10 @@ catnap-examples
 
 Here are examples for configuring Catnap with a variety of web frameworks.
 
-Jersey
-RESTEasy
-Spring Boot
-SpringMVC
+* [Jersey](catnap-examples-jersey)
+* [RESTEasy](catnap-examples-resteasy)
+* [Spring Boot](catnap-examples-springboot)
+* [SpringMVC](catnap-examples-springmvc)
 
 ##Running the Examples
 

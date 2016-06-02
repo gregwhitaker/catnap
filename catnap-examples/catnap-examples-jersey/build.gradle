@@ -26,6 +26,8 @@ dependencies {
     compile project(":catnap-jaxrs")
 
     compile 'org.glassfish.jersey.containers:jersey-container-servlet'
+    compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.7.4'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.4'
 }
 
 gretty {

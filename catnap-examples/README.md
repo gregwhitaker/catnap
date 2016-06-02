@@ -1,12 +1,12 @@
 catnap-examples
 ===
 
-Here are examples for configuring Catnap with a variety of web frameworks.
+Catnap supports a variety of web frameworks.  The following links below are example applications showing how to configure Catnap.
 
 * [Jersey](catnap-examples-jersey)
 * [RESTEasy](catnap-examples-resteasy)
 * [Spring Boot](catnap-examples-springboot)
-* [SpringMVC](catnap-examples-springmvc)
+* [Spring MVC](catnap-examples-springmvc)
 
 ##Running the Examples
 

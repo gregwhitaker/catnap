@@ -1,14 +1,35 @@
-group 'com.github.gregwhitaker'
-version '1.0.0'
+apply plugin: 'war'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.akhikhl.gretty'
 
-apply plugin: 'java'
+buildscript {
+    repositories {
+        jcenter()
+    }
 
-sourceCompatibility = 1.5
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.glassfish.jersey:jersey-bom:2.23"
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    compile project(":catnap-jaxrs")
 
+    compile 'org.glassfish.jersey.containers:jersey-container-servlet'
+}
+
+gretty {
+    port = 8080
+    contextPath = '/'
+    servletContainer = 'jetty9'
 }

@@ -13,15 +13,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class WidgetPrices {
 
     private Double list;
-
     private Double sale;
-
     private Double msrp;
-
     private String formattedList;
-
     private String formattedSale;
-
     private String formattedMSRP;
 
     public Double getList() {

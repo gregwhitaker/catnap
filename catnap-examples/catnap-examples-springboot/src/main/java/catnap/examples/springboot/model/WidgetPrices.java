@@ -18,20 +18,6 @@ package catnap.examples.springboot.model;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Prices", propOrder = {
-        "list",
-        "sale",
-        "msrp",
-        "formattedList",
-        "formattedSale",
-        "formattedMSRP"
-})
 @JsonPropertyOrder(value = {
         "list",
         "sale",
@@ -42,22 +28,11 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class WidgetPrices {
 
-    @XmlElement(name = "List", required = true)
     private Double list;
-
-    @XmlElement(name = "Sale")
     private Double sale;
-
-    @XmlElement(name = "MSRP", required = true)
     private Double msrp;
-
-    @XmlElement(name = "FormattedList", required = true)
     private String formattedList;
-
-    @XmlElement(name = "FormattedSale")
     private String formattedSale;
-
-    @XmlElement(name = "FormattedMSRP", required = true)
     private String formattedMSRP;
 
     public Double getList() {

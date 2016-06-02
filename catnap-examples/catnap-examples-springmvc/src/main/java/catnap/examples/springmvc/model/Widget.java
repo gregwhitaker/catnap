@@ -20,27 +20,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
 import java.util.List;
 
-@XmlRootElement(name = "Widget")
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {
-        "id",
-        "name",
-        "longName",
-        "active",
-        "date",
-        "prices",
-        "images"
-})
 @JsonPropertyOrder(value = {
         "id",
         "name",
@@ -52,29 +34,13 @@ import java.util.List;
 })
 public class Widget {
 
-    @XmlElement(name = "Id", required = true)
     private String id;
-
-    @XmlElement(name = "Name", required = true)
     private String name;
-
-    @XmlElement(name = "LongName", required = true)
     private String longName;
-
-    @XmlElement(name = "Active", required = true)
     private boolean active;
-
-    @XmlElement(name = "ManufactureDate", required = true)
     private Date date;
-
-    @XmlElement(name = "Prices", required = true)
     private WidgetPrices prices;
-
-    @XmlElementWrapper(name = "Images", required = true)
-    @XmlElement(name = "Image")
     private List<WidgetImage> images;
-
-    @XmlTransient
     private String ignoredField1 = "This field should never be rendered as it is annotated with @JsonIgnore";
 
     public String getId() {

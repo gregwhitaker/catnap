@@ -19,19 +19,12 @@ import java.util.List;
 public class Widget {
 
     private String id;
-
     private String name;
-
     private String longName;
-
     private boolean active;
-
     private Date date;
-
     private WidgetPrices prices;
-
     private List<WidgetImage> images;
-
     private String ignoredField1 = "This field should never be rendered as it is annotated with @JsonIgnore";
 
     public String getId() {

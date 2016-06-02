@@ -18,20 +18,6 @@ package catnap.examples.resteasy.model;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
-@XmlRootElement(name = "Image")
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ProductImage", propOrder = {
-        "sortOrder",
-        "url",
-        "alt",
-        "type"
-})
 @JsonPropertyOrder(value = {
         "sortOrder",
         "url",
@@ -40,16 +26,9 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class WidgetImage {
 
-    @XmlElement(name = "SortOrder", required = true)
     private int sortOrder;
-
-    @XmlElement(name = "Url", required = true)
     private String url;
-
-    @XmlElement(name = "Alt", required = true)
     private String alt;
-
-    @XmlElement(name = "Type", required = true)
     private String type;
 
     public int getSortOrder() {

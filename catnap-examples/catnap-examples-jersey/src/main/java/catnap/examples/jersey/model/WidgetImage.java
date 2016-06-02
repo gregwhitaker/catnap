@@ -11,11 +11,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class WidgetImage {
 
     private int sortOrder;
-
     private String url;
-
     private String alt;
-
     private String type;
 
     public int getSortOrder() {

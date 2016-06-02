@@ -8,15 +8,11 @@ This example application exposes the following API for retrieving information ab
 
 ###Retrieve all Widgets
 
-```
-http://localhost:8080/widgets
-```
+* [http://localhost:8080/widgets](http://localhost:8080/widgets)
 
 ###Retrieve a Single Widget
 
-```
-http://localhost:8080/widgets/1
-```
+* [http://localhost:8080/widgets/1](http://localhost:8080/widgets/1)
 
 ##Example Queries
 
@@ -24,3 +20,33 @@ Catnap allows consumers a great deal of flexibility to return only the data in w
 API calls below are to illustrate the power of Catnap.  Feel free to play around with the examples and come up with your 
 own Catnap queries.
 
+###Retrieve Selected Fields
+This example will only retrieve the name of the widget and all of its images.
+
+* [http://localhost:8080/widgets/1?fields=name,images](http://localhost:8080/widgets/1?fields=name,images)
+
+```
+{
+  "name": "Widget 1",
+  "images": [
+    {
+      "sortOrder": 1,
+      "url": "http://gregwhitaker.github.com/catnap/widgets/1/images/large.png",
+      "alt": "Widget 1 Large",
+      "type": "large"
+    },
+    {
+      "sortOrder": 2,
+      "url": "http://gregwhitaker.github.com/catnap/widgets/1/images/medium.png",
+      "alt": "Widget 1 Medium",
+      "type": "medium"
+    },
+    {
+      "sortOrder": 3,
+      "url": "http://gregwhitaker.github.com/catnap/widgets/1/images/thumbnail.png",
+      "alt": "Widget 1 Thumbnail",
+      "type": "thumbnail"
+    }
+  ]
+}
+```

@@ -64,3 +64,21 @@ This example will only retrieve the name of the widget, the formatted list price
   }
 }
 ```
+
+###Retrieving Selected Fields with Conditionals
+This example will only retrieve the name of the widget and the url of the thumbnail image for the widget.
+
+* <a href="http://localhost:8080/widgets/1?fields=name,images(url)[type=thumbnail]">http://localhost:8080/widgets/1?fields=name,images(url)[type=thumbnail]</a>
+
+```
+{
+  "name": "Widget 1",
+  "images": [
+    {
+      "url": "http://gregwhitaker.github.com/catnap/widgets/1/images/thumbnail.png"
+    }
+  ]
+}
+```
+
+###Filtering Lists with Conditionals

@@ -50,3 +50,17 @@ This example will only retrieve the name of the widget and all of its images.
   ]
 }
 ```
+###Retrieving Selected Fields in Nested Objects
+This example will only retrieve the name of the widget, the formatted list price, and the formatted sale price.
+
+* <a href="http://localhost:8080/widgets/1?fields=name,prices(formattedList,formattedSale)">http://localhost:8080/widgets/1?fields=name,prices(formattedList,formattedSale)</a>
+
+```
+{
+  "name": "Widget 1",
+  "prices": {
+    "formattedList": "$35.99",
+    "formattedSale": "$30.00"
+  }
+}
+```

@@ -38,6 +38,11 @@ public class FieldDeclarationComparatorTest {
         }
 
         @Override
+        public String getRenderName() {
+            return getName();
+        }
+
+        @Override
         public Object getValue() {
             throw new UnsupportedOperationException();
         }

@@ -49,8 +49,7 @@ public class WidgetService {
      * @return a list of all {@link Widget}s in the system.
      */
     public List<Widget> getWidgets() {
-        List<Widget> widgetList = new ArrayList<>();
-        widgetList.addAll(widgets.values());
+        List<Widget> widgetList = new ArrayList<>(widgets.values());
         return widgetList;
     }
 

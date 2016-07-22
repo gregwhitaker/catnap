@@ -47,10 +47,8 @@ public class CatnapProperty<T> implements Property<T> {
             this.value = descriptor.getReadMethod().invoke(instance);
 
             if (this.value != null) {
-                // Checking to see if the iterable is an ArrayList created from Arrays.asList() because
-                // that method returns an immutable ArrayList and we need to mutate that thing so let's
-                // wrap it up in a plain ArrayList.
-                if (ClassUtil.isArraysArrayList(value.getClass())) {
+                // Need to defensively copy any iterable types since we are removing items when querying
+                if (Iterable.class.isAssignableFrom(value.getClass())) {
                     ArrayList<Object> wrapper = new ArrayList<>();
 
                     Iterable<?> iterable = (Iterable<?>) this.value;

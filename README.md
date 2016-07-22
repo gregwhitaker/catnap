@@ -1,7 +1,7 @@
 catnap
 ===
 
-![TravisCI](https://travis-ci.org/gregwhitaker/catnap.svg?branch=catnap2)
+[![Build Status](https://travis-ci.org/gregwhitaker/catnap.svg?branch=catnap2)](https://travis-ci.org/gregwhitaker/catnap)
 
 Catnap is a framework for supporting partial JSON, JSONP, and XML responses in RESTful web services by allowing users to supply arbitrary queries in the URL.
 

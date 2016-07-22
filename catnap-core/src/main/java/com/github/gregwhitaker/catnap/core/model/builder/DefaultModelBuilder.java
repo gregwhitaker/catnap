@@ -124,7 +124,7 @@ public class DefaultModelBuilder implements ModelBuilder {
                 continue;
             }
 
-            String name = property.getName();
+            String name = property.getRenderName();
 
             if (property.isPrimitive()) {
                 result.addValue(name, value);

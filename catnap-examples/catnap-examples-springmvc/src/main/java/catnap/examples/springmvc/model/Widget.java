@@ -77,7 +77,7 @@ public class Widget {
         this.active = active;
     }
 
-    @JsonProperty("manufactureDate")
+    //@JsonProperty("manufactureDate")
     public Date getDate() {
         return date;
     }

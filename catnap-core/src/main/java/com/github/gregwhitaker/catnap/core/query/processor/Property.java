@@ -30,6 +30,11 @@ public interface Property<T> {
     String getName();
 
     /**
+     * @return field name of the property when rendered
+     */
+    String getRenderName();
+
+    /**
      * @return value returned when calling the property's "getter"
      */
     Object getValue();

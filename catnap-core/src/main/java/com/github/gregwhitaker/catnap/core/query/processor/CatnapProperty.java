@@ -29,6 +29,7 @@ import java.util.ArrayList;
  */
 public class CatnapProperty<T> implements Property<T> {
     private String name;
+    private String renderName;
     private Object value;
     private boolean primitive = false;
     private Method readMethod;
@@ -38,7 +39,8 @@ public class CatnapProperty<T> implements Property<T> {
      * @param descriptor
      */
     public CatnapProperty(T instance, PropertyDescriptor descriptor) {
-        this.name = name(descriptor);
+        this.name = descriptor.getName();
+        this.renderName = renderName(descriptor);
         this.readMethod = descriptor.getReadMethod();
 
         try {
@@ -70,8 +72,7 @@ public class CatnapProperty<T> implements Property<T> {
         }
     }
 
-    private String name(PropertyDescriptor descriptor) {
-        //Catnap Support
+    private String renderName(PropertyDescriptor descriptor) {
         if (descriptor.getReadMethod().isAnnotationPresent(JsonProperty.class)) {
             JsonProperty annotation = descriptor.getReadMethod().getAnnotation(JsonProperty.class);
 
@@ -86,6 +87,11 @@ public class CatnapProperty<T> implements Property<T> {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String getRenderName() {
+        return renderName;
     }
 
     @Override

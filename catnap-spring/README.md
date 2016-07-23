@@ -1,2 +1,2 @@
-catnap-springmvc
+catnap-spring
 ===

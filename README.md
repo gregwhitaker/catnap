@@ -9,7 +9,7 @@ Catnap supports partial responses in the following web frameworks:
 
 * 	Spring Boot
 *   SpringMVC
-* 	Resteasy
+* 	RESTEasy
 * 	Jersey
 
 ##What is a partial response?
@@ -82,6 +82,11 @@ Catnap does not modify your returned response objects so your internal caching s
 5. The Catnap Model Builder walks the response object model and selects fields that match the query expression; building a map of the object as it goes.
 
 6. The Catnap View renders the object map built by the Model Builder to the wire.
+
+
+##Documentation
+
+Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki) for detailed documentation on how to get started using Catnap.
 
 ##License
 Copyright 2016 Greg Whitaker

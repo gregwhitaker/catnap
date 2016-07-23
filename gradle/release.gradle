@@ -1,15 +1,14 @@
-apply plugin: 'docker'
 apply plugin: 'maven'
-apply plugin: 'java'
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
 
 task versionArchives {
     description = "Creates a continuous-delivery friendly version number for the service"
-    def buildNumber = System.getenv('BUILD_NUMBER') ?: 0
 
     // Default to building SNAPSHOT versions unless the build was executed with the -PreleaseType={type} command line parameter
     if (project.hasProperty('releaseType')) {
         if (project.releaseType == 'release') {
-            project.ext.set("releaseVersion", "${project.version}." + buildNumber);
+            project.ext.set("releaseVersion", "${project.version}");
         } else if (project.releaseType == 'snapshot') {
             project.ext.set("releaseVersion", "${project.version}-SNAPSHOT");
         } else {
@@ -24,33 +23,41 @@ task versionArchives {
     project.version = "${releaseVersion}"
 }
 build.dependsOn versionArchives
-uploadArchives.dependsOn versionArchives
 
 jar {
     baseName = "${artifact}"
     version = "${releaseVersion}"
 }
 
-task processDocker(type: Copy) {
-    description = "Copies the Dockerfile and replaces tokens"
-    from("src/main/docker/Dockerfile") {
-        filter {
-            it.replaceAll('@@releaseVersion@@', project.releaseVersion)
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+
+            artifact sourcesJar
+            artifact javadocJar
         }
     }
-    into("build/libs/")
 }
-build.dependsOn processDocker
 
-task buildDocker(type: Docker, dependsOn: [processDocker, build]) {
-    description = "Packages the service as a Docker image"
-    push = false
-    applicationName = jar.baseName
-    dockerfile = file('build/libs/Dockerfile')
-    doFirst {
-        copy {
-            from jar
-            into stageDir
+bintray {
+    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+    key = project.hasProperty('bintrayKey') ? project.property('bintrayKey') : System.getenv('BINTRAY_KEY')
+    publications = ['maven']
+    pkg {
+        repo = 'maven'
+        name = "${artifact}"
+        userOrg = 'gregwhitaker'
+        desc = 'Partial JSON response framework for REST services'
+        websiteUrl = 'https://github.com/gregwhitaker/catnap'
+        issueTrackerUrl = 'https://github.com/gregwhitaker/catnap/issues'
+        vcsUrl = 'https://github.com/gregwhitaker/catnap.git'
+        licenses = ['Apache-2.0']
+        githubRepo = 'gregwhitaker/catnap'
+        githubReleaseNotesFile = 'CHANGELOG.md'
+
+        version {
+            name = "${releaseVersion}"
         }
     }
 }

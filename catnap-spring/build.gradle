@@ -1,6 +1,8 @@
+apply plugin: 'java'
+
+apply from: file('../gradle/codequality.gradle')
 apply from: file('../gradle/release.gradle')
 apply from: file('../gradle/convention.gradle')
-apply from: file('../gradle/codequality.gradle')
 
 apply plugin: 'io.spring.dependency-management'
 

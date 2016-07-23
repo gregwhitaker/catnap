@@ -30,5 +30,5 @@ tasks.withType(Test) {
 
 task wrapper(type: Wrapper) {
     description = "Creates a Gradle Wrapper"
-    gradleVersion = '2.11'
+    gradleVersion = '2.13'
 }

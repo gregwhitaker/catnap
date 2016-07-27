@@ -84,44 +84,5 @@ This example will only retrieve the name of the widget and the url of the thumbn
 ###Filtering Lists with Conditionals
 This example will only retrieve the name of the widget and the url of images with a sortOrder greater than or equal to 2.
 
-* <a href="http://localhost:8080/widgets?fields=name,images(sortOrder,url)[sortOrder>=2]">http://localhost:8080/widgets?fields=name,images(sortOrder,url)[sortOrder>=2]</a>
+* <a href="http://localhost:8080/widgets?fields=name,images(sortOrder,url)[sortOrder&gt=2]">http://localhost:8080/widgets?fields=name,images(sortOrder,url)[sortOrder>=2]</a>
 
-```
-[
-  {
-    "name": "Widget 1",
-    "images": [
-      {
-        "sortOrder": 2,
-        "url": "http://gregwhitaker.github.com/catnap/widgets/1/images/medium.png"
-      },
-      {
-        "sortOrder": 3,
-        "url": "http://gregwhitaker.github.com/catnap/widgets/1/images/thumbnail.png"
-      }
-    ]
-  },
-  {
-    "name": "Widget 2",
-    "images": [
-      {
-        "sortOrder": 2,
-        "url": "http://gregwhitaker.github.com/catnap/widgets/2/images/thumbnail.png"
-      }
-    ]
-  },
-  {
-    "name": "Widget 3",
-    "images": [
-      {
-        "sortOrder": 2,
-        "url": "http://gregwhitaker.github.com/catnap/widgets/3/images/medium.png"
-      },
-      {
-        "sortOrder": 3,
-        "url": "http://gregwhitaker.github.com/catnap/widgets/3/images/thumbnail.png"
-      }
-    ]
-  }
-]
-```

@@ -17,7 +17,7 @@ This example application exposes the following API for retrieving information ab
 ##Example Queries
 
 Catnap allows consumers a great deal of flexibility to return only the data in which they are interested.  The example
-API calls below are to illustrate the power of Catnap.  Feel free to play around with the examples and come up with your 
+API calls below illustrate the power of Catnap.  Feel free to play around with the examples and come up with your 
 own Catnap queries.
 
 ###Retrieve Selected Fields

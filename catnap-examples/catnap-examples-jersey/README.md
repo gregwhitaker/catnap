@@ -82,7 +82,7 @@ This example will only retrieve the name of the widget and the url of the thumbn
 ```
 
 ###Filtering Lists with Conditionals
-This example will only retrieve the name of the widget and the url of images with a sortOrder greater than or equal to 2.
+This example will only retrieve the name of the widget and the urls of images that have a sortOrder greater than or equal to 2.
 
 * <a href="http://localhost:8080/widgets?fields=name,images(sortOrder,url)[sortOrder&gt=2]">http://localhost:8080/widgets?fields=name,images(url)[sortOrder>=2]</a>
 

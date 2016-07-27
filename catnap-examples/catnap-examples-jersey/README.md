@@ -3,6 +3,13 @@ catnap-examples-jersey
 
 This example shows you how to configure Catnap view rendering with the Jersey web framework.
 
+##Running the Example
+Start the example by running the following command:
+
+```
+$ ./run.sh
+```
+
 ##API
 This example application exposes the following API for retrieving information about Widgets.
 

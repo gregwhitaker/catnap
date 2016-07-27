@@ -10,13 +10,13 @@ All notable changes to this project will be documented in this file.
 ##2.0.0
 ###Added
 
-* Initial Release
+* More documentation
+* Deployed artifacts to JCenter
 
 ###Changed
 
 * Removed support for partial XML responses (It wasn't super useful and caused a bunch of problems)
 * Moved the build process to Gradle
-* Deployed artifacts to JCenter
 
 ###Fixed
 

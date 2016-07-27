@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    compile project(":catnap-jaxrs")
+    compile 'com.github.gregwhitaker:catnap-jaxrs:2.0.0'
 
     compile('org.jboss.resteasy:resteasy-jaxrs:3.0.16.Final')
     compile('org.jboss.resteasy:resteasy-jaxb-provider:3.0.16.Final')

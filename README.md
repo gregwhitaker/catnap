@@ -61,30 +61,8 @@ For example, take the two responses below.  Both are requests for the same resou
         	}
     	]
 	}
-	
-##How does Catnap work?
-Catnap works at the view / response rendering layer of your application by forcing your chosen web framework's view rendering to delegate to Catnap, intercepting the returned object models, evaluating them against the query supplied in the URL, and serializing the fields that result from the evaluation of the query.  
 
-Catnap does not modify your returned response objects so your internal caching strategy does not need to be changed.  You can return full resource representations to Catnap, from cache, and Catnap will modify the response according to the query when it serializes the response to the wire.
-
-![catnap_flow](docs/images/catnap_flow.png)
-
-**Response Rendering Steps:**
-
-1. The web framework (Spring, Resteasy, or Jersey) receives a response to render.
-
-2. The web framework calls a Catnap view renderer that supports the requester's desired content type.  The manner in which this call is made depends on the web framework.
-
-3. The Catnap View Renderer calls query parsers to parse the Catnap query expression in the URL.
-
-4. The Catnap query processor maps the parsed query expression to properties on the response object.
-
-5. The Catnap Model Builder walks the response object model and selects fields that match the query expression; building a map of the object as it goes.
-
-6. The Catnap View renders the object map built by the Model Builder to the wire.
-
-
-##Documentation
+##Getting Started
 
 Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki) for detailed documentation on how to get started using Catnap.
 

@@ -14,8 +14,10 @@ All notable changes to this project will be documented in this file.
 
 ###Changed
 
-* *{Significant change to the project from the previous version}*
+* Removed support for partial XML responses (It wasn't super useful and caused a bunch of problems)
+* Moved the build process to Gradle
+* Deployed artifacts to JCenter
 
 ###Fixed
 
-* *{Significant bug fixed from a previous version}*
+* List items not rendering when subsequent calls made to same endpoint using different filter criteria

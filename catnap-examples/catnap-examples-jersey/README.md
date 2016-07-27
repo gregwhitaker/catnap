@@ -124,4 +124,4 @@ This example will only retrieve the name of the widget and the url of images wit
     ]
   }
 ]
-```
+````

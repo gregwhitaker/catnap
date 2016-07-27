@@ -88,6 +88,10 @@ Catnap does not modify your returned response objects so your internal caching s
 
 Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki) for detailed documentation on how to get started using Catnap.
 
+##Examples
+
+Please see the included [example projects](catnap-examples) for demonstrations on how to configure and use Catnap with all of the supported web frameworks.
+
 ##License
 Copyright 2016 Greg Whitaker
 

@@ -92,6 +92,10 @@ Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki) for detailed 
 
 Please see the included [example projects](catnap-examples) for demonstrations on how to configure and use Catnap with all of the supported web frameworks.
 
+## Bugs and Feedback
+
+For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/catnap/issues).
+
 ##License
 Copyright 2016 Greg Whitaker
 

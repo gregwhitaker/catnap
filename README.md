@@ -68,7 +68,7 @@ Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki) for detailed 
 
 ##Examples
 
-Please see the included [example projects](catnap-examples) for demonstrations on how to configure and use Catnap with all of the supported web frameworks.
+Please see the included [example projects](catnap-examples) for demonstrations on how to configure and use Catnap with the supported web frameworks.
 
 ## Bugs and Feedback
 

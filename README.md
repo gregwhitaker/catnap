@@ -64,11 +64,11 @@ For example, take the two responses below.  Both are requests for the same resou
 
 ##Getting Started
 
-Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki) for detailed documentation on how to get started using Catnap with your favorite web framework.
+Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki) for detailed documentation on how to get started using Catnap.
 
 ##Examples
 
-Please see the included [example projects](catnap-examples) for demonstrations on how to configure and use Catnap with the supported web frameworks.
+Please see the included [example projects](catnap-examples) for demonstrations on how to configure and use Catnap with your favorite web framework.
 
 ## Bugs and Feedback
 

@@ -61,6 +61,8 @@ For example, take the two responses below.  Both are requests for the same resou
         	}
     	]
 	}
+	
+As you can see the partial response is a significant reduction in payload size and message complexity.  By allowing the consumer of the API to specify the fields they are interested in you can significantly reduce the complexity of response messages as well as improve performance over the wire.
 
 ##Getting Started
 

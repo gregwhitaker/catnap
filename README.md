@@ -8,7 +8,7 @@ Catnap is a framework for supporting partial JSON and JSONP responses in RESTful
 Catnap supports partial responses in the following web frameworks:
 
 * 	Spring Boot
-*   SpringMVC
+* 	SpringMVC
 * 	RESTEasy
 * 	Jersey
 
@@ -63,6 +63,15 @@ For example, take the two responses below.  Both are requests for the same resou
 	}
 	
 As you can see the partial response is a significant reduction in payload size and message complexity.  By allowing the consumer of the API to specify the fields they are interested in you can significantly reduce the complexity of response messages as well as improve performance over the wire.
+
+##Getting Catnap
+Catnap libraries are available from JCenter.
+
+###Spring
+If you are integrating Catnap with a SpringMVC or Spring Boot application you will need the [catnap-spring](https://bintray.com/gregwhitaker/maven/catnap-spring) library.
+
+###JAX-RS
+If you are integrating Catnap with a Jersey or RESTEasy application you will need the [catnap-jaxrs](https://bintray.com/gregwhitaker/maven/catnap-jaxrs) library.
 
 ##Getting Started
 

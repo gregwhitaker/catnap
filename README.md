@@ -70,7 +70,7 @@ Catnap libraries are available from JCenter.
 * [catnap-spring](https://bintray.com/gregwhitaker/maven/catnap-spring) - Use this library if you are integrating Catnap with a SpringMVC or Spring Boot application.
 * [catnap-jaxrs](https://bintray.com/gregwhitaker/maven/catnap-jaxrs) - Use this library if you are integrating Catnap with a Jersey or RESTEasy application.
 
-##Getting Started
+##Getting Started with Catnap
 
 Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki) for detailed documentation on how to get started using Catnap.
 

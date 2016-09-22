@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.gregwhitaker:catnap-jaxrs:2.0.0'
+    compile 'com.github.gregwhitaker:catnap-jaxrs:2.1.0'
 
     compile 'org.glassfish.jersey.containers:jersey-container-servlet'
     compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.23'

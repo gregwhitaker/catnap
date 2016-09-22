@@ -16,7 +16,7 @@
 
 package catnap.examples.springboot;
 
-import com.github.gregwhitaker.catnap.springmvc.annotation.EnableCatnap;
+import com.github.gregwhitaker.catnap.springboot.annotation.EnableCatnap;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

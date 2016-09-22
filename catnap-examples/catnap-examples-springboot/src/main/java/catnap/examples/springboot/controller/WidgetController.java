@@ -20,7 +20,7 @@ import catnap.examples.springboot.core.exception.WidgetNotFoundException;
 import catnap.examples.springboot.model.Widget;
 import catnap.examples.springboot.service.WidgetService;
 import com.github.gregwhitaker.catnap.core.annotation.CatnapDisabled;
-import com.github.gregwhitaker.catnap.springmvc.annotation.CatnapResponseBody;
+import com.github.gregwhitaker.catnap.springboot.annotation.CatnapResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

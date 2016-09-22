@@ -17,10 +17,9 @@ repositories {
 
 dependencies {
     compile 'com.github.gregwhitaker:catnap-jaxrs:2.1.0'
-
-    compile('org.jboss.resteasy:resteasy-jaxrs:3.0.16.Final')
-    compile('org.jboss.resteasy:resteasy-jaxb-provider:3.0.16.Final')
-    compile('org.jboss.resteasy:resteasy-jackson2-provider:3.0.16.Final')
+    compile 'org.jboss.resteasy:resteasy-jaxrs:3.0.16.Final'
+    compile 'org.jboss.resteasy:resteasy-jaxb-provider:3.0.16.Final'
+    compile 'org.jboss.resteasy:resteasy-jackson2-provider:3.0.16.Final'
 }
 
 gretty {

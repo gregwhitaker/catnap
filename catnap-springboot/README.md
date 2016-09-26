@@ -5,4 +5,4 @@ catnap-springboot
 Library that adds Catnap support to Spring Boot applications.
 
 ##Example
-Please see the included example project for a demonstration of how to use Catnap with Spring Boot.
+Please see the included [example project](../catnap-examples/catnap-springboot-example) for a demonstration of how to use Catnap with Spring Boot.

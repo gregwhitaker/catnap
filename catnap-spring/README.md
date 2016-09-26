@@ -8,4 +8,4 @@ Library that adds Catnap support to Spring MVC applications.
 Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki/Catnap-with-Spring-MVC) for details on configuring Catnap support within a Spring MVC application.
 
 ##Examples
-Please see the included [example project](https://github.com/gregwhitaker/catnap/tree/master/catnap-examples/catnap-examples-spring) for a demonstration of how to use Catnap with Spring MVC.
+Please see the included [example project](https://github.com/gregwhitaker/catnap/tree/master/catnap-examples/catnap-examples-springmvc) for a demonstration of how to use Catnap with Spring MVC.

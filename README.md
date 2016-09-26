@@ -44,7 +44,7 @@ For example, take the two responses below.  Both are requests for the same resou
 		   "alt": "Product 1",
 		   "size": "thumbnail"
 		}
-	]
+	   ]
 	}
 	
 ###Partial Resource Representation

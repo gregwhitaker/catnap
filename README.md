@@ -22,7 +22,7 @@ For example, take the two responses below.  Both are requests for the same resou
 *	Image Url for Thumbnail Images Only
 
 ###Full Resource Representation
-[https://catnap.it/products/12345/details](https://catnap-springboot-sample.herokuapp.com/products/12345/details)
+[https://www.catnap.it/products/12345/details](https://catnap-springboot-sample.herokuapp.com/products/12345/details)
 
 	{
 	   "id": "12345,
@@ -48,7 +48,7 @@ For example, take the two responses below.  Both are requests for the same resou
 	}
 	
 ###Partial Resource Representation
-[https://catnap.it/products/12345/details?fields=name,prices(list),images(url)[size=thumbnail]](https://catnap-springboot-sample.herokuapp.com/products/12345/details?fields=name,prices(list),images(url)[size=thumbnail])
+[https://www.catnap.it/products/12345/details?fields=name,prices(list),images(url)[size=thumbnail]](https://catnap-springboot-sample.herokuapp.com/products/12345/details?fields=name,prices(list),images(url)[size=thumbnail])
 
 	{
     	"name": "Product 1",

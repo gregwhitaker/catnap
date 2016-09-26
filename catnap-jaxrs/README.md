@@ -4,6 +4,10 @@ catnap-jaxrs
 
 Library that adds Catnap support to JAX-RS compliant web applications.
 
+This library current supports the following JAX-RS compliant frameworks:
+* Jersey
+* RESTEasy
+
 ##Getting Started
 Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki/Catnap-with-JAXRS) for details on configuring Catnap support within a JAX-RS compliant application.
 

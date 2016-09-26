@@ -53,11 +53,11 @@ For example, take the two responses below.  Both are requests for the same resou
 	{
     	"name": "Product 1",
     	"prices": {
-        	"list": "$120.00",
+        	"list": "$120.00"
     	},
     	images: [
         	{
-            	"url": "https://catnap-springboot-sample.herokuapp.com/12345-thumbnail.png",
+            	"url": "https://catnap-springboot-sample.herokuapp.com/12345-thumbnail.png"
         	}
     	]
 	}

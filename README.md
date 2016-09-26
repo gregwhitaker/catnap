@@ -48,16 +48,16 @@ For example, take the two responses below.  Both are requests for the same resou
 	}
 	
 ###Partial Resource Representation
-*http://domain/product/12345/details?fields=name,prices(listPrice),images(url)[size=thumbnail]*
+[https://catnap-springboot-sample.herokuapp.com/products/12345/details?fields=name,prices(list),images(url)[size=thumbnail]](https://catnap-springboot-sample.herokuapp.com/products/12345/details?fields=name,prices(list),images(url)[size=thumbnail])
 
 	{
     	"name": "Product 1",
     	"prices": {
-        	"listPrice": "$120.00",
+        	"list": "$120.00",
     	},
     	images: [
         	{
-            	"url": "http://domain/images/product/12345/thumbnail.png",
+            	"url": "https://catnap-springboot-sample.herokuapp.com/12345-thumbnail.png",
         	}
     	]
 	}

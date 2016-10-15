@@ -1,0 +1,11 @@
+apply plugin: 'java'
+
+apply from: file('../gradle/codequality.gradle')
+apply from: file('../gradle/release.gradle')
+apply from: file('../gradle/convention.gradle')
+
+dependencies {
+    compile project(':catnap-core')
+
+    compile('io.ratpack:ratpack-core:1.4.2')
+}

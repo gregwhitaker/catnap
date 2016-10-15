@@ -26,6 +26,10 @@ project(":catnap-jaxrs") {
     ext.artifact = 'catnap-jaxrs'
 }
 
+project(":catnap-ratpack") {
+    ext.artifact = 'catnap-ratpack'
+}
+
 project(":catnap-spring") {
     ext.artifact = 'catnap-spring'
 

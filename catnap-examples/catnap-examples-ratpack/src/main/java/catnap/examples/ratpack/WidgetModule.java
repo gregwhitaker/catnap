@@ -16,6 +16,8 @@
 
 package catnap.examples.ratpack;
 
+import catnap.examples.ratpack.handler.WidgetHandler;
+import catnap.examples.ratpack.handler.WidgetsHandler;
 import catnap.examples.ratpack.service.WidgetService;
 import com.google.inject.AbstractModule;
 
@@ -24,5 +26,7 @@ public class WidgetModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(WidgetService.class);
+        bind(WidgetHandler.class);
+        bind(WidgetsHandler.class);
     }
 }

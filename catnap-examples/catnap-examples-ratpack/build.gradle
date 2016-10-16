@@ -1,0 +1,19 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'io.ratpack:ratpack-gradle:1.4.2'
+    }
+}
+
+apply plugin: 'io.ratpack.ratpack-java'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile project(':catnap-ratpack')
+}

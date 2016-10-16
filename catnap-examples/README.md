@@ -17,4 +17,3 @@ and start the example.
 ```
 $ ./run.sh
 ```
-

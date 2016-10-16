@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package catnap.examples.ratpack;
+package catnap.examples.ratpack.handler;
 
-import catnap.examples.ratpack.handler.WidgetsHandler;
-import ratpack.server.RatpackServer;
-import ratpack.server.ServerConfig;
+import ratpack.handling.Context;
+import ratpack.handling.Handler;
 
-public class WidgetApplication {
+public class WidgetsHandler implements Handler {
 
-    public static void main(String... args) throws Exception {
-        RatpackServer.start(c -> c
-                .serverConfig(ServerConfig.builder().port(8080).build())
-                .handlers(chain -> chain
-                        .get("widgets", new WidgetsHandler())));
+    @Override
+    public void handle(Context ctx) throws Exception {
+
     }
 }

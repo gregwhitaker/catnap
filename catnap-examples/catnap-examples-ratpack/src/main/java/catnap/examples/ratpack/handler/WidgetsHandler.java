@@ -17,11 +17,11 @@
 package catnap.examples.ratpack.handler;
 
 import catnap.examples.ratpack.service.WidgetService;
+import com.github.gregwhitaker.catnap.ratpack.Catnap;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
-import ratpack.jackson.Jackson;
 
 @Singleton
 public class WidgetsHandler implements Handler {
@@ -35,6 +35,6 @@ public class WidgetsHandler implements Handler {
 
     @Override
     public void handle(Context ctx) throws Exception {
-        ctx.render(Jackson.json(service.getWidgets()));
+        ctx.render(Catnap.catnap(service.getWidgets()));
     }
 }

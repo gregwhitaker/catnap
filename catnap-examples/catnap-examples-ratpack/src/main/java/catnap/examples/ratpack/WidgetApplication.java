@@ -18,6 +18,7 @@ package catnap.examples.ratpack;
 
 import catnap.examples.ratpack.handler.WidgetHandler;
 import catnap.examples.ratpack.handler.WidgetsHandler;
+import com.github.gregwhitaker.catnap.ratpack.CatnapRenderer;
 import ratpack.guice.Guice;
 import ratpack.server.RatpackServer;
 import ratpack.server.ServerConfig;
@@ -27,7 +28,10 @@ public class WidgetApplication {
     public static void main(String... args) throws Exception {
         RatpackServer.start(c -> c
                 .serverConfig(ServerConfig.builder().port(8080).build())
-                .registry(Guice.registry(b -> b.module(WidgetModule.class)))
+                .registry(Guice.registry(b -> b
+                        .module(WidgetModule.class)
+                        .bind(CatnapRenderer.class))
+                )
                 .handlers(chain -> chain
                         .get("widgets", WidgetsHandler.class)
                         .get("widgets/:id", WidgetHandler.class)));

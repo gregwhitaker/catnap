@@ -19,9 +19,11 @@ package catnap.examples.ratpack.service;
 import catnap.examples.ratpack.model.Widget;
 import catnap.examples.ratpack.model.WidgetImage;
 import catnap.examples.ratpack.model.WidgetPrices;
+import com.google.inject.Singleton;
 
 import java.util.*;
 
+@Singleton
 public class WidgetService {
     private final Map<String, Widget> widgets = new HashMap<>(3);
 

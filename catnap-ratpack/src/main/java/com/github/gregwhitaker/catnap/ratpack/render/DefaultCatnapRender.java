@@ -1,4 +1,4 @@
-package com.github.gregwhitaker.catnap.ratpack;
+package com.github.gregwhitaker.catnap.ratpack.render;
 
 public class DefaultCatnapRender implements CatnapRender {
 

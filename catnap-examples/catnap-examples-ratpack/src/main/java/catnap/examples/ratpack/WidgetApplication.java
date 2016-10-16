@@ -18,7 +18,7 @@ package catnap.examples.ratpack;
 
 import catnap.examples.ratpack.handler.WidgetHandler;
 import catnap.examples.ratpack.handler.WidgetsHandler;
-import com.github.gregwhitaker.catnap.ratpack.CatnapRenderer;
+import com.github.gregwhitaker.catnap.ratpack.render.CatnapRenderer;
 import ratpack.guice.Guice;
 import ratpack.server.RatpackServer;
 import ratpack.server.ServerConfig;

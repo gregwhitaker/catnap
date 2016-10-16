@@ -16,6 +16,7 @@
 
 package catnap.examples.ratpack;
 
+import catnap.examples.ratpack.handler.WidgetHandler;
 import catnap.examples.ratpack.handler.WidgetsHandler;
 import ratpack.server.RatpackServer;
 import ratpack.server.ServerConfig;
@@ -26,6 +27,7 @@ public class WidgetApplication {
         RatpackServer.start(c -> c
                 .serverConfig(ServerConfig.builder().port(8080).build())
                 .handlers(chain -> chain
-                        .get("widgets", new WidgetsHandler())));
+                        .get("widgets", new WidgetsHandler())
+                        .get("widgets/:id", new WidgetHandler())));
     }
 }

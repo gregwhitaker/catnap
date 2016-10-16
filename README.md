@@ -11,6 +11,7 @@ Catnap supports partial responses in the following web frameworks:
 * 	SpringMVC
 * 	RESTEasy
 * 	Jersey
+*   Ratpack
 
 ##What is a partial response?
 By default, the server will send back the full representation of a rest resource for every request.  Partial responses let you request only the elements you are interested in, instead of the full resource representation.  This allows your client application to avoid transferring, parsing, and storing unneeded fields, so you can utilize network and memory resources more efficiently.
@@ -70,6 +71,7 @@ Catnap libraries are available from JCenter.
 * [catnap-spring](https://bintray.com/gregwhitaker/maven/catnap-spring) - Use this library if you are integrating Catnap with a SpringMVC.
 * [catnap-springboot](https://bintray.com/gregwhitaker/maven/catnap-springboot) - Use this library if you are integrating Catnap with Spring Boot.
 * [catnap-jaxrs](https://bintray.com/gregwhitaker/maven/catnap-jaxrs) - Use this library if you are integrating Catnap with a Jersey or RESTEasy application.
+* [catnap-ratpack](https://bintray.com/gregwhitaker/maven/catnap-ratpack) - Use this library if you are integrating Catnap with Ratpack.
 
 ##Getting Started with Catnap
 

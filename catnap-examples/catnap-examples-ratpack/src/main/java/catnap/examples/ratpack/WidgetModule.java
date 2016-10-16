@@ -14,20 +14,15 @@
  * limitations under the License.
  */
 
-package catnap.examples.ratpack.handler;
+package catnap.examples.ratpack;
 
 import catnap.examples.ratpack.service.WidgetService;
-import com.google.inject.Inject;
-import ratpack.handling.Context;
-import ratpack.handling.Handler;
+import com.google.inject.AbstractModule;
 
-public class WidgetsHandler implements Handler {
-
-    @Inject
-    private WidgetService service;
+public class WidgetModule extends AbstractModule {
 
     @Override
-    public void handle(Context ctx) throws Exception {
-
+    protected void configure() {
+        bind(WidgetService.class);
     }
 }

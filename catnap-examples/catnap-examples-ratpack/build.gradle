@@ -16,6 +16,8 @@ repositories {
 
 dependencies {
     compile project(':catnap-ratpack')
+
+    compile ratpack.dependency("guice")
 }
 
 mainClassName = 'catnap.examples.ratpack.WidgetApplication'

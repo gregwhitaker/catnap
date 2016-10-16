@@ -28,6 +28,6 @@ public class WidgetsHandler implements Handler {
 
     @Override
     public void handle(Context ctx) throws Exception {
-
+        ctx.render(service.getWidgets());
     }
 }

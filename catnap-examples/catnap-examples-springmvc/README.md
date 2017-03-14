@@ -1,32 +1,31 @@
-catnap-examples-springmvc
-===
+# catnap-examples-springmvc
 This example shows you how to configure Catnap view rendering with the Spring MVC web framework.
 
-##Running the Example
+## Running the Example
 Start the example by running the following command:
 
 ```
 $ ./run.sh
 ```
 
-##API
+## API
 This example application exposes the following API for retrieving information about Widgets.
 
-###Retrieve all Widgets
+### Retrieve all Widgets
 
 * [http://localhost:8080/widgets](http://localhost:8080/widgets)
 
-###Retrieve a Single Widget
+### Retrieve a Single Widget
 
 * [http://localhost:8080/widgets/1](http://localhost:8080/widgets/1)
 
-##Example Queries
+## Example Queries
 
 Catnap allows consumers a great deal of flexibility to return only the data in which they are interested.  The example
 API calls below illustrate the power of Catnap.  Feel free to play around with the examples and come up with your 
 own Catnap queries.
 
-###Retrieve Selected Fields
+### Retrieve Selected Fields
 This example will only retrieve the name of the widget and all of its images.
 
 * [http://localhost:8080/widgets/1?fields=name,images](http://localhost:8080/widgets/1?fields=name,images)
@@ -56,7 +55,7 @@ This example will only retrieve the name of the widget and all of its images.
   ]
 }
 ```
-###Retrieving Selected Fields in Nested Objects
+### Retrieving Selected Fields in Nested Objects
 This example will only retrieve the name of the widget, the formatted list price, and the formatted sale price.
 
 * <a href="http://localhost:8080/widgets/1?fields=name,prices(formattedList,formattedSale)">http://localhost:8080/widgets/1?fields=name,prices(formattedList,formattedSale)</a>
@@ -71,7 +70,7 @@ This example will only retrieve the name of the widget, the formatted list price
 }
 ```
 
-###Retrieving Selected Fields with Conditionals
+### Retrieving Selected Fields with Conditionals
 This example will only retrieve the name of the widget and the url of the thumbnail image for the widget.
 
 * <a href="http://localhost:8080/widgets/1?fields=name,images(url)[type=thumbnail]">http://localhost:8080/widgets/1?fields=name,images(url)[type=thumbnail]</a>
@@ -87,7 +86,7 @@ This example will only retrieve the name of the widget and the url of the thumbn
 }
 ```
 
-###Filtering Lists with Conditionals
+### Filtering Lists with Conditionals
 This example will only retrieve the name of the widget and the urls of images that have a sortOrder greater than or equal to 2.
 
 * <a href="http://localhost:8080/widgets?fields=name,images(sortOrder,url)[sortOrder&gt=2]">http://localhost:8080/widgets?fields=name,images(url)[sortOrder>=2]</a>

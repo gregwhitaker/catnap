@@ -1,6 +1,4 @@
-catnap
-===
-
+# catnap
 [![Build Status](https://travis-ci.org/gregwhitaker/catnap.svg?branch=catnap2)](https://travis-ci.org/gregwhitaker/catnap)
 
 Catnap is a framework for supporting partial JSON and JSONP responses in RESTful web services by allowing users to supply arbitrary queries in the URL.
@@ -12,7 +10,7 @@ Catnap supports partial responses in the following web frameworks:
 * 	RESTEasy
 * 	Jersey
 
-##What is a partial response?
+## What is a partial response?
 By default, the server will send back the full representation of a rest resource for every request.  Partial responses let you request only the elements you are interested in, instead of the full resource representation.  This allows your client application to avoid transferring, parsing, and storing unneeded fields, so you can utilize network and memory resources more efficiently.
 
 For example, take the two responses below.  Both are requests for the same resource, but let's assume we are only interested in the following fields:
@@ -21,7 +19,7 @@ For example, take the two responses below.  Both are requests for the same resou
 *	List Price
 *	Image Url for Thumbnail Images Only
 
-###Full Resource Representation
+### Full Resource Representation
 [https://www.catnap.it/products/12345/details](https://catnap-springboot-sample.herokuapp.com/products/12345/details)
 
 	{
@@ -47,7 +45,7 @@ For example, take the two responses below.  Both are requests for the same resou
 	   ]
 	}
 	
-###Partial Resource Representation
+### Partial Resource Representation
 [https://www.catnap.it/products/12345/details?fields=name,prices(list),images(url)[size=thumbnail]](https://catnap-springboot-sample.herokuapp.com/products/12345/details?fields=name,prices(list),images(url)[size=thumbnail])
 
 	{
@@ -64,18 +62,18 @@ For example, take the two responses below.  Both are requests for the same resou
 	
 As you can see the partial response is a significant reduction in payload size and message complexity.  By allowing the consumer of the API to specify the fields they are interested in you can significantly reduce the complexity of response messages as well as improve performance over the wire.
 
-##Getting Catnap
+## Getting Catnap
 Catnap libraries are available from JCenter.
 
 * [catnap-spring](https://bintray.com/gregwhitaker/maven/catnap-spring) - Use this library if you are integrating Catnap with a SpringMVC.
 * [catnap-springboot](https://bintray.com/gregwhitaker/maven/catnap-springboot) - Use this library if you are integrating Catnap with Spring Boot.
 * [catnap-jaxrs](https://bintray.com/gregwhitaker/maven/catnap-jaxrs) - Use this library if you are integrating Catnap with a Jersey or RESTEasy application.
 
-##Getting Started with Catnap
+## Getting Started with Catnap
 
 Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki) for detailed documentation on how to get started using Catnap.
 
-##Examples
+## Examples
 
 Please see the included [example projects](catnap-examples) for demonstrations on how to configure and use Catnap with your favorite web framework.
 

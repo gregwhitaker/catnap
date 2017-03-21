@@ -65,8 +65,8 @@ As you can see the partial response is a significant reduction in payload size a
 ## Getting Catnap
 Catnap libraries are available from JCenter.
 
-* [catnap-spring](https://bintray.com/gregwhitaker/maven/catnap-spring) - Use this library if you are integrating Catnap with a SpringMVC.
-* [catnap-springboot](https://bintray.com/gregwhitaker/maven/catnap-springboot) - Use this library if you are integrating Catnap with Spring Boot.
+* [catnap-spring](https://bintray.com/gregwhitaker/maven/catnap-spring) - Use this library if you are integrating Catnap with a SpringMVC application.
+* [catnap-springboot](https://bintray.com/gregwhitaker/maven/catnap-springboot) - Use this library if you are integrating Catnap with a Spring Boot application.
 * [catnap-jaxrs](https://bintray.com/gregwhitaker/maven/catnap-jaxrs) - Use this library if you are integrating Catnap with a Jersey or RESTEasy application.
 
 ## Getting Started with Catnap

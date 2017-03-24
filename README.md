@@ -17,7 +17,7 @@ For example, take the two responses below.  Both are requests for the same resou
 
 *	Product Name
 *	List Price
-*	Image Url for Thumbnail Images Only
+*	Image Url for Thumbnail Images
 
 ### Full Resource Representation
 [https://www.catnap.it/products/12345/details](https://catnap-springboot-sample.herokuapp.com/products/12345/details)

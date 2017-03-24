@@ -23,26 +23,26 @@ For example, take the two responses below.  Both are requests for the same resou
 [https://www.catnap.it/products/12345/details](https://catnap-springboot-sample.herokuapp.com/products/12345/details)
 
 	{
-	   "id": "12345,
-	   "name": "Product 1",
-	   "prices": {
-		   "list": "$120.00",
-		   "sale": "$89.99
-	   },
-	   "images": [
-		   {
-		      "sortOrder": 1,
-		      "url": "https://catnap-springboot-sample.herokuapp.com/12345-primary.png",
-		      "alt": "Product 1",
-		      "size": "primary"
-		   },
-		   {
-		      "sortOrder": 2,
-		      "url": "https://catnap-springboot-sample.herokuapp.com/12345-thumbnail.png",
-		      "alt": "Product 1",
-		      "size": "thumbnail"
-		   }
-	   ]
+	  "id": "12345",
+	  "name": "Product 1",
+	  "prices": {
+	    "list": "$120.00",
+	    "sale": "89.99"
+	  },
+	  "images": [
+	    {
+	      "sortOrder": 1,
+	      "url": "https://catnap-springboot-sample.herokuapp.com\/12345-primary.png",
+	      "alt": "Product 1",
+	      "size": "primary"
+	    },
+	    {
+	      "sortOrder": 2,
+	      "url": "https://catnap-springboot-sample.herokuapp.com\/12345-thumbnail.png",
+	      "alt": "Product 1",
+	      "size": "thumbnail"
+	    }
+	  ]
 	}
 	
 ### Partial Resource Representation

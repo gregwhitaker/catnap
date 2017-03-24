@@ -49,15 +49,15 @@ For example, take the two responses below.  Both are requests for the same resou
 [https://www.catnap.it/products/12345/details?fields=name,prices(list),images(url)[size=thumbnail]](https://catnap-springboot-sample.herokuapp.com/products/12345/details?fields=name,prices(list),images(url)[size=thumbnail])
 
 	{
-    	"name": "Product 1",
-    	"prices": {
-        	"list": "$120.00"
-    	},
-    	images: [
-        	{
-            	"url": "https://catnap-springboot-sample.herokuapp.com/12345-thumbnail.png"
-        	}
-    	]
+	   "name": "Product 1",
+	   "prices": {
+	   	   "list": "$120.00"
+	   },
+	   images: [
+	         {
+	            "url": "https://catnap-springboot-sample.herokuapp.com/12345-thumbnail.png"
+		 }
+	   ]
 	}
 	
 As you can see the partial response is a significant reduction in payload size and message complexity.  By allowing the consumer of the API to specify the fields they are interested in you can significantly reduce the complexity of response messages as well as improve performance over the wire.

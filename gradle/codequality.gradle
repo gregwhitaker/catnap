@@ -4,6 +4,7 @@ apply plugin: 'pmd'
 apply plugin: 'jacoco'
 
 checkstyle {
+    toolVersion = '5.9'
     ignoreFailures = true
     configFile = rootProject.file('codequality/checkstyle.xml')
     sourceSets = [project.sourceSets.main]

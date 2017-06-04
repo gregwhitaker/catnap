@@ -71,6 +71,8 @@ Catnap libraries are available from JCenter.
 
 Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki) for detailed documentation on how to get started using Catnap.
 
+For documentation on the Catnap Query Language, please consult the [Catnap Query Language Reference](https://github.com/gregwhitaker/catnap/wiki/Catnap-Query-Language-Reference) on the wiki.
+
 ## Examples
 
 Please see the included [example projects](catnap-examples) for demonstrations on how to configure and use Catnap with your favorite web framework.

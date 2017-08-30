@@ -23,6 +23,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,6 +107,7 @@ public class WidgetService {
         widget.setName("Widget 1");
         widget.setLongName("Catnap Example Widget 1");
         widget.setActive(true);
+        widget.setDate(new Date());
         widget.setPrices(prices);
         widget.setImages(images);
 
@@ -143,6 +145,7 @@ public class WidgetService {
         widget.setName("Widget 2");
         widget.setLongName("Catnap Example Widget 2");
         widget.setActive(true);
+        widget.setDate(new Date());
         widget.setPrices(prices);
         widget.setImages(Arrays.asList(image1, image2));
 
@@ -186,6 +189,7 @@ public class WidgetService {
         widget.setName("Widget 3");
         widget.setLongName("Catnap Example Widget 3");
         widget.setActive(false);
+        widget.setDate(new Date());
         widget.setPrices(prices);
         widget.setImages(Arrays.asList(image1, image2, image3));
 

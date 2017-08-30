@@ -16,8 +16,13 @@
 
 package com.github.gregwhitaker.catnap.springboot.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.gregwhitaker.catnap.core.view.JsonCatnapView;
+import com.github.gregwhitaker.catnap.core.view.JsonpCatnapView;
 import com.github.gregwhitaker.catnap.springboot.messageconverters.CatnapJsonMessageConverter;
 import com.github.gregwhitaker.catnap.springboot.messageconverters.CatnapJsonpMessageConverter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -29,6 +34,9 @@ import java.util.List;
 @Configuration
 public class CatnapWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
 
+    @Autowired(required = false)
+    private ObjectMapper mapper;
+
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.mediaType("json", MediaType.APPLICATION_JSON);
@@ -37,7 +45,25 @@ public class CatnapWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        converters.add(new CatnapJsonMessageConverter());
-        converters.add(new CatnapJsonpMessageConverter());
+        converters.add(catnapJsonMessageConverter());
+        converters.add(catnapJsonpMessageConverter());
+    }
+
+    public CatnapJsonMessageConverter catnapJsonMessageConverter() {
+        if (mapper != null) {
+            return new CatnapJsonMessageConverter(new JsonCatnapView.Builder()
+                    .withObjectMapper(mapper).build());
+        } else {
+            return new CatnapJsonMessageConverter();
+        }
+    }
+
+    public CatnapJsonpMessageConverter catnapJsonpMessageConverter() {
+        if (mapper != null) {
+            return new CatnapJsonpMessageConverter(new JsonpCatnapView.Builder()
+                    .withObjectMapper(mapper).build());
+        } else {
+            return new CatnapJsonpMessageConverter();
+        }
     }
 }

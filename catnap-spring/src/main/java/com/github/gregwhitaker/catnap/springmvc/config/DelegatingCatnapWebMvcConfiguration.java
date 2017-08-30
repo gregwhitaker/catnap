@@ -16,6 +16,7 @@
 
 package com.github.gregwhitaker.catnap.springmvc.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.gregwhitaker.catnap.core.view.JsonCatnapView;
 import com.github.gregwhitaker.catnap.core.view.JsonpCatnapView;
 import com.github.gregwhitaker.catnap.springmvc.interceptor.CatnapDisabledHandlerInterceptor;
@@ -24,6 +25,7 @@ import com.github.gregwhitaker.catnap.springmvc.messageconverters.CatnapJsonMess
 import com.github.gregwhitaker.catnap.springmvc.messageconverters.CatnapJsonpMessageConverter;
 import com.github.gregwhitaker.catnap.springmvc.view.CatnapViewResolver;
 import com.github.gregwhitaker.catnap.springmvc.view.CatnapWrappingView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -40,6 +42,9 @@ import java.util.List;
 
 @Configuration
 public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfiguration {
+
+    @Autowired(required = false)
+    private ObjectMapper mapper;
 
     @Override
     protected void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -94,11 +99,19 @@ public class DelegatingCatnapWebMvcConfiguration extends DelegatingWebMvcConfigu
 
     @Bean
     public CatnapWrappingView jsonCatnapSpringView() {
-        return new CatnapWrappingView(new JsonCatnapView.Builder().build());
+        if (mapper != null) {
+            return new CatnapWrappingView(new JsonCatnapView.Builder().withObjectMapper(mapper).build());
+        } else {
+            return new CatnapWrappingView(new JsonCatnapView.Builder().build());
+        }
     }
 
     @Bean
     public CatnapWrappingView jsonpCatnapSpringView() {
-        return new CatnapWrappingView(new JsonpCatnapView.Builder().build());
+        if (mapper != null) {
+            return new CatnapWrappingView(new JsonpCatnapView.Builder().withObjectMapper(mapper).build());
+        } else {
+            return new CatnapWrappingView(new JsonpCatnapView.Builder().build());
+        }
     }
 }

@@ -21,3 +21,13 @@ All notable changes to this project will be documented in this file.
 ###Fixed
 
 * List items not rendering when subsequent calls made to same endpoint using different filter criteria
+
+##2.2.0
+###Added
+
+* Added support for auto-detecting ObjectMapper in SpringBoot applications.
+* Added support for auto-detecting ObjectMapper in SpringMVC applications.
+
+###Changed
+
+* Updated to Gradle 4.1

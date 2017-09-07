@@ -125,3 +125,17 @@ This example will only retrieve the name of the widget and the urls of images th
   }
 ]
 ```
+
+## JSON representation
+You can customize the JSON rendering using the the Jackson ObjectMapper customizations provided by spring-boot.
+
+See <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/howto-spring-mvc.html#howto-customize-the-jackson-objectmapper">"Customize the Jackson ObjectMapper"</a> section in Spring Boot documentation.
+
+* Display dates as timestamps
+
+![write_dates_as_timestamps](docs/images/write_dates_as_timestamps_true.png)
+
+* Display dates as strings (UTC)
+
+![write_dates_as_UTC_strings](docs/images/write_dates_as_timestamps_false.png)
+

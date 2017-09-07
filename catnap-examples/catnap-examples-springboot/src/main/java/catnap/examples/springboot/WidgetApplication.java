@@ -16,14 +16,10 @@
 
 package catnap.examples.springboot;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.gregwhitaker.catnap.springboot.annotation.EnableCatnap;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import com.github.gregwhitaker.catnap.springboot.annotation.EnableCatnap;
 
 @SpringBootApplication
 @EnableCatnap
@@ -31,19 +27,5 @@ public class WidgetApplication {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(WidgetApplication.class, args);
-    }
-
-    /*
-     * This is how you define a custom object mapper to be used with Catnap. If you
-     * do not need a custom object mapper you do not need to define this method as Catnap
-     * will create a default object mapper for you.
-     */
-    @Bean
-    public ObjectMapper myCustomObjectMapper() {
-        ObjectMapper mapper = new ObjectMapper();
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm a z");
-        mapper.setDateFormat(df);
-
-        return mapper;
     }
 }

@@ -21,6 +21,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.gregwhitaker:catnap-springboot:2.2.0'
+    compile 'com.github.gregwhitaker:catnap-springboot:2.2.1'
     compile 'org.springframework.boot:spring-boot-starter-web'
 }

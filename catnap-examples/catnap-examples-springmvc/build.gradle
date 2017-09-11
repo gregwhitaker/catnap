@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.gregwhitaker:catnap-spring:2.2.0'
+    compile 'com.github.gregwhitaker:catnap-spring:2.2.1'
 }
 
 gretty {

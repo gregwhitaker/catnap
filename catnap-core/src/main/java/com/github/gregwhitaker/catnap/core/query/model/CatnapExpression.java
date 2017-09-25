@@ -17,22 +17,24 @@
 package com.github.gregwhitaker.catnap.core.query.model;
 
 /**
- *
+ * Generic expression in the Catnap query format.
  */
 public abstract class CatnapExpression implements Expression {
     protected String field;
     protected Operator operator;
-    protected String operand;
+    protected String valueToCheck;
 
     /**
-     * @param field
-     * @param operator
-     * @param operand
+     * Creates a new instance of a Catnap Expression.
+     *
+     * @param field name of the field to evaluate
+     * @param operator operator to evaluate
+     * @param valueToCheck value to evaluate instances of the field's value against
      */
-    public CatnapExpression(String field, Operator operator, String operand) {
+    public CatnapExpression(String field, Operator operator, String valueToCheck) {
         this.field = field;
         this.operator = operator;
-        this.operand = operand;
+        this.valueToCheck = valueToCheck;
     }
 
     @Override
@@ -46,7 +48,7 @@ public abstract class CatnapExpression implements Expression {
     }
 
     @Override
-    public String getOperand() {
-        return operand;
+    public String getValue() {
+        return valueToCheck;
     }
 }

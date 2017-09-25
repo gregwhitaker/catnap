@@ -19,28 +19,38 @@ package com.github.gregwhitaker.catnap.core.query.model;
 import com.github.gregwhitaker.catnap.core.query.processor.Property;
 
 /**
- * @param <T>
+ * Defines a generic expression to be evaluated by Catnap. (eg. field!=value, field=value, etc.)
+ *
+ * @param <T> type of the value of the property associated with this expression
  */
 public interface Expression<T> {
 
     /**
-     * @param leftOperand
-     * @return
+     * Check to see if the supplied {@link Property} matches this expression.
+     *
+     * @param propertyToCompare {@link Property} to evaluate for match
+     * @return <code>true</code> if the property matches the expression; otherwise <code>false</code>
      */
-    boolean evaluate(Property leftOperand);
+    boolean evaluate(Property propertyToCompare);
 
     /**
+     * Name of the field associated with this expression.
+     *
      * @return
      */
     String getField();
 
     /**
-     * @return
+     * The type of operator used by this expression (eg. =, !=, etc.)
+     *
+     * @return the operator used by this expression
      */
     Operator getOperator();
 
     /**
-     * @return
+     * The value of the expression.
+     *
+     * @return value of the expression
      */
-    T getOperand();
+    T getValue();
 }

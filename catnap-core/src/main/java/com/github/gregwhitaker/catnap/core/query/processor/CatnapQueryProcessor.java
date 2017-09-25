@@ -76,7 +76,7 @@ public class CatnapQueryProcessor extends QueryProcessor {
                                 //Only process the expression if the field name in the query matches a field
                                 //on the item to be queried.
                                 if (itemDescriptor != null) {
-                                    if (query.getExpression(name).evaluate(new CatnapProperty(item, itemDescriptor)) == false) {
+                                    if (!query.getExpression(name).evaluate(new CatnapProperty(item, itemDescriptor))) {
                                         iter.remove();
                                     }
                                 }
@@ -89,7 +89,7 @@ public class CatnapQueryProcessor extends QueryProcessor {
                         PropertyDescriptor itemDescriptor = itemDescriptors.get(query.getExpression(name).getField());
 
                         if (itemDescriptor != null) {
-                            if (query.getExpression(name).evaluate(new CatnapProperty(instance, itemDescriptor)) == true) {
+                            if (query.getExpression(name).evaluate(new CatnapProperty(instance, itemDescriptor))) {
                                 properties.add(new CatnapProperty<T>(instance, descriptors.get(name)));
                             }
                         }

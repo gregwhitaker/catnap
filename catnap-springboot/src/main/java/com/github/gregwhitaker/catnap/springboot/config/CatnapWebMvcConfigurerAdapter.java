@@ -50,9 +50,9 @@ public class CatnapWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         final ObjectMapper objectMapper = this.jackson2ObjectMapperBuilder.build();
-        converters.add(new CatnapJsonMessageConverter(new JsonCatnapView.Builder()
+        converters.add(0, new CatnapJsonMessageConverter(new JsonCatnapView.Builder()
                 .withObjectMapper(objectMapper).build()));
-        converters.add(new CatnapJsonpMessageConverter(new JsonpCatnapView.Builder()
+        converters.add(1, new CatnapJsonpMessageConverter(new JsonpCatnapView.Builder()
                 .withObjectMapper(objectMapper).build()));
     }
 }

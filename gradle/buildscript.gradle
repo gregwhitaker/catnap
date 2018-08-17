@@ -8,5 +8,5 @@ repositories {
 dependencies {
     classpath('org.springframework.boot:spring-boot-gradle-plugin:1.5.6.RELEASE')
     classpath('io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE')
-    classpath('com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7')
+    classpath('com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+')
 }

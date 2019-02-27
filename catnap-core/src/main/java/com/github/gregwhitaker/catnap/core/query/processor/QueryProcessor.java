@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.gregwhitaker.catnap.core.query.model.Query;
 
 import java.beans.PropertyDescriptor;
+import java.lang.reflect.Field;
 import java.util.List;
 
 /**
@@ -92,5 +93,13 @@ public abstract class QueryProcessor {
         }
 
         return true;
+    }
+
+    protected boolean ignoreFiled(Field field) {
+        if (field != null) {
+            return field.isAnnotationPresent(JsonIgnore.class) && field.getAnnotation(JsonIgnore.class).value();
+        }
+
+        return false;
     }
 }

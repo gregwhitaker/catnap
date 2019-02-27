@@ -16,6 +16,7 @@
 
 package com.github.gregwhitaker.catnap.core.query.processor;
 
+import com.github.gregwhitaker.catnap.core.query.model.CatnapCachedQuery;
 import com.github.gregwhitaker.catnap.core.query.model.CatnapQuery;
 import com.github.gregwhitaker.catnap.core.query.model.Query;
 
@@ -36,6 +37,10 @@ public class QueryProcessorFactory {
 
         if (query instanceof CatnapQuery) {
             return new CatnapQueryProcessor();
+        }
+
+        if (query instanceof CatnapCachedQuery) {
+            return new CachingQueryProcessor();
         }
 
         throw new UnsupportedOperationException(String.format("Query type [%s] is not supported", query.getClass().getName()));

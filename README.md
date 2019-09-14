@@ -82,7 +82,7 @@ Please see the included [example projects](catnap-examples) for demonstrations o
 For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/catnap/issues).
 
 ## License
-Copyright 2016 Greg Whitaker
+Copyright 2016-2019 Greg Whitaker
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 

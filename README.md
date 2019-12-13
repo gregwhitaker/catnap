@@ -68,24 +68,27 @@ Catnap libraries are available from JCenter.
 * [catnap-jaxrs](https://bintray.com/gregwhitaker/maven/catnap-jaxrs) - Use this library if you are integrating Catnap with a Jersey or RESTEasy application.
 
 ## Getting Started with Catnap
-
 Please see the [wiki](https://github.com/gregwhitaker/catnap/wiki) for detailed documentation on how to get started using Catnap.
 
 For documentation on the Catnap Query Language, please consult the [Catnap Query Language Reference](https://github.com/gregwhitaker/catnap/wiki/Catnap-Query-Language-Reference).
 
 ## Examples
-
 Please see the included [example projects](catnap-examples) for demonstrations on how to configure and use Catnap with your favorite web framework.
 
 ## Bugs and Feedback
-
-For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/catnap/issues).
+For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/catnap/issues).
 
 ## License
 Copyright 2016-2019 Greg Whitaker
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-http://www.apache.org/licenses/LICENSE-2.0
+   http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

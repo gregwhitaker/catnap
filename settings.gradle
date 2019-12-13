@@ -14,4 +14,6 @@ include 'catnap-examples:catnap-examples-resteasy'
 findProject(':catnap-examples:catnap-examples-resteasy')?.name = 'catnap-examples-resteasy'
 include 'catnap-website'
 include 'catnap-docs'
+include 'catnap-spring-boot-starter'
+include 'catnap-spring-boot-autoconfigure'
 
